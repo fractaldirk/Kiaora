@@ -1,4 +1,6 @@
 Kiaora::Application.routes.draw do
+  resources :positions
+
   get "home/index"
 
   # The priority is based upon order of creation:

@@ -12,7 +12,7 @@ Then I should be able to create a position
     And I fill in "Job title" with "Superman"
     And I press "Create position"
     Then I should see "Position was successfully created"
-    And I should see "Job title"
+    And I should see "Job title" # on the show page (English user)
     And I should see "Superman"
     When I follow "Back"
     Then I should see "Hello World!"
