@@ -16,7 +16,11 @@
     <%= f.text_field :job_title %>
   </div>
 
-  <%= render "form_competencies", :f => f %>
+  <%= f.fields_for :competencies do |builder| %>
+    <%= render "competencies_fields", f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Add Competency", f, :competencies %>
+
 
   <div class="actions">
     <%= f.submit "Create position" %>

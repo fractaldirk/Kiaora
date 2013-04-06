@@ -1,0 +1,6 @@
+<fieldset>
+  <%= f.label :indicator, "Define competency" %><br/>
+  <%= f.collection_select(:indicator, Dictionary.all, :id, :competency_english) %><br/>
+  <%= f.check_box :_destroy %>
+  <%= f.label :_destroy, "Remove Competency" %>
+</fieldset>
