@@ -1,0 +1,24 @@
+<h1>Manage dictionary</h1>
+
+<%= link_to 'Add competency', new_dictionary_path %>
+<%= link_to 'Back to homepage', home_GPI_path %>
+
+<table>
+  <tr>
+    <th>Competency english</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @dictionaries.each do |dictionary| %>
+  <tr>
+    <td><%= dictionary.competency_english %></td>
+    <td><%= link_to 'Show', dictionary %></td>
+    <td><%= link_to 'Edit', edit_dictionary_path(dictionary) %></td>
+    <td><%= link_to 'Destroy', dictionary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

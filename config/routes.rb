@@ -1,7 +1,10 @@
 Kiaora::Application.routes.draw do
+  resources :dictionaries
+
   resources :positions
 
   get "home/index"
+  get "home/GPI" => 'home#GPI'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
