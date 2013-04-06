@@ -15,6 +15,9 @@
     <%= f.label :job_title %><br />
     <%= f.text_field :job_title %>
   </div>
+
+  <%= render "form_competencies", :f => f %>
+
   <div class="actions">
     <%= f.submit "Create position" %>
   </div>

@@ -1,3 +1,4 @@
+<h1>Job description</h1>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -5,6 +6,21 @@
   <%= @position.job_title %>
 </p>
 
+<p>
+  <strong>Competencies:</strong>
+</p>
+<ol class="competencies">
+<% @position.competencies.each do |c| %>
+  <li>
+    <% @dictionary.each do |d| %>
+      <% if d.id == c.indicator %>
+        <%= d.competency_english %>
+      <% end %>
+    <% end %>
+  </li>
+<% end %>
+</ol>
+
 
 <%= link_to 'Edit', edit_position_path(@position) %> |
-<%= link_to 'Back', positions_path %>
+<%= link_to 'Back', home_index_path %>

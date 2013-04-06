@@ -1,3 +1,19 @@
 <h1>Hello World!</h1>
 
-<%= link_to 'new position', new_position_path %>
+<%= link_to 'Create new position', new_position_path %>
+
+<ul class="listing positions">
+  <% @positions.each do |p| %>
+    <li><%= link_to p.job_title, p %></li>
+  <% end %>
+</ul>
+
+<% @positions.each do |position| %>
+  <tr>
+    <td><%= position.job_title %></td>
+    <td><%= link_to 'Show', position %></td>
+    <td><%= link_to 'Edit', edit_position_path(position) %></td>
+    <td><%= link_to 'Destroy', position, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>

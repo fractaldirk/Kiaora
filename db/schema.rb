@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130406150722) do
+ActiveRecord::Schema.define(:version => 20130406155111) do
+
+  create_table "competencies", :force => true do |t|
+    t.integer  "indicator"
+    t.integer  "position_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "competencies", ["position_id"], :name => "index_competencies_on_position_id"
 
   create_table "dictionaries", :force => true do |t|
     t.string   "competency_english"

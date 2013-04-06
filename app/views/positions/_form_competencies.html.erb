@@ -1,0 +1,6 @@
+<%= f.fields_for :competencies do |builder| %>
+  <fieldset>
+  <%= builder.label :indicator, "Define competency" %><br/>
+  <%= builder.collection_select(:indicator, Dictionary.all, :id, :competency_english) %>
+  </fieldset>
+<% end %>
