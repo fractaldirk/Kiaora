@@ -15,6 +15,10 @@ class PositionsController < ApplicationController
   def show
     @position = Position.find(params[:id])
     @dictionary = Dictionary.find(:all)
+    @conceptual = @position.responsibilities.find(:all, :conditions => {:indicator => 1})
+    @implementation = @position.responsibilities.find(:all, :conditions => {:indicator => 2})
+    @support = @position.responsibilities.find(:all, :conditions => {:indicator => 3})
+    @compliance = @position.responsibilities.find(:all, :conditions => {:indicator => 4})
 
     respond_to do |format|
       format.html # show.html.erb
@@ -36,7 +40,10 @@ class PositionsController < ApplicationController
   # GET /positions/1/edit
   def edit
     @position = Position.find(params[:id])
-    3.times { @position.competencies.build }
+    @conceptual = @position.responsibilities.find(:all, :conditions => { :indicator => 1})
+    @implementation = @position.responsibilities.find(:all, :conditions => { :indicator => 2})
+    @support = @position.responsibilities.find(:all, :conditions => { :indicator => 3})
+    @compliance = @position.responsibilities.find(:all, :conditions => { :indicator => 4})
   end
 
   # POST /positions

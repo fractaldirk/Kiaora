@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130406155111) do
+ActiveRecord::Schema.define(:version => 20130406191640) do
 
   create_table "competencies", :force => true do |t|
     t.integer  "indicator"
@@ -33,5 +33,15 @@ ActiveRecord::Schema.define(:version => 20130406155111) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "responsibilities", :force => true do |t|
+    t.integer  "indicator"
+    t.string   "content"
+    t.integer  "position_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "responsibilities", ["position_id"], :name => "index_responsibilities_on_position_id"
 
 end

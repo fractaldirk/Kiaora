@@ -1,0 +1,11 @@
+<fieldset>
+  <% @position.responsibilities.each do |r| %>
+    <% if r.indicator == 2 %>
+      <%= f.label :content, "Define responsibility" %><br/>
+      <%= f.text_field :content %><br/>
+      <%= f.number_field :indicator %>
+      <%= f.hidden_field :_destroy %>
+      <%= link_to "remove", '#', class: "remove_fields" %>
+    <% end %>
+  <% end %>
+</fieldset>

@@ -16,11 +16,47 @@
     <%= f.text_field :job_title %>
   </div>
 
+<hr />
+  <h2>Conceptual tasks, Strategy Development and/or Project Development</h2>
+  <% if @conceptual.present? %>
+    <%= f.fields_for :responsibilities, @conceptual do |builder| %>
+      <%= render "responsibility_fields", f: builder %>
+    <% end %>
+  <% end %>
+  <%= link_to_add_conceptual_fields "Add Responsibility", f, :responsibilities %>
+
+  <h2>Implementation</h2>
+  <% if @implementation.present? %>
+    <%= f.fields_for :responsibilities, @implementation do |builder| %>
+    <%= render "responsibility_fields", f: builder %>
+    <% end %>
+  <% end %>
+  <%= link_to_add_implementation_fields "Add Responsibility", f, :responsibilities %>
+
+  <h2>Support / Coaching / Leadership</h2>
+  <% if @support.present? %>
+    <%= f.fields_for :responsibilities, @support do |builder| %>
+      <%= render "responsibility_fields", f: builder %>
+    <% end %>
+  <% end %>
+  <%= link_to_add_support_fields "Add Responsibility", f, :responsibilities %>
+
+  <h2>Compliance / Keeping Framework Conditions</h2>
+  <% if @compliance.present? %>
+    <%= f.fields_for :responsibilities, @compliance do |builder| %>
+      <%= render "responsibility_fields", f: builder %>
+    <% end %>
+  <% end %>
+  <%= link_to_add_compliance_fields "Add Responsibility", f, :responsibilities %>
+
+<hr />
+
   <%= f.fields_for :competencies do |builder| %>
-    <%= render "competencies_fields", f: builder %>
+    <%= render "competency_fields", f: builder %>
   <% end %>
   <%= link_to_add_fields "Add Competency", f, :competencies %>
 
+<hr />
 
   <div class="actions">
     <%= f.submit "Create position" %>

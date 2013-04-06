@@ -6,6 +6,56 @@
   <%= @position.job_title %>
 </p>
 
+<hr />
+
+<p>
+  <strong>Key functions / responsibilities</strong>
+</p>
+
+<p>
+  <em>Conceptual tasks, Strategy Development and/or Project Development</em>
+</p>
+<ol class="responsibilities">
+<% @conceptual.each do |r| %>
+  <li>
+    <%= r.content %>
+  </li>
+<% end %>
+</ol>
+
+<p>
+  <em>Implementation</em>
+</p>
+<ol class="responsibilities">
+<% @implementation.each do |r| %>
+  <li>
+    <%= r.content %>
+  </li>
+<% end %>
+</ol>
+
+<p>
+  <em>Support / Coaching / Leadership</em>
+</p>
+<ol class="responsibilities">
+<% @support.each do |r| %>
+  <li>
+    <%= r.content %>
+  </li>
+<% end %>
+</ol>
+
+<p>
+  <em>Compliance / Keeping Framework Conditions</em>
+</p>
+<ol class="responsibilities">
+<% @compliance.each do |r| %>
+  <li>
+    <%= r.content %>
+  </li>
+<% end %>
+</ol>
+
 <p>
   <strong>Competencies:</strong>
 </p>
