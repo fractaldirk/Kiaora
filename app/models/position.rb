@@ -17,4 +17,8 @@ class Position < ActiveRecord::Base
   accepts_nested_attributes_for :methodrelations, allow_destroy: true
   accepts_nested_attributes_for :leaderships, allow_destroy: true
   accepts_nested_attributes_for :socials, allow_destroy: true
+
+  amoeba do
+    enable
+  end
 end

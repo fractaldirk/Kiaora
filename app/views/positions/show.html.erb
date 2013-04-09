@@ -3,7 +3,7 @@
 
 <p>
   <strong>Job title:</strong>
-  <%= @position.job_title %>
+  <%= @position.job_title %><%= link_to 'Steal', updatesteal_position_path, :method => 'put' %>
 </p>
 
 <hr />

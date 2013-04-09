@@ -97,4 +97,30 @@ class PositionsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def steal
+    @position = Position.find(params[:id])
+    @conceptual = @position.responsibilities.find(:all, :conditions => { :indicator => 1})
+    @implementation = @position.responsibilities.find(:all, :conditions => { :indicator => 2})
+    @support = @position.responsibilities.find(:all, :conditions => { :indicator => 3})
+    @compliance = @position.responsibilities.find(:all, :conditions => { :indicator => 4})
+    @functional = Dictionary.find(:all, :conditions => { :indicator => 2 })
+    @method = Dictionary.find(:all, :conditions => { :indicator => 3 })
+    @leadership = Dictionary.find(:all, :conditions => { :indicator => 4 })
+    @social = Dictionary.find(:all, :conditions => { :indicator => 5 })
+  end
+
+  def updatesteal
+    @position = Position.find(params[:id]).amoeba_dup
+
+    respond_to do |format|
+      if @position.save
+        format.html { redirect_to steal_position_path(@position), notice: 'Position was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @position.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 end

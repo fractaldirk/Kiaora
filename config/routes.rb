@@ -1,7 +1,12 @@
 Kiaora::Application.routes.draw do
   resources :dictionaries
 
-  resources :positions
+  resources :positions do
+    member do
+      get 'steal'
+      put 'updatesteal'
+    end
+  end
 
   get "home/index"
   get "home/GPI" => 'home#GPI'
