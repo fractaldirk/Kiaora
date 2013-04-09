@@ -30,6 +30,10 @@ class PositionsController < ApplicationController
   # GET /positions/new.json
   def new
     @position = Position.new
+    @functional = Dictionary.find(:all, :conditions => { :indicator => 2 })
+    @method = Dictionary.find(:all, :conditions => { :indicator => 3 })
+    @leadership = Dictionary.find(:all, :conditions => { :indicator => 4 })
+    @social = Dictionary.find(:all, :conditions => { :indicator => 5 })
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,6 +48,10 @@ class PositionsController < ApplicationController
     @implementation = @position.responsibilities.find(:all, :conditions => { :indicator => 2})
     @support = @position.responsibilities.find(:all, :conditions => { :indicator => 3})
     @compliance = @position.responsibilities.find(:all, :conditions => { :indicator => 4})
+    @functional = Dictionary.find(:all, :conditions => { :indicator => 2 })
+    @method = Dictionary.find(:all, :conditions => { :indicator => 3 })
+    @leadership = Dictionary.find(:all, :conditions => { :indicator => 4 })
+    @social = Dictionary.find(:all, :conditions => { :indicator => 5 })
   end
 
   # POST /positions

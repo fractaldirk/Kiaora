@@ -11,16 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409113943) do
-
-  create_table "competencies", :force => true do |t|
-    t.integer  "indicator"
-    t.integer  "position_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  add_index "competencies", ["position_id"], :name => "index_competencies_on_position_id"
+ActiveRecord::Schema.define(:version => 20130409161439) do
 
   create_table "conditions", :force => true do |t|
     t.string   "environment"
@@ -35,7 +26,37 @@ ActiveRecord::Schema.define(:version => 20130409113943) do
     t.string   "competency_english"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.string   "competency_spanish"
+    t.string   "competency_french"
+    t.integer  "indicator"
   end
+
+  create_table "functionals", :force => true do |t|
+    t.integer  "indicator"
+    t.integer  "position_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "functionals", ["position_id"], :name => "index_functionals_on_position_id"
+
+  create_table "leaderships", :force => true do |t|
+    t.integer  "indicator"
+    t.integer  "position_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "leaderships", ["position_id"], :name => "index_leaderships_on_position_id"
+
+  create_table "methodrelations", :force => true do |t|
+    t.integer  "indicator"
+    t.integer  "position_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "methodrelations", ["position_id"], :name => "index_methodrelations_on_position_id"
 
   create_table "positions", :force => true do |t|
     t.string   "job_title"
@@ -52,5 +73,14 @@ ActiveRecord::Schema.define(:version => 20130409113943) do
   end
 
   add_index "responsibilities", ["position_id"], :name => "index_responsibilities_on_position_id"
+
+  create_table "socials", :force => true do |t|
+    t.integer  "indicator"
+    t.integer  "position_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "socials", ["position_id"], :name => "index_socials_on_position_id"
 
 end

@@ -1,0 +1,11 @@
+<fieldset>
+  <%= f.label :indicator, "Define competency" %><br/>
+  <%= f.collection_select(:indicator, Dictionary.all, :id, :competency_english) %><br/>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "remove", '#', class: "remove_fields" %>
+  <h2>Functional competencies</h2>
+  <%= f.fields_for :functionals do |builder| %>
+    <%= render "functional_fields", f: builder %>
+  <% end %>
+  <%= link_to_add_functional_fields "Add Competency", f, :functionals %>
+</fieldset>

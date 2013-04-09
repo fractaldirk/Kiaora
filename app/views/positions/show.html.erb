@@ -68,13 +68,17 @@
 </ol>
 
 <p>
-  <strong>Competencies:</strong>
+  <strong>Competency Profile:</strong>
+</p>
+
+<p>
+  <strong>Functional competencies:</strong>
 </p>
 <ol class="competencies">
-<% @position.competencies.each do |c| %>
+<% @position.functionals.each do |f| %>
   <li>
     <% @dictionary.each do |d| %>
-      <% if d.id == c.indicator %>
+      <% if d.id == f.indicator %>
         <%= d.competency_english %>
       <% end %>
     <% end %>
@@ -82,6 +86,50 @@
 <% end %>
 </ol>
 
+<p>
+  <strong>Method related competencies:</strong>
+</p>
+<ol class="competencies">
+<% @position.methodrelations.each do |m| %>
+  <li>
+    <% @dictionary.each do |d| %>
+      <% if d.id == m.indicator %>
+        <%= d.competency_english %>
+      <% end %>
+    <% end %>
+  </li>
+<% end %>
+</ol>
+
+<p>
+  <strong>Leadership competencies:</strong>
+</p>
+<ol class="competencies">
+<% @position.leaderships.each do |l| %>
+  <li>
+    <% @dictionary.each do |l| %>
+      <% if d.id == f.indicator %>
+        <%= d.competency_english %>
+      <% end %>
+    <% end %>
+  </li>
+<% end %>
+</ol>
+
+<p>
+  <strong>Social competencies:</strong>
+</p>
+<ol class="competencies">
+<% @position.socials.each do |s| %>
+  <li>
+    <% @dictionary.each do |d| %>
+      <% if d.id == s.indicator %>
+        <%= d.competency_english %>
+      <% end %>
+    <% end %>
+  </li>
+<% end %>
+</ol>
 
 <%= link_to 'Edit', edit_position_path(@position) %> |
 <%= link_to 'Back', home_index_path %>

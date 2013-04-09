@@ -12,10 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :competency_english %><br />
+    <%= f.label :indicator, "Type competency" %><br />
+    <%= f.select(:indicator, [['Organisational', '1'], ['Functional', '2'], ['Method related', '3'], ['Leadership', '4'], ['Social/self', '5']], :prompt => "Please define") %>
+  </div>
+
+  <div class="field">
+    <%= f.label :competency_english, "English" %><br />
     <%= f.text_field :competency_english %>
   </div>
+  <div class="field">
+    <%= f.label :competency_spanish, "Spanish" %><br />
+    <%= f.text_field :competency_spanish %>
+  </div>
+  <div class="field">
+    <%= f.label :competency_french, "French" %><br />
+    <%= f.text_field :competency_french %>
+  </div>
   <div class="actions">
-    <%= f.submit "Add competency" %>
+    <%= f.submit "Done" %>
   </div>
 <% end %>

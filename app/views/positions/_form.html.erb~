@@ -58,17 +58,35 @@
 
 <hr />
 
-  <%= f.fields_for :competencies do |builder| %>
-    <%= render "competency_fields", f: builder %>
+  <h2>Competency profile</h2>
+  <hr />
+
+
+
+  <h3>Method related competencies</h3>
+  <%= f.fields_for :methodrelations do |builder| %>
+    <%= render "methodrelation_fields", f: builder %>
   <% end %>
-  <%= link_to_add_fields "Add Competency", f, :competencies %>
+  <%= link_to_add_fields "Add Competency", f, :methodrelations %>
+
+  <h3>Leadership competencies</h3>
+  <%= f.fields_for :leaderships do |builder| %>
+    <%= render "leadership_fields", f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Add Competency", f, :leaderships %>
+
+  <h3>Social/self competencies</h3>
+  <%= f.fields_for :socials do |builder| %>
+    <%= render "social_fields", f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Add Competency", f, :socials %>
+
+<hr />
 
 <hr />
 
   <div class="actions">
-    <%= f.submit "Create position" %>
+    <%= f.submit %>
   </div>
 
-
-</div>
 <% end %>

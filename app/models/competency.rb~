@@ -1,0 +1,5 @@
+class Competency < ActiveRecord::Base
+  belongs_to :position
+  has_many :functionals
+  attr_accessible :indicator, :functionals_attributes
+end
