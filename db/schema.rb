@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130406191640) do
+ActiveRecord::Schema.define(:version => 20130409113943) do
 
   create_table "competencies", :force => true do |t|
     t.integer  "indicator"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(:version => 20130406191640) do
   end
 
   add_index "competencies", ["position_id"], :name => "index_competencies_on_position_id"
+
+  create_table "conditions", :force => true do |t|
+    t.string   "environment"
+    t.integer  "position_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "conditions", ["position_id"], :name => "index_conditions_on_position_id"
 
   create_table "dictionaries", :force => true do |t|
     t.string   "competency_english"

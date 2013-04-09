@@ -8,6 +8,17 @@
 
 <hr />
 
+  <strong>Specific Work Environment</strong>
+<ol class="conditions">
+  <% @position.conditions.each do |con| %>
+    <li>
+      <%= con.environment %>
+    </li>
+  <% end %>
+</ol>
+
+<hr />
+
 <p>
   <strong>Key functions / responsibilities</strong>
 </p>
