@@ -3,7 +3,7 @@
 
 <p>
   <strong>Job title:</strong>
-  <%= @position.job_title %><%= link_to 'Steal', updatesteal_position_path(@position) %>
+  <%= @position.job_title %><%= link_to 'Steal', updatesteal_position_path, :method => 'put' %>
 </p>
 
 <hr />
@@ -79,7 +79,7 @@
   <li>
     <% @dictionary.each do |d| %>
       <% if d.id == f.indicator %>
-        <%= d.competency_english %>
+        <%= d.competency_english %> (Im: <%= f.importance %> Val: <%= f.value %>)
       <% end %>
     <% end %>
   </li>
@@ -94,8 +94,9 @@
   <li>
     <% @dictionary.each do |d| %>
       <% if d.id == m.indicator %>
-        <%= d.competency_english %>
+        <%= d.competency_english %> (Im: <%= m.importance %> Val: <%= m.value %>)
       <% end %>
+      <%= m.indicator %>
     <% end %>
   </li>
 <% end %>
@@ -107,8 +108,8 @@
 <ol class="competencies">
 <% @position.leaderships.each do |l| %>
   <li>
-    <% @dictionary.each do |l| %>
-      <% if d.id == f.indicator %>
+    <% @dictionary.each do |d| %>
+      <% if d.id == l.indicator %>
         <%= d.competency_english %>
       <% end %>
     <% end %>

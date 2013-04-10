@@ -1,4 +1,4 @@
 class Leadership < ActiveRecord::Base
   belongs_to :position
-  attr_accessible :indicator, :importance, :value
+  attr_accessible :indicator
 end

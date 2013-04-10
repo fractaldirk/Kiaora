@@ -1,6 +1,5 @@
 <fieldset>
-  <%= f.label :indicator, "Define competency" %><br/>
-  <%= f.collection_select(:indicator, @functional, :id, :competency_english) %><br/>
+  <%= f.collection_select(:indicator, @functional, :id, :competency_english, :prompt => "Choose competency") %> <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %><br/>
   <%= f.hidden_field :_destroy %>
   <%= link_to "remove", '#', class: "remove_fields" %>
 </fieldset>
