@@ -1,21 +1,13 @@
 <h1>Job description</h1>
 <p id="notice"><%= notice %></p>
 
+<%= link_to 'Edit', edit_position_path(@position) %> |
+<%= link_to 'Back', home_index_path %> | <%= link_to 'Steal', updatesteal_position_path, :method => 'put' %><br/>
+
 <p>
   <strong>Job title:</strong>
-  <%= @position.job_title %><%= link_to 'Steal', updatesteal_position_path, :method => 'put' %>
+  <%= @position.job_title %>
 </p>
-
-<hr />
-
-  <strong>Specific Work Environment</strong>
-<ol class="conditions">
-  <% @position.conditions.each do |con| %>
-    <li>
-      <%= con.environment %>
-    </li>
-  <% end %>
-</ol>
 
 <hr />
 
@@ -67,12 +59,29 @@
 <% end %>
 </ol>
 
+<hr />
+
 <p>
-  <strong>Competency Profile:</strong>
+  <em><strong>Competency Profile:</strong></em>
 </p>
 
 <p>
-  <strong>Functional competencies:</strong>
+  <strong><u>Organisational competencies:</u></strong>
+</p>
+<ol class="competencies">
+  <% @organisational.each do |o| %>
+    <li>
+      <%= o.competency_english %>
+    </li>
+  <% end %>
+</ol>
+
+<p>
+  <strong><u>Functional competencies:</u></strong>
+</p>
+
+<p>
+  <strong>Technical competencies:</strong>
 </p>
 <ol class="competencies">
 <% @position.functionals.each do |f| %>
@@ -96,7 +105,6 @@
       <% if d.id == m.indicator %>
         <%= d.competency_english %> (Im: <%= m.importance %> Val: <%= m.value %>)
       <% end %>
-      <%= m.indicator %>
     <% end %>
   </li>
 <% end %>
@@ -110,7 +118,7 @@
   <li>
     <% @dictionary.each do |d| %>
       <% if d.id == l.indicator %>
-        <%= d.competency_english %>
+        <%= d.competency_english %> (Im: <%= l.importance %> Val: <%= l.value %>)
       <% end %>
     <% end %>
   </li>
@@ -125,12 +133,31 @@
   <li>
     <% @dictionary.each do |d| %>
       <% if d.id == s.indicator %>
-        <%= d.competency_english %>
+        <%= d.competency_english %> (Im: <%= s.importance %> Val: <%= s.value %>)
       <% end %>
     <% end %>
   </li>
 <% end %>
 </ol>
 
-<%= link_to 'Edit', edit_position_path(@position) %> |
-<%= link_to 'Back', home_index_path %>
+<hr />
+
+  <strong>Attitude:</strong>
+<ol class="conditions">
+  <% @position.attitudes.each do |a| %>
+    <li>
+      <%= a.description %>
+    </li>
+  <% end %>
+</ol>
+
+<hr />
+
+  <strong>Specific Work Environment</strong>
+<ol class="conditions">
+  <% @position.conditions.each do |con| %>
+    <li>
+      <%= con.environment %>
+    </li>
+  <% end %>
+</ol>

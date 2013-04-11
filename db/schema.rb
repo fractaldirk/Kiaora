@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130410101130) do
+ActiveRecord::Schema.define(:version => 20130411222413) do
+
+  create_table "attitudes", :force => true do |t|
+    t.string   "description"
+    t.integer  "position_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "attitudes", ["position_id"], :name => "index_attitudes_on_position_id"
 
   create_table "conditions", :force => true do |t|
     t.string   "environment"
@@ -104,6 +113,9 @@ ActiveRecord::Schema.define(:version => 20130410101130) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.integer  "office"
+    t.integer  "language"
+    t.integer  "role"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

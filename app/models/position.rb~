@@ -1,6 +1,7 @@
 class Position < ActiveRecord::Base
   has_many :responsibilities
   has_many :conditions
+  has_many :attitudes
   # competency profile models
   has_many :functionals
   has_many :methodrelations
@@ -20,6 +21,5 @@ class Position < ActiveRecord::Base
 
   amoeba do
     enable
-    prepend :job_title => "(Copied)"
   end
 end

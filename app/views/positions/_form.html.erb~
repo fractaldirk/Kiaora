@@ -17,13 +17,6 @@
   </div>
 
 <hr />
-  <h2>Specific Work Environment</h2>
-  <%= f.fields_for :conditions do |builder| %>
-    <%= render "condition_fields", f: builder %>
-  <% end %>
-  <%= link_to_add_fields "Add Criterea", f, :conditions %>
-
-<hr />
   <h2>Conceptual tasks, Strategy Development and/or Project Development</h2>
   <% if @conceptual.present? %>
     <%= f.fields_for :responsibilities, @conceptual do |builder| %>
@@ -57,11 +50,29 @@
   <%= link_to_add_compliance_fields "Add Responsibility", f, :responsibilities %>
 
 <hr />
+  <h2>Specific Work Environment</h2>
+  <%= f.fields_for :conditions do |builder| %>
+    <%= render "condition_fields", f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Add Criterea", f, :conditions %>
+
+<hr />
+  <h2>Attitude</h2>
+  <%= f.fields_for :attitudes do |builder| %>
+    <%= render "attitude_fields", f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Add Attitude", f, :attitudes %>
+
+<hr />
 
   <h2>Competency profile</h2>
   <hr />
 
-
+  <h3>Functional competencies</h3>
+  <%= f.fields_for :functionals do |builder| %>
+    <%= render "functional_fields", f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Add Competency", f, :functionals %>
 
   <h3>Method related competencies</h3>
   <%= f.fields_for :methodrelations do |builder| %>

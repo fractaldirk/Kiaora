@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>English:</b><br/>
+  <em><%= @dictionary.competency_english %></em>
+</p>
+<p>
+  <b>Spanish:</b><br/>
+  <em><%= @dictionary.competency_spanish %></em>
+</p>
+<p>
+  <b>French:</b><br/>
+  <em><%= @dictionary.competency_french %></em>
+</p>
+
+
+<%= link_to 'Edit', edit_dictionary_path(@dictionary) %> |
+<%= link_to 'Back', dictionaries_path %>

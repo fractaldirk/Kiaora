@@ -15,6 +15,7 @@ class PositionsController < ApplicationController
   def show
     @position = Position.find(params[:id])
     @dictionary = Dictionary.find(:all)
+    @organisational = Dictionary.find(:all, :conditions => {:indicator => 1})
     @conceptual = @position.responsibilities.find(:all, :conditions => {:indicator => 1})
     @implementation = @position.responsibilities.find(:all, :conditions => {:indicator => 2})
     @support = @position.responsibilities.find(:all, :conditions => {:indicator => 3})

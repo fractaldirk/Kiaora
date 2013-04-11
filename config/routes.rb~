@@ -1,9 +1,12 @@
 Kiaora::Application.routes.draw do
+  devise_for :users
+
   resources :dictionaries
 
   resources :positions do
     member do
       get 'steal'
+      put 'updatesteal'
     end
   end
 
