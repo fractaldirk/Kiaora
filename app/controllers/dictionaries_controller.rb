@@ -1,4 +1,5 @@
 class DictionariesController < ApplicationController
+  before_filter :authenticate_user!
   # GET /dictionaries
   # GET /dictionaries.json
   def index
