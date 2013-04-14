@@ -1,4 +1,4 @@
-<h1>Job description <small><%= @position.office_name %></small></h1>
+<h1>Job description <small>Greenpeace <%= @position.office_name %></small></h1>
 <p id="notice"><%= notice %></p>
 
 <%= render 'show_buttons' %>

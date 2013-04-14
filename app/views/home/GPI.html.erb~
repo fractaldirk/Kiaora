@@ -1,3 +1,4 @@
 <h1>Hello GPI world!</h1>
 
-<%= link_to 'Competency dictionary', dictionaries_path %>
+<%= link_to 'Competency dictionary', dictionaries_path %><br/>
+<%= link_to 'Home (NRO screen)', home_index_path %>

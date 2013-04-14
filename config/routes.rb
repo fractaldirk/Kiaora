@@ -14,7 +14,6 @@ Kiaora::Application.routes.draw do
   get "home/GPI" => 'home#GPI'
   get "belgium" => 'home#belgium'
   get "database" => 'home#database'
-  get "test" => 'home#test'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -2,8 +2,8 @@
 
 body {
   padding-top: 60px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 7px;
+  padding-right: 7px;
  }
 
 @import "twitter/bootstrap/responsive";
@@ -45,3 +45,9 @@ body {
 @navbarBrandColor: black;
 @navbarLinkColor: white;
 @navbarText: white;
+
+#navigationleft {
+  position: fixed;
+  top: 50px;
+  left: 7px;
+}

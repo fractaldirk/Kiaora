@@ -16,12 +16,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
+      <% if user_signed_in? %>
       <%= link_to office_name, home_page, :class => 'brand' %>
+      <% end %>
       <div class="nav-collapse">
         <ul class="nav">
           <li class="divider-vertical"><%= link_to "Positions", positions_path %></li>
-          <li class="divider-vertical"><%= link_to "Price List" %></li>
-          <li class="divider-vertical"><%= link_to "Contact Us" %></li>
+          <li class="divider-vertical"><%= link_to "Database", database_path %></li>
           <li class="dropdown">
             <% if user_signed_in? %>
               <a class="dropdown-toggle"
@@ -38,7 +39,7 @@
               <a class="dropdown-toggle"
                  data-toggle="dropdown"
                  href="#">
-                  <strong><%= current_user.email %></strong>
+                  <strong>Sign in</strong>
                   <b class="caret"></b>
                 </a>
               <ul class="dropdown-menu">

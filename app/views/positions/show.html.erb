@@ -1,6 +1,8 @@
 <h1>Job description <small>Greenpeace <%= @position.office_name %></small></h1>
 <p id="notice"><%= notice %></p>
 
+  <%= link_to 'Back', home_index_path, :class => 'btn btn-primary', :id => 'navigationleft' %>
+
 <%= render 'show_buttons' %>
 
 <p>

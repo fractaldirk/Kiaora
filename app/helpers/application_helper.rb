@@ -2,6 +2,8 @@ module ApplicationHelper
   def office_name
     if current_user.office == 1
       "Greenpeace Belgium"
+    elsif current_user.office == 99
+      "Greenpeace International"
     else
       "To be defined"
     end
@@ -10,6 +12,8 @@ module ApplicationHelper
   def home_page
     if current_user.office == 1
       belgium_path
+    elsif current_user.office == 99
+      home_GPI_path
     else
       home_index_path
     end

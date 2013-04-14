@@ -7,13 +7,13 @@
   <%= f.email_field :email, :autofocus => true %></div>
 
   <div><%= f.label :office, "Define NRO" %><br />
-  <%= f.select(:office, [['Belgium', '1']) %></div>
+  <%= f.select(:office, [['Belgium', '1'], ['GPI', '99']]) %></div>
 
   <div><%= f.label :role, "User role" %><br />
-  <%= f.select(:role, [['Super', '1'], ['Normal', '2']) %></div>
+  <%= f.select(:role, [['Super', '1'], ['Normal', '2']]) %></div>
 
   <div><%= f.label :language, "Define language" %><br />
-  <%= f.select(:language, [['English', '1'], ['Spanish', '2'], ['French', '3']) %></div>
+  <%= f.select(:language, [['English', '1'], ['Spanish', '2'], ['French', '3']]) %></div>
 
   <div><%= f.label :password %><br />
   <%= f.password_field :password %></div>

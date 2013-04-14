@@ -1,4 +1,4 @@
-<div id="showbuttonsbg"><%= image_tag 'show_socialbg.png' %></div>
+<div id="showbuttonsfixedbg"><%= image_tag 'show_socialbg.png' %></div>
 
 <div id="showbuttonsfixed">
 
