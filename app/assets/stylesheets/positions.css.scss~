@@ -1,0 +1,18 @@
+#navigationleft {
+  position: fixed;
+  top: 50px;
+  left: 7px;
+}
+
+.text_field {
+  width: 275px;
+}
+
+.text_field_long {
+  width: 475px;
+}
+
+.text_area {
+  width: 575px;
+  height: 180px;
+}

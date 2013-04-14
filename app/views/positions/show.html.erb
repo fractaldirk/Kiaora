@@ -1,5 +1,7 @@
 <h1>Job description <small>Greenpeace <%= @position.office_name %></small></h1>
-<p id="notice"><%= notice %></p>
+<center>
+  <p id="notice"><%= notice %></p>
+</center>
 
   <%= link_to 'Back', home_index_path, :class => 'btn btn-primary', :id => 'navigationleft' %>
 
@@ -7,17 +9,36 @@
 
 <p>
   <strong>Job title:</strong>
-  <%= @position.job_title %>
+  <%= @position.job_title %><br/>
+  Valid from:
+  <%= @position.valid_from.strftime("%d %b %Y") unless @position.valid_from.nil? %><br/>
+  Job grade:
+  <%= @position.job_grade %><br/>
+  Reports to:
+  <%= @position.reports_to %><br/>
+  Line-manages:
+  <%= @position.line_manages %><br/>
 </p>
 
 <hr />
 
 <p>
-  <strong>Key functions / responsibilities</strong>
+  <h4>Overal purpose of the job</h4>
+  <%= simple_format @position.purpose %>
 </p>
 
 <p>
-  <em>Conceptual tasks, Strategy Development and/or Project Development</em>
+  <h4>Scope</h4>
+  <%= simple_format @position.scope %>
+</p>
+
+
+<p>
+  <h4>Key functions / responsibilities</h4>
+</p>
+
+<p>
+  <u><strong>Conceptual tasks, Strategy Development and/or Project Development</strong></u>
 </p>
 <ol class="responsibilities">
 <% @conceptual.each do |r| %>
@@ -28,7 +49,7 @@
 </ol>
 
 <p>
-  <em>Implementation</em>
+  <u><strong>Implementation</strong></u>
 </p>
 <ol class="responsibilities">
 <% @implementation.each do |r| %>
@@ -39,7 +60,7 @@
 </ol>
 
 <p>
-  <em>Support / Coaching / Leadership</em>
+  <u><strong>Support / Coaching / Leadership</strong></u>
 </p>
 <ol class="responsibilities">
 <% @support.each do |r| %>
@@ -50,7 +71,7 @@
 </ol>
 
 <p>
-  <em>Compliance / Keeping Framework Conditions</em>
+  <u><strong>Compliance / Keeping Framework Conditions</strong></u>
 </p>
 <ol class="responsibilities">
 <% @compliance.each do |r| %>
@@ -74,7 +95,7 @@
 
 <hr />
 
-  <strong>Attitude:</strong>
+  <h4>Attitude:</h4>
 <ol class="conditions">
   <% @position.attitudes.each do |a| %>
     <li>
@@ -85,7 +106,7 @@
 
 <hr />
 
-  <strong>Specific Work Environment</strong>
+  <h4>Specific Work Environment</h4>
 <ol class="conditions">
   <% @position.conditions.each do |con| %>
     <li>

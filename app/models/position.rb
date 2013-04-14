@@ -10,7 +10,8 @@ class Position < ActiveRecord::Base
 
   attr_accessible :job_title, :responsibilities_attributes, :conditions_attributes,
                   :functionals_attributes, :methodrelations_attributes, :leaderships_attributes,
-                  :socials_attributes, :attitudes_attributes, :office, :scope
+                  :socials_attributes, :attitudes_attributes, :office, :scope,
+                  :valid_from, :job_grade, :reports_to, :line_manages, :purpose
   accepts_nested_attributes_for :responsibilities, allow_destroy: true
   accepts_nested_attributes_for :conditions, allow_destroy: true
   accepts_nested_attributes_for :attitudes, allow_destroy: true

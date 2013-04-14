@@ -4,7 +4,7 @@
   <% elsif current_user.language == 2 %>
     <%= f.collection_select(:indicator, @functional, :id, :competency_spanish, :prompt => "Definir las competencias") %> <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %><br/>
   <% elsif current_user.language == 3 %>
-    <%= f.collection_select(:indicator, @functional, :id, :competency_french, :prompt => "Choose competency") %> <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %><br/>
+    <%= f.collection_select(:indicator, @functional, :id, :competency_french, :prompt => "Définir les compétences") %> <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %><br/>
   <% else %>
     <%= f.collection_select(:indicator, @functional, :id, :competency_english, :prompt => "Choose competency") %> <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %><br/>
   <% end %>

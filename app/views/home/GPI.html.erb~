@@ -1,4 +1,19 @@
 <h1>Hello GPI world!</h1>
 
 <%= link_to 'Competency dictionary', dictionaries_path %><br/>
-<%= link_to 'Home (NRO screen)', home_index_path %>
+
+<%= link_to 'Create new sample position', new_position_path, :class => "btn btn-primary" %>
+
+<h4><em>Sample job descriptions</em></h4>
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+    <th>Job title</th>
+    <th>Status?</th>
+  </tr>
+<% @positions.each do |p| %>
+  <tr>
+    <td><%= link_to p.job_title, p %></td>
+    <td>To be defined</td>
+  </tr>
+<% end %>
+</table>

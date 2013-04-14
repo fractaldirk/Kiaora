@@ -23,4 +23,14 @@ class Position < ActiveRecord::Base
   amoeba do
     enable
   end
+
+  def office_name
+    if office == 1
+      "Belgium"
+    elsif office == 99
+      "Sample JD"
+    else
+      "To be defined"
+    end
+  end
 end

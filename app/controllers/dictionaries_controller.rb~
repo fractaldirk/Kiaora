@@ -1,4 +1,6 @@
 class DictionariesController < ApplicationController
+  before_filter :authenticate_user!
+  before_filter :gpi_user
   # GET /dictionaries
   # GET /dictionaries.json
   def index
@@ -78,6 +80,13 @@ class DictionariesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to dictionaries_url }
       format.json { head :no_content }
+    end
+  end
+
+private
+  def gpi_user
+    unless current_user.offce == 99
+      redirect_to home_index_path
     end
   end
 end

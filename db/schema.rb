@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130414152131) do
+ActiveRecord::Schema.define(:version => 20130414212305) do
 
   create_table "attitudes", :force => true do |t|
     t.string   "description"
@@ -75,10 +75,15 @@ ActiveRecord::Schema.define(:version => 20130414152131) do
 
   create_table "positions", :force => true do |t|
     t.string   "job_title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.integer  "office"
     t.text     "scope"
+    t.date     "valid_from"
+    t.string   "job_grade"
+    t.string   "reports_to"
+    t.string   "line_manages"
+    t.text     "purpose"
   end
 
   create_table "responsibilities", :force => true do |t|

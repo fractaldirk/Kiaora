@@ -25,7 +25,7 @@
   <li>
     <% @dictionary.each do |d| %>
       <% if d.id == f.indicator %>
-        <%= d.competency_spanish %> (Im: <%= f.importance %> Val: <%= f.value %>)
+        <%= d.competency_french %> (Im: <%= f.importance %> Val: <%= f.value %>)
       <% end %>
     <% end %>
   </li>
@@ -40,7 +40,7 @@
   <li>
     <% @dictionary.each do |d| %>
       <% if d.id == m.indicator %>
-        <%= d.competency_spanish %> (Im: <%= m.importance %> Val: <%= m.value %>)
+        <%= d.competency_french %> (Im: <%= m.importance %> Val: <%= m.value %>)
       <% end %>
     <% end %>
   </li>
@@ -55,7 +55,7 @@
   <li>
     <% @dictionary.each do |d| %>
       <% if d.id == l.indicator %>
-        <%= d.competency_spanish %> (Im: <%= l.importance %> Val: <%= l.value %>)
+        <%= d.competency_french %> (Im: <%= l.importance %> Val: <%= l.value %>)
       <% end %>
     <% end %>
   </li>
@@ -70,7 +70,7 @@
   <li>
     <% @dictionary.each do |d| %>
       <% if d.id == s.indicator %>
-        <%= d.competency_spanish %> (Im: <%= s.importance %> Val: <%= s.value %>)
+        <%= d.competency_french %> (Im: <%= s.importance %> Val: <%= s.value %>)
       <% end %>
     <% end %>
   </li>

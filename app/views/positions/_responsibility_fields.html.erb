@@ -1,6 +1,5 @@
 <fieldset>
-  <%= f.label :content, "Define responsibility" %><br/>
-  <%= f.text_field :content %><br/>
+  <%= f.text_field :content, :class => "text_field_long" %>
   <%= f.number_field :indicator %>
   <%= f.hidden_field :_destroy %>
   <%= link_to "remove", '#', class: "remove_fields" %>

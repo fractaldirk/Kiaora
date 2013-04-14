@@ -1,6 +1,6 @@
 <fieldset>
-  <%= f.text_field :content, :placeholder => "Define responsibility" %><br/>
-  <%= f.number_field :indicator, :value => 3 %><br/>
+  <%= f.text_field :content, :placeholder => "Define responsibility", :class => "text_field" %>
+  <%= f.hidden_field :indicator, :value => 3 %>
   <%= f.hidden_field :_destroy %>
   <%= link_to "remove", '#', class: "remove_fields" %>
 </fieldset>
