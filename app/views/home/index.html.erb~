@@ -1,10 +1,1 @@
-<h1>Hello World!</h1>
-
-<%= link_to 'Competency dictionary (GPI function)', dictionaries_path %><br/>
-<%= link_to 'Create new position', new_position_path %>
-
-<ul class="listing positions">
-  <% @positions.each do |p| %>
-    <li><%= link_to p.job_title, p %></li>
-  <% end %>
-</ul>
+# calling a redirect

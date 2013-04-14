@@ -1,0 +1,19 @@
+<div id="socialfixedbg"><%= image_tag 'socialbg.png' %></div>
+
+<div id="socialfixed">
+
+<table><tbody><tr><td>
+
+<%= link_to image_tag("edit.png"), "#" %></a></td></tr><tr><td>
+
+<%= link_to image_tag("copy.png"), "#" %></a></td></tr><tr><td>
+
+<a href="http://youtube.com/b429" target="blank"><img src="http://building429.com/storage/yt.png"></a></td></tr><tr><td>
+
+<a href="http://myspace.com/building429" target="blank"><img src="http://building429.com/storage/ms.png"></a></td></tr><tr><td>
+
+<a class="mail cboxElement" href="/storage/mail.html"><img src="http://building429.com/storage/mail.png"></a>
+
+</td></tr></tbody></table>
+
+</div>

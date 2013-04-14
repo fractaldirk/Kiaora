@@ -1,0 +1,13 @@
+<div id="showbuttonsbg"><%= image_tag 'show_socialbg.png' %></div>
+
+<div id="showbuttonsfixed">
+
+<table><tbody><tr><td>
+
+<%= link_to image_tag("edit.png"), edit_position_path(@position) %></a></td></tr><tr><td>
+
+<%= link_to image_tag("copy.png"), updatesteal_position_path, :method => 'put' %></a></td></tr><tr><td>
+
+</td></tr></tbody></table>
+
+</div>

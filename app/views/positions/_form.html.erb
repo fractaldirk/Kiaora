@@ -13,8 +13,10 @@
 
   <div class="field">
     <%= f.label :job_title %><br />
-    <%= f.text_field :job_title %>
+    <%= f.text_field :job_title %><br/>
+    <%= f.number_field :office, :value => current_user.office %>
   </div>
+
 
 <hr />
   <h2>Conceptual tasks, Strategy Development and/or Project Development</h2>
@@ -97,7 +99,7 @@
 <hr />
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => 'btn btn-success' %>
   </div>
 
 <% end %>

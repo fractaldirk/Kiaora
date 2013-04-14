@@ -1,8 +1,7 @@
-<h1>Job description</h1>
+<h1>Job description <small>Greenpeace <%= @position.office_name %></small></h1>
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_position_path(@position) %> |
-<%= link_to 'Back', home_index_path %> | <%= link_to 'Steal', updatesteal_position_path, :method => 'put' %><br/>
+<%= render 'show_buttons' %>
 
 <p>
   <strong>Job title:</strong>

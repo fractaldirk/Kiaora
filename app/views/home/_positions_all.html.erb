@@ -1,0 +1,12 @@
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+    <th>Job title</th>
+    <th>NRO</th>
+  </tr>
+<% @positions.each do |p| %>
+  <tr>
+    <td><%= link_to p.job_title, p %></td>
+    <td><%= p.office_name %></td>
+  </tr>
+<% end %>
+</table>

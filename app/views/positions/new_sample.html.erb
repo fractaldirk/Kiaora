@@ -14,7 +14,7 @@
   <div class="field">
     <%= f.label :job_title %><br />
     <%= f.text_field :job_title %><br/>
-    <%= f.number_field :office, :value => current_user.office %>
+    <%= f.number_field :office, :value => 99 %>
   </div>
 
 
@@ -99,7 +99,7 @@
 <hr />
 
   <div class="actions">
-    <%= f.submit, :class => 'btn btn-success' %>
+    <%= f.submit %>
   </div>
 
 <% end %>

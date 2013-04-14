@@ -1,8 +1,7 @@
-<h1>Job description</h1>
+<h1>Job description <small><%= @position.office_name %></small></h1>
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_position_path(@position) %> |
-<%= link_to 'Back', home_index_path %> | <%= link_to 'Steal', updatesteal_position_path, :method => 'put' %><br/>
+<%= render 'show_buttons' %>
 
 <p>
   <strong>Job title:</strong>
@@ -61,84 +60,15 @@
 
 <hr />
 
-<p>
-  <em><strong>Competency Profile:</strong></em>
-</p>
-
-<p>
-  <strong><u>Organisational competencies:</u></strong>
-</p>
-<ol class="competencies">
-  <% @organisational.each do |o| %>
-    <li>
-      <%= o.competency_english %>
-    </li>
-  <% end %>
-</ol>
-
-<p>
-  <strong><u>Functional competencies:</u></strong>
-</p>
-
-<p>
-  <strong>Technical competencies:</strong>
-</p>
-<ol class="competencies">
-<% @position.functionals.each do |f| %>
-  <li>
-    <% @dictionary.each do |d| %>
-      <% if d.id == f.indicator %>
-        <%= d.competency_english %> (Im: <%= f.importance %> Val: <%= f.value %>)
-      <% end %>
-    <% end %>
-  </li>
+<% if current_user.language == 1 %>
+  <%= render "cprofile_english" %>
+<% elsif current_user.language == 2 %>
+  <%= render "cprofile_spanish" %>
+<% elsif current_user.language == 3 %>
+  <%= render "cprofile_french" %>
+  <% else %>
+    <%= render "cprofile_english" %>
 <% end %>
-</ol>
-
-<p>
-  <strong>Method related competencies:</strong>
-</p>
-<ol class="competencies">
-<% @position.methodrelations.each do |m| %>
-  <li>
-    <% @dictionary.each do |d| %>
-      <% if d.id == m.indicator %>
-        <%= d.competency_english %> (Im: <%= m.importance %> Val: <%= m.value %>)
-      <% end %>
-    <% end %>
-  </li>
-<% end %>
-</ol>
-
-<p>
-  <strong>Leadership competencies:</strong>
-</p>
-<ol class="competencies">
-<% @position.leaderships.each do |l| %>
-  <li>
-    <% @dictionary.each do |d| %>
-      <% if d.id == l.indicator %>
-        <%= d.competency_english %> (Im: <%= l.importance %> Val: <%= l.value %>)
-      <% end %>
-    <% end %>
-  </li>
-<% end %>
-</ol>
-
-<p>
-  <strong>Social competencies:</strong>
-</p>
-<ol class="competencies">
-<% @position.socials.each do |s| %>
-  <li>
-    <% @dictionary.each do |d| %>
-      <% if d.id == s.indicator %>
-        <%= d.competency_english %> (Im: <%= s.importance %> Val: <%= s.value %>)
-      <% end %>
-    <% end %>
-  </li>
-<% end %>
-</ol>
 
 <hr />
 

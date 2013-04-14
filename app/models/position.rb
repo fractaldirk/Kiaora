@@ -10,7 +10,7 @@ class Position < ActiveRecord::Base
 
   attr_accessible :job_title, :responsibilities_attributes, :conditions_attributes,
                   :functionals_attributes, :methodrelations_attributes, :leaderships_attributes,
-                  :socials_attributes, :attitudes_attributes
+                  :socials_attributes, :attitudes_attributes, :office, :scope
   accepts_nested_attributes_for :responsibilities, allow_destroy: true
   accepts_nested_attributes_for :conditions, allow_destroy: true
   accepts_nested_attributes_for :attitudes, allow_destroy: true
@@ -22,5 +22,15 @@ class Position < ActiveRecord::Base
 
   amoeba do
     enable
+  end
+
+  def office_name
+    if office == 1
+      "Belgium"
+    elsif office == 99
+      "Sample JD"
+    else
+      "To be defined"
+    end
   end
 end

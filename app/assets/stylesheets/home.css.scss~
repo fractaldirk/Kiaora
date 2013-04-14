@@ -6,7 +6,7 @@ h1 {
   text-align: center;
 }
 
-#showbuttonsfixedbg {
+#showsocialfixedbg {
   position: fixed;
   top: 155px;
   right: -3px;
@@ -14,7 +14,7 @@ h1 {
   z-index: 5;
 }
 
-#showbuttonsfixed {
+#showsocialfixed {
   position: fixed;
   top: 185px;
   right: 5px;
