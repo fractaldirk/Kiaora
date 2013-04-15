@@ -5,9 +5,11 @@
     <th>NRO</th>
   </tr>
 <% @positions.each do |p| %>
-  <tr>
-    <td><%= link_to p.job_title, p %></td>
-    <td><%= p.office_name %></td>
-  </tr>
+  <% unless p.office == 99 %>
+    <tr>
+      <td><%= link_to p.job_title, p %></td>
+      <td><%= p.office_name %></td>
+    </tr>
+  <% end %>
 <% end %>
 </table>

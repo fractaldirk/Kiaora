@@ -1,9 +1,6 @@
 <h1>Job description <small>Greenpeace <%= @position.office_name %></small></h1>
-<center>
-  <p id="notice"><%= notice %></p>
-</center>
 
-  <%= link_to 'Back', home_index_path, :class => 'btn btn-primary', :id => 'navigationleft' %>
+  <%= link_to 'Back', positions_path, :class => 'btn btn-primary', :id => 'navigationleft' %>
 
 <%= render 'show_buttons' %>
 
@@ -95,7 +92,7 @@
 
 <hr />
 
-  <strong>Attitude:</strong>
+  <h4>Attitude:</h4>
 <ol class="conditions">
   <% @position.attitudes.each do |a| %>
     <li>
@@ -106,7 +103,7 @@
 
 <hr />
 
-  <strong>Specific Work Environment</strong>
+  <h4>Specific Work Environment</h4>
 <ol class="conditions">
   <% @position.conditions.each do |con| %>
     <li>

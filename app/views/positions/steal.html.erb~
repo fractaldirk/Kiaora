@@ -24,6 +24,7 @@
     <strong><em>line manages: </em></strong>
     <%= f.text_field :line_manages, :class => "text_field" %><br/>
     <%= f.hidden_field :office, :value => current_user.office %>
+    <%= f.hidden_field :draft, :value => 2 %>
   </div>
 
   <hr />
@@ -114,8 +115,6 @@
     <%= render "social_fields", f: builder %>
   <% end %>
   <%= link_to_add_fields "Add Competency", f, :socials %>
-
-<hr />
 
 <hr />
 

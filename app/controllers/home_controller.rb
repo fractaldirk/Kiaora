@@ -16,8 +16,8 @@ class HomeController < ApplicationController
   end
 
   def database
-    @positions = Position.find(:all)
-    @samples = Position.find(:all, :conditions => {:office => 99})
+    @positions = Position.find(:all, :conditions => {:draft => 2})
+    @samples = Position.find(:all, :conditions => {:office => 99, :draft => 2})
   end
 
   def home

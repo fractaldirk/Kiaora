@@ -23,6 +23,7 @@
         <ul class="nav">
           <li class="divider-vertical"><%= link_to "Positions", positions_path %></li>
           <li class="divider-vertical"><%= link_to "Database", database_path %></li>
+          <li class="divider-vertical"><a href="#myModal" data-toggle="modal">File a ticket</a></li>
           <li class="dropdown">
             <% if user_signed_in? %>
               <a class="dropdown-toggle"
@@ -54,9 +55,21 @@
   </div>
 </div>
 
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, id: "flash_#{name}" %>
+  <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">File a ticket</h3>
+    </div>
+    <div class="modal-body">
+      <iframe src="http://bluerobinproject2.herokuapp.com/tickets/new_public" width="650" height="405"></iframe>
+    </div>
+  </div>
+
+<center>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, id: "flash_#{name}" %>
   <% end %>
+</center>
 
 <%= yield %>
 

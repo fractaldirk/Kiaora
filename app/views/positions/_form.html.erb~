@@ -11,6 +11,25 @@
     </div>
   <% end %>
 
+  <% if current_user.role == 1 %>
+    <div class="field">
+      <strong>Status:</strong>
+      <%= f.select(:draft, [['Draft', '1'], ['Final', '2']]) %>
+    </div>
+  <% else %>
+    <div class="hidden">
+      <strong>Status:</strong>
+      <%= f.select(:draft, [['Draft', '1'], ['Final', '2']]) %>
+    </div>
+  <% end %>
+
+  <div class="hidden">
+    <strong>User name:</strong>
+    <%= f.text_field :user_name, :value => current_user.user_name %>
+  </div>
+
+  <hr />
+
   <h4>General details</h4>
   <div class="field">
     <strong><em>job title: </em></strong>
@@ -91,8 +110,6 @@
 <hr />
 
   <h3>Competency profile</h3>
-  <hr />
-
   <h4>Technical competencies</h4>
   <%= f.fields_for :functionals do |builder| %>
     <%= render "functional_fields", f: builder %>

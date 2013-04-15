@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130414212305) do
+ActiveRecord::Schema.define(:version => 20130415204009) do
 
   create_table "attitudes", :force => true do |t|
     t.string   "description"
@@ -84,6 +84,8 @@ ActiveRecord::Schema.define(:version => 20130414212305) do
     t.string   "reports_to"
     t.string   "line_manages"
     t.text     "purpose"
+    t.integer  "draft"
+    t.string   "user_name"
   end
 
   create_table "responsibilities", :force => true do |t|
@@ -123,6 +125,7 @@ ActiveRecord::Schema.define(:version => 20130414212305) do
     t.integer  "office"
     t.integer  "language"
     t.integer  "role"
+    t.string   "user_name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

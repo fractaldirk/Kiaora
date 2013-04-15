@@ -6,6 +6,5 @@ class AddMoreDetailsToPositions < ActiveRecord::Migration
     add_column :positions, :line_manages, :string
     add_column :positions, :purpose, :text
     add_column :positions, :draft, :integer
-    add_column :positions, :user_name, :string
   end
 end

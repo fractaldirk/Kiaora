@@ -1,13 +1,15 @@
-<h1><em>All job descriptions</em></h1>
+<h4><em>All job descriptions</em></h4>
 <table class="table table-striped table-hover table-bordered">
   <tr>
     <th>Job title</th>
     <th>NRO</th>
   </tr>
 <% @positions.each do |p| %>
-  <tr>
-    <td><%= link_to p.job_title, p %></td>
-    <td><%= p.office_name %></td>
-  </tr>
+  <% unless ((p.office == 99) |& (p.draft == 1)) %>
+    <tr>
+      <td><%= link_to p.job_title, p %></td>
+      <td><%= p.office_name %></td>
+    </tr>
+  <% end %>
 <% end %>
 </table>
