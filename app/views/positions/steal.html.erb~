@@ -25,6 +25,7 @@
     <%= f.text_field :line_manages, :class => "text_field" %><br/>
     <%= f.hidden_field :office, :value => current_user.office %>
     <%= f.hidden_field :draft, :value => 2 %>
+    <%= f.hidden_field :user_name, :value => current_user.user_name %>
   </div>
 
   <hr />
