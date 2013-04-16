@@ -1,0 +1,6 @@
+<fieldset>
+  <% @organisational.each do |o| %>
+    <%= o.competency_english %> <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %> <br/>
+    <%= f.hidden_field :indicator, :value => o.indicator %><br/>
+  <% end %>
+</fieldset>

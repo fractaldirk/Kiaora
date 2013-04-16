@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blue Robin 1.0</title>
+  <title>Blue Robin 1.0.x</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -67,7 +67,7 @@
 
 <center>
     <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, id: "flash_#{name}" %>
+      <%= content_tag :div, msg, id: "flash_#{name}" %>
   <% end %>
 </center>
 

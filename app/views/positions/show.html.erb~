@@ -8,7 +8,7 @@
   <strong>Job title:</strong>
   <%= @position.job_title %><br/>
   Valid from:
-  <%= @position.valid_from.strftime("%d %b %Y") unless @position.valid_from.nil? %><br/>
+  <%= @position.valid_from.strftime("%d %B %Y") unless @position.valid_from.nil? %><br/>
   Job grade:
   <%= @position.job_grade %><br/>
   Reports to:

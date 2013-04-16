@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130415204009) do
+ActiveRecord::Schema.define(:version => 20130416214219) do
 
   create_table "attitudes", :force => true do |t|
     t.string   "description"
@@ -72,6 +72,17 @@ ActiveRecord::Schema.define(:version => 20130415204009) do
   end
 
   add_index "methodrelations", ["position_id"], :name => "index_methodrelations_on_position_id"
+
+  create_table "organisationals", :force => true do |t|
+    t.integer  "indicator"
+    t.integer  "importance"
+    t.integer  "value"
+    t.integer  "position_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "organisationals", ["position_id"], :name => "index_organisationals_on_position_id"
 
   create_table "positions", :force => true do |t|
     t.string   "job_title"

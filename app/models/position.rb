@@ -3,6 +3,7 @@ class Position < ActiveRecord::Base
   has_many :conditions
   has_many :attitudes
   # competency profile models
+  has_many :organisationals
   has_many :functionals
   has_many :methodrelations
   has_many :leaderships
@@ -10,12 +11,14 @@ class Position < ActiveRecord::Base
 
   attr_accessible :job_title, :responsibilities_attributes, :conditions_attributes,
                   :functionals_attributes, :methodrelations_attributes, :leaderships_attributes,
-                  :socials_attributes, :attitudes_attributes, :office, :scope,
-                  :valid_from, :job_grade, :reports_to, :line_manages, :purpose, :draft, :user_name
+                  :socials_attributes, :attitudes_attributes, :organisationals_attributes,
+                  :office, :scope, :valid_from, :job_grade, :reports_to, :line_manages,
+                  :purpose, :draft, :user_name
   accepts_nested_attributes_for :responsibilities, allow_destroy: true
   accepts_nested_attributes_for :conditions, allow_destroy: true
   accepts_nested_attributes_for :attitudes, allow_destroy: true
   # competency profile models
+  accepts_nested_attributes_for :organisationals, allow_destroy: true
   accepts_nested_attributes_for :functionals, allow_destroy: true
   accepts_nested_attributes_for :methodrelations, allow_destroy: true
   accepts_nested_attributes_for :leaderships, allow_destroy: true

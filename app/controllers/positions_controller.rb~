@@ -1,4 +1,5 @@
 class PositionsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /positions
   # GET /positions.json
   def index
@@ -35,6 +36,7 @@ class PositionsController < ApplicationController
     @method = Dictionary.find(:all, :conditions => { :indicator => 3 })
     @leadership = Dictionary.find(:all, :conditions => { :indicator => 4 })
     @social = Dictionary.find(:all, :conditions => { :indicator => 5 })
+    @organisational = Dictionary.find(:all, :conditions => {:indicator => 1})
 
     respond_to do |format|
       format.html # new.html.erb
@@ -53,6 +55,9 @@ class PositionsController < ApplicationController
     @method = Dictionary.find(:all, :conditions => { :indicator => 3 })
     @leadership = Dictionary.find(:all, :conditions => { :indicator => 4 })
     @social = Dictionary.find(:all, :conditions => { :indicator => 5 })
+    @organisational = Dictionary.find(:all, :conditions => {:indicator => 1})
+
+    1.times { @position.organisationals.build }
   end
 
   # POST /positions

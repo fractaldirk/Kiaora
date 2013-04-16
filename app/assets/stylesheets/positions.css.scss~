@@ -9,10 +9,14 @@
 }
 
 .text_field_long {
-  width: 475px;
+  width: 575px;
 }
 
 .text_area {
   width: 575px;
   height: 180px;
+}
+
+ul {
+  list-style-type: disc;
 }

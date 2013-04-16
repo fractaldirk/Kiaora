@@ -16,7 +16,6 @@ class PositionsController < ApplicationController
   def show
     @position = Position.find(params[:id])
     @dictionary = Dictionary.find(:all)
-    @organisational = Dictionary.find(:all, :conditions => {:indicator => 1})
     @conceptual = @position.responsibilities.find(:all, :conditions => {:indicator => 1})
     @implementation = @position.responsibilities.find(:all, :conditions => {:indicator => 2})
     @support = @position.responsibilities.find(:all, :conditions => {:indicator => 3})
@@ -36,6 +35,7 @@ class PositionsController < ApplicationController
     @method = Dictionary.find(:all, :conditions => { :indicator => 3 })
     @leadership = Dictionary.find(:all, :conditions => { :indicator => 4 })
     @social = Dictionary.find(:all, :conditions => { :indicator => 5 })
+    @organisational = Dictionary.find(:all, :conditions => {:indicator => 1})
 
     respond_to do |format|
       format.html # new.html.erb
@@ -54,6 +54,9 @@ class PositionsController < ApplicationController
     @method = Dictionary.find(:all, :conditions => { :indicator => 3 })
     @leadership = Dictionary.find(:all, :conditions => { :indicator => 4 })
     @social = Dictionary.find(:all, :conditions => { :indicator => 5 })
+    @organisational = Dictionary.find(:all, :conditions => {:indicator => 1})
+
+    1.times { @position.organisationals.build }
   end
 
   # POST /positions

@@ -1,0 +1,23 @@
+<fieldset>
+  <% if current_user.language == 1 %>
+    <% @organisational.each do |o| %>
+      <%= o.competency_english %> <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %> <br/>
+      <%= f.hidden_field :indicator, :value => o.indicator %><br/>
+    <% end %>
+  <% elsif current_user.language == 2 %>
+    <% @organisational.each do |o| %>
+      <%= o.competency_spanish %> <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %> <br/>
+      <%= f.hidden_field :indicator, :value => o.indicator %><br/>
+    <% end %>
+  <% elsif current_user.language == 3 %>
+    <% @organisational.each do |o| %>
+      <%= o.competency_french %> <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %> <br/>
+      <%= f.hidden_field :indicator, :value => o.indicator %><br/>
+    <% end %>
+  <% else %>
+    <% @organisational.each do |o| %>
+      <%= o.competency_english %> <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %> <br/>
+      <%= f.hidden_field :indicator, :value => o.indicator %><br/>
+    <% end %>
+  <% end %>
+</fieldset>

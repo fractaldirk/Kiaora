@@ -12,8 +12,6 @@
  *= require_tree .
  */
 
-#navigationleft {
-  position: fixed;
-  top: 50px;
-  left: 7px;
+ul {
+  style-type: square;
 }

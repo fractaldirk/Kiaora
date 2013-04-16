@@ -5,6 +5,7 @@ class DictionariesController < ApplicationController
   # GET /dictionaries.json
   def index
     @dictionaries = Dictionary.all
+    @organisational = Dictionary.find(:all, :conditions => {:indicator => 1})
 
     respond_to do |format|
       format.html # index.html.erb
@@ -85,7 +86,7 @@ class DictionariesController < ApplicationController
 
 private
   def gpi_user
-    unless current_user.offce == 99
+    unless current_user.office == 99
       redirect_to home_index_path
     end
   end
