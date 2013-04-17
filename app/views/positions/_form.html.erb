@@ -111,8 +111,10 @@
 
   <h3>Competency profile</h3>
   <h4>Organisational competencies</h4>
-  <%= f.fields_for :organisationals do |builder| %>
-    <%= render "organisational_fields", f: builder %>
+  <% @organisational.each do |o| %>
+    <%= f.fields_for :organisationals do |builder| %>
+      <%= render "organisational_fields", f: builder, :o => o %>
+    <% end %>
   <% end %>
 
   <h4>Technical competencies</h4>

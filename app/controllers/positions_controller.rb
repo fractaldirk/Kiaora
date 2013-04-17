@@ -31,11 +31,13 @@ class PositionsController < ApplicationController
   # GET /positions/new.json
   def new
     @position = Position.new
+    @organisational = Dictionary.find(:all, :conditions => {:indicator => 1})
     @functional = Dictionary.find(:all, :conditions => { :indicator => 2 })
     @method = Dictionary.find(:all, :conditions => { :indicator => 3 })
     @leadership = Dictionary.find(:all, :conditions => { :indicator => 4 })
     @social = Dictionary.find(:all, :conditions => { :indicator => 5 })
-    @organisational = Dictionary.find(:all, :conditions => {:indicator => 1})
+
+    1.times { @position.organisationals.build }
 
     respond_to do |format|
       format.html # new.html.erb
@@ -46,17 +48,16 @@ class PositionsController < ApplicationController
   # GET /positions/1/edit
   def edit
     @position = Position.find(params[:id])
+    @dictionary = Dictionary.find(:all)
     @conceptual = @position.responsibilities.find(:all, :conditions => { :indicator => 1})
     @implementation = @position.responsibilities.find(:all, :conditions => { :indicator => 2})
     @support = @position.responsibilities.find(:all, :conditions => { :indicator => 3})
     @compliance = @position.responsibilities.find(:all, :conditions => { :indicator => 4})
+    @organisational = Dictionary.find(:all, :conditions => {:indicator => 1})
     @functional = Dictionary.find(:all, :conditions => { :indicator => 2 })
     @method = Dictionary.find(:all, :conditions => { :indicator => 3 })
     @leadership = Dictionary.find(:all, :conditions => { :indicator => 4 })
     @social = Dictionary.find(:all, :conditions => { :indicator => 5 })
-    @organisational = Dictionary.find(:all, :conditions => {:indicator => 1})
-
-    1.times { @position.organisationals.build }
   end
 
   # POST /positions

@@ -1,0 +1,15 @@
+<fieldset>
+  <% if current_user.language == 1 %>
+      Indicator: <%= f.number_field :indicator, :id => "indicator" %><br/>
+      Importance: <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> Profiency: <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %><br/>
+  <% elsif current_user.language == 2 %>
+      <p>yo</p> <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %> <br/>
+      <%= f.hidden_field :indicator, :value => o.indicator %><br/>
+  <% elsif current_user.language == 3 %>
+      <p>yo</p> <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %> <br/>
+      <%= f.hidden_field :indicator, :value => o.indicator %><br/>
+  <% else %>
+      <p>yo</p> <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %> <br/>
+      <%= f.hidden_field :indicator, :value => o.indicator %><br/>
+  <% end %>
+</fieldset>
