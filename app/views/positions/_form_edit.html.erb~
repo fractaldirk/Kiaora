@@ -111,7 +111,7 @@
 
   <h3>Competency profile</h3>
   <h4>Organisational competencies</h4>
-    <table class="table">
+    <table class="table table-bordered">
       <tr>
         <th>Indicator</th>
         <th>Corresponding competency</th>

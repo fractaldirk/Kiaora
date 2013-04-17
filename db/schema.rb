@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130416214219) do
+ActiveRecord::Schema.define(:version => 20130417102751) do
 
   create_table "attitudes", :force => true do |t|
     t.string   "description"
@@ -80,6 +80,9 @@ ActiveRecord::Schema.define(:version => 20130416214219) do
     t.integer  "position_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "english"
+    t.string   "french"
+    t.string   "spanish"
   end
 
   add_index "organisationals", ["position_id"], :name => "index_organisationals_on_position_id"

@@ -1,17 +1,15 @@
 <fieldset>
   <% if current_user.language == 1 %>
-      Indicator: <%= f.number_field :indicator, :id => "indicator" %><br/>
+      <%= f.text_field :english %>
       Importance: <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> Profiency: <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %><br/><hr />
   <% elsif current_user.language == 2 %>
-      Indicator: <%= f.number_field :indicator, :id => "indicator" %><br/>
+      <%= f.text_field :spanish %>
       Importance: <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> Profiency: <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %><br/><hr />
-      <%= f.hidden_field :indicator, :value => o.indicator %><br/>
   <% elsif current_user.language == 3 %>
-      Indicator: <%= f.number_field :indicator, :id => "indicator" %><br/>
+      <%= f.text_field :french %>
       Importance: <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> Profiency: <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %><br/><hr />
-      <%= f.hidden_field :indicator, :value => o.indicator %><br/>
   <% else %>
-      Indicator: <%= f.number_field :indicator, :id => "indicator" %><br/>
+      <%= f.text_field :english %>
       Importance: <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> Profiency: <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %><br/><hr />
   <% end %>
 </fieldset>

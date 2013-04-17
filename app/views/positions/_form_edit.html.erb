@@ -111,22 +111,6 @@
 
   <h3>Competency profile</h3>
   <h4>Organisational competencies</h4>
-    <table class="table table-bordered">
-      <tr>
-        <th>Indicator</th>
-        <th>Corresponding competency</th>
-      </tr>
-  <% @position.organisationals.each do |o| %>
-      <tr>
-        <td><%= o.indicator %></td>
-          <% @dictionary.each do |d| %>
-            <% if d.id == o.indicator %>
-              <td><%= d.competency_english %></td>
-            <% end %>
-          <% end %>
-      </tr>
-  <% end %>
-    </table>
   <%= f.fields_for :organisationals do |builder| %>
     <%= render "organisational_fields_edit", f: builder %>
   <% end %>
