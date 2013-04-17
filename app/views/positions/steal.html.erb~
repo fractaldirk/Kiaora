@@ -93,6 +93,11 @@
 <hr />
 
   <h3>Competency profile</h3>
+  <h4>Organisational competencies</h4>
+  <%= f.fields_for :organisationals do |builder| %>
+    <%= render "organisational_fields_edit", f: builder %>
+  <% end %>
+
   <h4>Technical competencies</h4>
   <%= f.fields_for :functionals do |builder| %>
     <%= render "functional_fields", f: builder %>
