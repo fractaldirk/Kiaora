@@ -4,12 +4,12 @@
       <%= f.hidden_field :indicator, :value => o.id %><br/>
   <% elsif current_user.language == 2 %>
       <%= o.competency_spanish %> <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %> <br/>
-      <%= f.hidden_field :indicator, :value => o.indicator %><br/>
+      <%= f.hidden_field :indicator, :value => o.id %><br/>
   <% elsif current_user.language == 3 %>
       <%= o.competency_french %> <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %> <br/>
-      <%= f.hidden_field :indicator, :value => o.indicator %><br/>
+      <%= f.hidden_field :indicator, :value => o.id %><br/>
   <% else %>
       <%= o.competency_english %> <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %> <br/>
-      <%= f.hidden_field :indicator, :value => o.indicator %><br/>
+      <%= f.hidden_field :indicator, :value => o.id %><br/>
   <% end %>
 </fieldset>
