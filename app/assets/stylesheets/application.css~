@@ -12,6 +12,11 @@
  *= require_tree .
  */
 
-ul {
-  style-type: square;
+.activities {
+  font-size: 12px;
+  background-color: #D5E8FA;
+  padding: 10px;
+  width: 725px;
+  border: solid 3px #4B7399;
+  margin: 20px;
 }

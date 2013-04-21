@@ -9,10 +9,12 @@ class HomeController < ApplicationController
   end
   def GPI
     @positions = Position.find(:all, :conditions => {:office => 99})
+    @activities = Activity.find(:all, :conditions => {:office => 99}, :order => "created_at DESC", :limit => 10)
   end
 
   def belgium
     @positions = Position.find(:all, :conditions => {:office => 1})
+    @activities = Activity.find(:all, :conditions => {:office => 1}, :order => "created_at DESC", :limit => 10)
   end
 
   def database
@@ -20,8 +22,12 @@ class HomeController < ApplicationController
     @samples = Position.find(:all, :conditions => {:office => 99, :draft => 2})
   end
 
-  def home
+  def activity
+    @activities = Activity.find(:all, :order => "created_at DESC")
+  end
 
+  def requests
+    render notice: "To be defined"
   end
 
 private

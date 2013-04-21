@@ -1,0 +1,17 @@
+<ul class="nav nav-pills">
+  <li class="active">
+    <%= link_to 'Home', home_page %>
+  </li>
+  <li><%= link_to 'Activity', home_activity_path %></li>
+  <li><%= link_to 'Competency requests', home_requests_path %></li>
+</ul>
+<hr />
+
+<h4>List of all office activity</h4>
+<% @activities.each do |act| %>
+  <% if act.office == current_user.office %>
+    <div class="activities">
+      <p>The position <%= link_to act.content, "/positions/" + act.link.to_s %> has been <%= act.action %> by <%= act.user_name %> (at <%= act.created_at.strftime("%H:%M on %d %B %Y") unless act.created_at.nil? %>)</p>
+    </div>
+  <% end %>
+<% end %>

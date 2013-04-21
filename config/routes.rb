@@ -7,10 +7,13 @@ Kiaora::Application.routes.draw do
     member do
       get 'steal'
       put 'updatesteal'
+      get 'sign'
     end
   end
 
   get "home/index"
+  get "home/activity" => 'home#activity'
+  get "home/requests" => 'home#requests'
   get "home/GPI" => 'home#GPI'
   get "belgium" => 'home#belgium'
   get "database" => 'home#database'

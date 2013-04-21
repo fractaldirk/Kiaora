@@ -1,0 +1,9 @@
+<h2>Activity overview</h2>
+<hr />
+<% @activities.each do |act| %>
+  <% if act.office == current_user.office %>
+    <div class="activities">
+      <p>The position <%= link_to act.content, "/positions/" + act.link.to_s %> has been <%= act.action %> by <%= act.user_name %> (at: <%= act.created_at.strftime("%H:%M on %d %B %Y") unless act.created_at.nil? %>)</p>
+    </div>
+  <% end %>
+<% end %>

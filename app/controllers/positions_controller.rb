@@ -65,6 +65,7 @@ class PositionsController < ApplicationController
 
     respond_to do |format|
       if @position.save
+        Activity.create(content: "#{@position.job_title}", action: "created", office: "#{@position.office}", user_name: "#{@position.user_name}", link: "#{@position.id}")
         format.html { redirect_to @position, notice: 'Position was successfully created.' }
         format.json { render json: @position, status: :created, location: @position }
       else
@@ -80,12 +81,20 @@ class PositionsController < ApplicationController
     @position = Position.find(params[:id])
 
     respond_to do |format|
-      if @position.update_attributes(params[:position])
-        format.html { redirect_to @position, notice: 'Position was successfully updated.' }
+      if params[:sign_button]
+        @position.update_attributes(params[:position])
+        Activity.create(content: "#{@position.job_title}", action: "signed off", office: "#{@position.office}", user_name: "#{@position.user_name}", link: "#{@position.id}")
+        format.html { redirect_to positions_path, notice: 'Position was successfully signed off and added to the database. Nice job!' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @position.errors, status: :unprocessable_entity }
+        if @position.update_attributes(params[:position])
+          Activity.create(content: "#{@position.job_title}", action: "updated", office: "#{@position.office}", user_name: "#{@position.user_name}", link: "#{@position.id}")
+          format.html { redirect_to @position, notice: 'Position was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @position.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -119,6 +128,7 @@ class PositionsController < ApplicationController
 
     respond_to do |format|
       if @position.save
+        Activity.create(content: "#{@position.job_title}", action: "stolen", office: "#{@position.office}", user_name: "#{@position.user_name}", link: "#{@position.id}")
         format.html { redirect_to steal_position_path(@position), notice: 'Position was successfully updated.' }
         format.json { head :no_content }
       else
@@ -126,5 +136,9 @@ class PositionsController < ApplicationController
         format.json { render json: @position.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def sign
+    @position = Position.find(params[:id])
   end
 end

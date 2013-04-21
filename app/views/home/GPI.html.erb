@@ -1,27 +1,43 @@
-<h1>Hello GPI world!</h1>
-
+<ul class="nav nav-pills">
+  <li class="active">
+    <%= link_to 'Home', '#' %>
+  </li>
+  <li><%= link_to 'Activity', home_activity_path %></li>
+  <li><%= link_to 'Competency requests', home_requests_path %></li>
+</ul>
 <hr />
 
-<h4>Yeah, you've made it!</h4>
-<p>Welcome to one of the first versions of the Blue Robin software!</p>
-<p>In order to build the best software possible we need your help. Please try and test as many functions as possible. Whenever you have an idea or you are running into an error (unlikely :P), please "file a ticket". You can find that function in the navigation bar.</p>
+<div class="row">
+  <div class="span8">
+    <h4>Latest activity</h4>
+    <% @activities.each do |act| %>
+      <%= render "activity", :act => act %>
+    <% end %>
+  </div>
+  <div class="span4">
+    <h4>Yeah, you've made it!</h4>
+    <p>Welcome to one of the first versions of the Blue Robin software!</p>
+    <p>In order to build the best software possible we need your help. Please try and test as many functions as possible. Whenever you have an idea or you are running into an error (unlikely :P), please "file a ticket". You can find that function in the navigation bar.</p>
 
-<h4>Your feedback is essential!</h4>
-<p>In order to make this project a success your feedback is a key factor. This software will be created by and for Greenpeace HR and therefore in order to optimize the organisational fit your input is needed.</p>
+    <h4>Your feedback is essential!</h4>
+    <p>In order to make this project a success your feedback is a key factor. This software will be created by and for Greenpeace HR and therefore in order to optimize the organisational fit your input is needed.</p>
 
-<h4>Current version</h4>
-<p>This app currently runs on version 1.0.2 which include the following functions:
+    <h4>Current version</h4>
+    <p>This app currently runs on version 1.0.2 which include the following functions:
 
-<ul class="functions_list">
-  <li>Job description forms</li>
-  <li>Competency dictionairy (limited competencies available, more can be created by test users themselves)</li>
-  <li>User layer (open sign up)</li>
-  <li>Language depended competency profile display</li>
-  <li>Greenpeace Belgium and GPI page</li>
-  <li>GPI account to add & manage sample JD's</li>
-  <li>JD steal/copy function</li>
-  <li>Ticket center</li>
-  <li>JD draft section (only super user can sign off)</li>
-</ul>
+    <ul class="functions_list">
+      <li>Job description forms</li>
+      <li>Competency dictionairy (limited competencies available, more can be created by test users themselves)</li>
+      <li>User layer (open sign up)</li>
+      <li>Language depended competency profile display</li>
+      <li>Greenpeace Belgium and GPI page</li>
+      <li>GPI account to add & manage sample JD's</li>
+      <li>JD steal/copy function</li>
+      <li>Ticket center</li>
+      <li>JD draft section (only super user can sign off)</li>
+      <li>Activity log</li>
+    </ul>
 
-</p>
+    </p>
+  </div>
+</div>

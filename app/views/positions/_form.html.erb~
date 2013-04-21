@@ -33,7 +33,7 @@
   <h4>General details</h4>
   <div class="field">
     <strong><em>job title: </em></strong>
-    <%= f.text_field :job_title, :class => "text_field" %><br/>
+    <%= f.text_field :job_title, :class => "text_field", :value => @position.id %><br/>
     <strong><em>valid from: </em></strong>
     <%= f.date_select(:valid_from, :order => [:day, :month, :year]) %><br/>
     <strong><em>job grade: </em></strong>
@@ -111,8 +111,10 @@
 
   <h3>Competency profile</h3>
   <h4>Organisational competencies</h4>
-  <%= f.fields_for :organisationals do |builder| %>
-    <%= render "organisational_fields", f: builder %>
+  <% @organisational.each do |o| %>
+    <%= f.fields_for :organisationals do |builder| %>
+      <%= render "organisational_fields", f: builder, :o => o %>
+    <% end %>
   <% end %>
 
   <h4>Technical competencies</h4>
