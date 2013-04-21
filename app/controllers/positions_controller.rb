@@ -103,6 +103,7 @@ class PositionsController < ApplicationController
   # DELETE /positions/1.json
   def destroy
     @position = Position.find(params[:id])
+    Activity.create(content: "#{@position.job_title}", action: "deleted", office: "#{@position.office}", user_name: "#{@position.user_name}", link: "#{@position.id}")
     @position.destroy
 
     respond_to do |format|

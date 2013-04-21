@@ -84,7 +84,7 @@ class PositionsController < ApplicationController
       if params[:sign_button]
         @position.update_attributes(params[:position])
         Activity.create(content: "#{@position.job_title}", action: "signed off", office: "#{@position.office}", user_name: "#{@position.user_name}", link: "#{@position.id}")
-        format.html { redirect_to @position, notice: 'Position was successfully signed off and added to the database. Nice job!' }
+        format.html { redirect_to positions_path, notice: 'Position was successfully signed off and added to the database. Nice job!' }
         format.json { head :no_content }
       else
         if @position.update_attributes(params[:position])
