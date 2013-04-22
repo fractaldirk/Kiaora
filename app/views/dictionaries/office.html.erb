@@ -1,0 +1,77 @@
+<ul class="nav nav-pills">
+  <li><%= link_to 'Home', home_page %></li>
+  <li><%= link_to 'Activity', home_activity_path %></li>
+  <li><%= link_to 'Competency requests', home_requests_path %></li>
+  <% unless current_user.office == 99 %>
+    <li class="active">
+      <%= link_to 'Competency dictionary', dictionaries_office_path %>
+    </li>
+  <% end %>
+</ul>
+<hr />
+
+<%= link_to 'Request competency', "#", :class => 'btn btn-primary' %>
+
+<h3>Organisational competencies</h3>
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+    <th>Organisational competencies</th>
+  </tr>
+
+<% @organisational.each do |dictionary| %>
+  <tr>
+    <td><%= dictionary.competency_english %></td>
+  </tr>
+<% end %>
+</table>
+
+<hr />
+
+<h3>Functional competencies</h3>
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+    <th>Technical competencies</th>
+  </tr>
+
+<% @functional.each do |dictionary| %>
+  <tr>
+    <td><%= dictionary.competency_english %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+    <th>Method related competencies</th>
+  </tr>
+
+<% @method.each do |dictionary| %>
+  <tr>
+    <td><%= dictionary.competency_english %></td>
+  </tr>
+<% end %>
+</table>
+<br/>
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+    <th>Leadership competencies</th>
+  </tr>
+
+<% @leadership.each do |dictionary| %>
+  <tr>
+    <td><%= dictionary.competency_english %></td>
+  </tr>
+<% end %>
+</table>
+<br/>
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+    <th>Social/self competencies</th>
+  </tr>
+
+<% @social.each do |dictionary| %>
+  <tr>
+    <td><%= dictionary.competency_english %></td>
+  </tr>
+<% end %>
+</table>

@@ -103,6 +103,7 @@ class PositionsController < ApplicationController
   # DELETE /positions/1.json
   def destroy
     @position = Position.find(params[:id])
+    Activity.create(content: "#{@position.job_title}", action: "deleted", office: "#{@position.office}", user_name: "#{@position.user_name}", link: "#{@position.id}")
     @position.destroy
 
     respond_to do |format|
@@ -140,5 +141,15 @@ class PositionsController < ApplicationController
 
   def sign
     @position = Position.find(params[:id])
+  end
+
+  def profile
+    @position = Position.find(params[:id])
+    @dictionary = Dictionary.find(:all)
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @position }
+    end
   end
 end

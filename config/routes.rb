@@ -1,6 +1,7 @@
 Kiaora::Application.routes.draw do
   devise_for :users
 
+  get "dictionaries/office"
   resources :dictionaries
 
   resources :positions do
@@ -8,6 +9,7 @@ Kiaora::Application.routes.draw do
       get 'steal'
       put 'updatesteal'
       get 'sign'
+      get 'internal'
     end
   end
 

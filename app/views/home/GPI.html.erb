@@ -4,6 +4,9 @@
   </li>
   <li><%= link_to 'Activity', home_activity_path %></li>
   <li><%= link_to 'Competency requests', home_requests_path %></li>
+  <% unless current_user.office == 99 %>
+    <li><%= link_to 'Competency dictionary', dictionaries_office_path %></li>
+  <% end %>
 </ul>
 <hr />
 

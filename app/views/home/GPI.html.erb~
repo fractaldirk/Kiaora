@@ -4,11 +4,15 @@
   </li>
   <li><%= link_to 'Activity', home_activity_path %></li>
   <li><%= link_to 'Competency requests', home_requests_path %></li>
+  <% unless current_user.office == 99 %>
+    <li><%= link_to 'Competency dictionairy', dictionaries_office_path %></li>
+  <% end %>
 </ul>
 <hr />
 
 <div class="row">
   <div class="span8">
+    <h4>Latest activity</h4>
     <% @activities.each do |act| %>
       <%= render "activity", :act => act %>
     <% end %>

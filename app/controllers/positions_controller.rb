@@ -142,4 +142,14 @@ class PositionsController < ApplicationController
   def sign
     @position = Position.find(params[:id])
   end
+
+  def internal
+    @position = Position.find(params[:id])
+    @dictionary = Dictionary.find(:all)
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @position }
+    end
+  end
 end

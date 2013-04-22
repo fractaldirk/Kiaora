@@ -10,7 +10,7 @@
   <li>
     <% @dictionary.each do |d| %>
       <% if d.id == o.indicator %>
-        <%= d.competency_french %> (Im: <%= f.importance %> Val: <%= f.value %>)
+        <%= d.competency_french %> (Im: <%= o.importance %> Val: <%= o.value %>)
       <% end %>
     <% end %>
   </li>

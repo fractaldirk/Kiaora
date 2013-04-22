@@ -6,11 +6,15 @@
   <strong><u>Organisational competencies:</u></strong>
 </p>
 <ul class="competencies">
-  <% @organisational.each do |o| %>
-    <li>
-      <%= o.competency_spanish %>
-    </li>
-  <% end %>
+<% @position.organisationals.each do |o| %>
+  <li>
+    <% @dictionary.each do |d| %>
+      <% if d.id == o.indicator %>
+        <%= d.competency_spanish %>
+      <% end %>
+    <% end %>
+  </li>
+<% end %>
 </ul>
 
 <p>
@@ -25,7 +29,7 @@
   <li>
     <% @dictionary.each do |d| %>
       <% if d.id == f.indicator %>
-        <%= d.competency_spanish %> (Im: <%= f.importance %> Val: <%= f.value %>)
+        <%= d.competency_spanish %>
       <% end %>
     <% end %>
   </li>
@@ -40,7 +44,7 @@
   <li>
     <% @dictionary.each do |d| %>
       <% if d.id == m.indicator %>
-        <%= d.competency_spanish %> (Im: <%= m.importance %> Val: <%= m.value %>)
+        <%= d.competency_spanish %>
       <% end %>
     <% end %>
   </li>
@@ -55,7 +59,7 @@
   <li>
     <% @dictionary.each do |d| %>
       <% if d.id == l.indicator %>
-        <%= d.competency_spanish %> (Im: <%= l.importance %> Val: <%= l.value %>)
+        <%= d.competency_spanish %>
       <% end %>
     <% end %>
   </li>
@@ -70,7 +74,7 @@
   <li>
     <% @dictionary.each do |d| %>
       <% if d.id == s.indicator %>
-        <%= d.competency_spanish %> (Im: <%= s.importance %> Val: <%= s.value %>)
+        <%= d.competency_spanish %>
       <% end %>
     <% end %>
   </li>

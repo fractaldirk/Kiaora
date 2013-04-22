@@ -1,3 +1,11 @@
+<ul class="nav nav-pills nav-show">
+  <li class="active">
+    <%= link_to 'Public', '#' %>
+  </li>
+  <li><%= link_to 'Profile', profile_position_path(@position) %></li>
+</ul>
+<hr />
+
 <h1>Job description <small>Greenpeace <%= @position.office_name %></small></h1>
 
   <%= link_to 'Back', positions_path, :class => 'btn btn-primary', :id => 'navigationleft' %>
@@ -37,46 +45,46 @@
 <p>
   <u><strong>Conceptual tasks, Strategy Development and/or Project Development</strong></u>
 </p>
-<ol class="responsibilities">
+<ul class="responsibilities">
 <% @conceptual.each do |r| %>
   <li>
     <%= r.content %>
   </li>
 <% end %>
-</ol>
+</ul>
 
 <p>
   <u><strong>Implementation</strong></u>
 </p>
-<ol class="responsibilities">
+<ul class="responsibilities">
 <% @implementation.each do |r| %>
   <li>
     <%= r.content %>
   </li>
 <% end %>
-</ol>
+</ul>
 
 <p>
   <u><strong>Support / Coaching / Leadership</strong></u>
 </p>
-<ol class="responsibilities">
+<ul class="responsibilities">
 <% @support.each do |r| %>
   <li>
     <%= r.content %>
   </li>
 <% end %>
-</ol>
+</ul>
 
 <p>
   <u><strong>Compliance / Keeping Framework Conditions</strong></u>
 </p>
-<ol class="responsibilities">
+<ul class="responsibilities">
 <% @compliance.each do |r| %>
   <li>
     <%= r.content %>
   </li>
 <% end %>
-</ol>
+</ul>
 
 <hr />
 
@@ -93,21 +101,21 @@
 <hr />
 
   <h4>Attitude:</h4>
-<ol class="conditions">
+<ul class="conditions">
   <% @position.attitudes.each do |a| %>
     <li>
       <%= a.description %>
     </li>
   <% end %>
-</ol>
+</ul>
 
 <hr />
 
   <h4>Specific Work Environment</h4>
-<ol class="conditions">
+<ul class="conditions">
   <% @position.conditions.each do |con| %>
     <li>
       <%= con.environment %>
     </li>
   <% end %>
-</ol>
+</ul>

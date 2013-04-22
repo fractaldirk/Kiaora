@@ -1,6 +1,6 @@
 class DictionariesController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :gpi_user
+  before_filter :gpi_user, :except => [:office]
   # GET /dictionaries
   # GET /dictionaries.json
   def index
@@ -85,6 +85,14 @@ class DictionariesController < ApplicationController
       format.html { redirect_to dictionaries_url }
       format.json { head :no_content }
     end
+  end
+
+  def office
+    @organisational = Dictionary.find(:all, :conditions => {:indicator => 1})
+    @functional = Dictionary.find(:all, :conditions => { :indicator => 2 })
+    @method = Dictionary.find(:all, :conditions => { :indicator => 3 })
+    @leadership = Dictionary.find(:all, :conditions => { :indicator => 4 })
+    @social = Dictionary.find(:all, :conditions => { :indicator => 5 })
   end
 
 private

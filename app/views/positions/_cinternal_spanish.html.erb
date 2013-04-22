@@ -1,0 +1,96 @@
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+    <th></th>
+    <th>Importance</th>
+    <th>Proficiency</th>
+  </tr>
+  <tr>
+    <th><u>Organisational</u></th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @position.organisationals.each do |o| %>
+  <tr>
+    <% @dictionary.each do |d| %>
+      <% if d.id == o.indicator %>
+        <td><%= d.competency_spanish %></td>
+        <td><%= o.importance %></td>
+        <td><%= o.value %></td>
+      <% end %>
+    <% end %>
+  </tr>
+<% end %>
+  <tr>
+    <th><u>Functional</u></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <th><em>Technical</em></th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @position.functionals.each do |f| %>
+  <tr>
+    <% @dictionary.each do |d| %>
+      <% if d.id == f.indicator %>
+        <td><%= d.competency_spanish %></td>
+        <td><%= f.importance %></td>
+        <td><%= f.value %></td>
+      <% end %>
+    <% end %>
+  </tr>
+<% end %>
+  <tr>
+    <th><em>Method related</em></th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @position.methodrelations.each do |m| %>
+  <tr>
+    <% @dictionary.each do |d| %>
+      <% if d.id == m.indicator %>
+        <td><%= d.competency_spanish %></td>
+        <td><%= m.importance %></td>
+        <td><%= m.value %></td>
+      <% end %>
+    <% end %>
+  </tr>
+<% end %>
+<% if @position.leaderships.present? %>
+  <tr>
+    <th><em>Leadership</em></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @position.leaderships.each do |l| %>
+    <tr>
+      <% @dictionary.each do |d| %>
+        <% if d.id == l.indicator %>
+          <td><%= d.competency_spanish %></td>
+          <td><%= l.importance %></td>
+          <td><%= l.value %></td>
+        <% end %>
+      <% end %>
+    </tr>
+  <% end %>
+<% end %>
+<% if @position.socials.present? %>
+  <tr>
+    <th><em>Social/self</em></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @position.socials.each do |s| %>
+    <tr>
+      <% @dictionary.each do |d| %>
+        <% if d.id == s.indicator %>
+          <td><%= d.competency_spanish %></td>
+          <td><%= s.importance %></td>
+          <td><%= s.value %></td>
+        <% end %>
+      <% end %>
+    </tr>
+  <% end %>
+<% end %>
+</table>

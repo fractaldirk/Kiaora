@@ -1,1 +1,12 @@
+<ul class="nav nav-pills">
+  <li><%= link_to 'Home', home_page %></li>
+  <li><%= link_to 'Activity', home_activity_path %></li>
+  <li class="active">
+    <%= link_to 'Competency requests', home_requests_path %>
+  </li>
+  <% unless current_user.office == 99 %>
+    <li><%= link_to 'Competency dictionairy', dictionaries_office_path %></li>
+  <% end %>
+</ul>
+<hr />
 <p><strong><em>This page (and function) will be available soon..</em></strong></p>

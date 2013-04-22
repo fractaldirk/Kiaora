@@ -1,3 +1,11 @@
+<ul class="nav nav-pills nav-show">
+  <li class="active">
+    <%= link_to 'Public', '#' %>
+  </li>
+  <li><%= link_to 'Profile', internal_position_path(@position) %></li>
+</ul>
+<hr />
+
 <h1>Job description <small>Greenpeace <%= @position.office_name %></small></h1>
 
   <%= link_to 'Back', positions_path, :class => 'btn btn-primary', :id => 'navigationleft' %>
