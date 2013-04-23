@@ -79,28 +79,32 @@ class PositionPdf < Prawn::Document
   def conceptual
     move_down 5
     @conceptual.each do |r|
-      text "- #{r.content}", size: 11
+      data = [ ["-", "#{r.content}"]]
+      table(data, :cell_style => { :borders => [], :size => 11 } )
     end
   end
 
   def implementation
     move_down 5
     @implementation.each do |i|
-      text "- #{i.content}", size: 11
+      data = [ ["-", "#{i.content}"]]
+      table(data, :cell_style => { :borders => [], :size => 11 } )
     end
   end
 
   def support
     move_down 5
     @support.each do |s|
-      text "- #{s.content}", size: 11
+      data = [ ["-", "#{s.content}"]]
+      table(data, :cell_style => { :borders => [], :size => 11 } )
     end
   end
 
   def compliance
     move_down 5
     @compliance.each do |c|
-      text "- #{c.content}", size: 11
+      data = [ ["-", "#{c.content}"]]
+      table(data, :cell_style => { :borders => [], :size => 11 } )
     end
   end
 
