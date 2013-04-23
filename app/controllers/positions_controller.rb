@@ -24,6 +24,12 @@ class PositionsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @position }
+      format.pdf do
+        pdf = PositionPdf.new(@position, @dictionary, @conceptual, @implementation, @support, @compliance)
+        send_data pdf.render, filename: "JD_#{@position.job_title}",
+                                      type: "application/pdf",
+                                      disposition: "inline"
+      end
     end
   end
 

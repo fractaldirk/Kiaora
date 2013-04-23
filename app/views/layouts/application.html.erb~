@@ -23,6 +23,9 @@
         <ul class="nav">
           <li class="divider-vertical"><%= link_to "Positions", positions_path %></li>
           <li class="divider-vertical"><%= link_to "Database", database_path %></li>
+          <% if ((user_signed_in?) && (current_user.office == 99)) %>
+            <li class="divider-vertical"><%= link_to "Dictionary", dictionaries_path %></li>
+          <% end %>
           <li class="divider-vertical"><a href="#myModal" data-toggle="modal">File a ticket</a></li>
           <li class="dropdown">
             <% if user_signed_in? %>
@@ -72,6 +75,20 @@
 </center>
 
 <%= yield %>
+
+<div class="navbar navbar-fixed-bottom">
+  <div class="navbar-inner">
+    <div class="container">
+     <a class="brand" href="#">Title</a>
+    <ul class="nav">
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="#">Link</a></li>
+    <li><a href="#">Link</a></li>
+    </ul>
+    </div>
+  </div>
+</div>
+
 
 </body>
 </html>

@@ -52,13 +52,13 @@
 </ul>
 
 <p>
-  <strong>Leadership competencies:</strong>
+  <strong>Social competencies:</strong>
 </p>
 <ul class="competencies">
-<% @position.leaderships.each do |l| %>
+<% @position.socials.each do |s| %>
   <li>
     <% @dictionary.each do |d| %>
-      <% if d.id == l.indicator %>
+      <% if d.id == s.indicator %>
         <%= d.competency_spanish %>
       <% end %>
     <% end %>
@@ -67,13 +67,13 @@
 </ul>
 
 <p>
-  <strong>Social competencies:</strong>
+  <strong>Leadership competencies:</strong>
 </p>
 <ul class="competencies">
-<% @position.socials.each do |s| %>
+<% @position.leaderships.each do |l| %>
   <li>
     <% @dictionary.each do |d| %>
-      <% if d.id == s.indicator %>
+      <% if d.id == l.indicator %>
         <%= d.competency_spanish %>
       <% end %>
     <% end %>
