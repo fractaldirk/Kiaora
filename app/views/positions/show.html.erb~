@@ -8,9 +8,9 @@
 
 <h1>Job description <small>Greenpeace <%= @position.office_name %></small></h1>
 
-  <%= link_to 'Back', positions_path, :class => 'btn btn-primary', :id => 'navigationleft' %>
+  <%= link_to 'Back', positions_path, :class => 'btn btn-primary btn-small', :id => 'navigationleft' %>
 
-  <%= link_to "Public Job Description (PDF)", position_path(@position, format: "pdf"), :class => "btn btn-primary btn-small" %></p>
+  <%= link_to "Public Job Description (PDF)", position_path(@position, format: "pdf"), :class => "btn btn-primary btn-small", :id => 'navigationright' %></p>
 
 <%= render 'show_buttons' %>
 

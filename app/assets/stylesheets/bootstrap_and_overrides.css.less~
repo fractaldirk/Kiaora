@@ -45,6 +45,7 @@ body {
 @navbarBrandColor: black;
 @navbarLinkColor: white;
 @navbarText: white;
+@dropdownLinkColor: white;
 
 .modal {
   /* new custom width */
@@ -60,5 +61,5 @@ body {
 
 .nav-show {
   margin:auto;
-  width:50%;
+  width:20%;
 }
