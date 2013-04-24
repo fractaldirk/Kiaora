@@ -10,7 +10,9 @@
 
   <%= link_to 'Back', positions_path, :class => 'btn btn-primary btn-mini', :id => 'navigationleft' %>
 
-  <%= link_to "Competency Profile (xls)", internal_position_path(@position, format: "xlsx"), :class => "btn btn-primary btn-small", :id => 'navigationright' %>
+  <div class="hidden">
+    <%= link_to "Competency Profile (xls)", internal_position_path(@position, format: "xlsx"), :class => "btn btn-primary btn-small", :id => 'navigationright' %>
+  </div>
 
 <% if current_user.language == 1 %>
   <%= render "cinternal_english" %>
