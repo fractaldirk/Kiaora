@@ -1,25 +1,16 @@
-<?xml version="1.0"?>
-<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
-  xmlns:o="urn:schemas-microsoft-com:office:office"
-  xmlns:x="urn:schemas-microsoft-com:office:excel"
-  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
-  xmlns:html="http://www.w3.org/TR/REC-html40">
-  <Worksheet ss:Name="Competency profile">
-    <Table>
-      <Row>
-        <Cell><Data ss:Type="String">Competency</Data></Cell>
-        <Cell><Data ss:Type="String">Importance</Data></Cell>
-        <Cell><Data ss:Type="String">Proficiency</Data></Cell>
-        <Cell><Data ss:Type="String">Personal</Data></Cell>
-      </Row>
-    <% @position.organisatationals.each do |o| %>
-      <Row>
-        <Cell><Data ss:Type="String"><%= o.competency_english %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= o.importance %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= o.value %></Data></Cell>
-        <Cell><Data ss:Type="Number">0</Data></Cell>
-      </Row>
-    <% end %>
-    </Table>
-  </Worksheet>
-</Workbook>
+<table border="1">
+  <tr>
+    <th>Competency</th>
+    <th>Importance</th>
+    <th>Proficiency</th>
+    <th>Personal</th>
+  </tr>
+  <% @position.organisationals.each do |o| %>
+  <tr>
+    <td><%= o.competency_english %></td>
+    <td><%= o.importance %></td>
+    <td><%= o.value %></td>
+    <td></td>
+  </tr>
+  <% end %>
+</table>
