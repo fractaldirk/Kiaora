@@ -94,9 +94,13 @@ class PositionsController < ApplicationController
         format.json { head :no_content }
       else
         if @position.update_attributes(params[:position])
-          Activity.create(content: "#{@position.job_title}", action: "updated", office: "#{@position.office}", user_name: "#{@position.user_name}", link: "#{@position.id}")
-          format.html { redirect_to @position, notice: 'Position was successfully updated.' }
-          format.json { head :no_content }
+          if @position.functionals.count >= 2
+            format.html { redirect_to edit_position_path(@position), notice: 'Position has too many shizzle' }
+          else
+            Activity.create(content: "#{@position.job_title}", action: "updated", office: "#{@position.office}", user_name: "#{@position.user_name}", link: "#{@position.id}")
+            format.html { redirect_to @position, notice: 'Position was successfully updated.' }
+            format.json { head :no_content }
+          end
         else
           format.html { render action: "edit" }
           format.json { render json: @position.errors, status: :unprocessable_entity }
@@ -156,7 +160,7 @@ class PositionsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @position }
-      format.xls
+      format.xlsx
     end
   end
 end

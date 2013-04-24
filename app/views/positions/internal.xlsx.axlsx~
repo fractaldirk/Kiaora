@@ -10,10 +10,9 @@ wb.add_worksheet(name: 'Competency profile') do |sheet|
   @position.organisationals.each do |o|
     @dictionary.each do |d|
       if d.id == o.indicator
-        sheet.add_row ['#{d.competency_english}', '#{o.importance}', '#{o.value}', '0']
+        sheet.add_row [d.competency_english, o.importance, o.value, '0']
       end
     end
   end
-  sheet.add_row []
   sheet.column_widths 25, 5, 5, 5
 end

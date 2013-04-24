@@ -1,4 +1,12 @@
 class Functional < ActiveRecord::Base
   belongs_to :position
-  attr_accessible :indicator
+  attr_accessible :indicator, :importance, :value
+
+  validate :thing_count_within_limit, :on => :create
+
+  def thing_count_within_limit
+    if self.position.functionals(:reload).size >= 5
+      errors.add(:base, "Exceeded thing limit")
+    end
+  end
 end
