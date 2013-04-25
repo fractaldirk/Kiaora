@@ -1,0 +1,35 @@
+<%= form_for(@position) do |f| %>
+  <% if @position.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@position.errors.count, "error") %> prohibited this position from being saved:</h2>
+
+      <ul>
+      <% @position.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h3>Customize your PDF</h3>
+  <p>"Some explanation"</p>
+  <hr />
+
+  <h4>General Details</h4>
+  <div class="field">
+    <%= f.check_box :valid_from_cb %> Valid from <br/>
+    <%= f.check_box :reports_to_cb %> Reports to <br/>
+    <%= f.check_box :line_manages_cb %> Line manages <br/>
+    <%= f.check_box :job_grade_cb %> Job grade <br/>
+    <%= f.check_box :salary_range_cb %> Salary range: <%= f.text_field :salary_range, :placeholder => "Define salary range (optional)" %> <br/>
+    <%= f.check_box :fte_cb %> Number of FTE: <%= f.select(:fte, [['Full time', 1.0], ['Part time', 0.5]]) %> <br/>
+    <%= f.check_box :permanent_cb %> Permanent or temporarily position? <%= f.select(:permanent, [['Permanent', 1], ['Temporarily', 2]]) %> <br/>
+  </div>
+
+<hr />
+
+  <div class="actions">
+    <%= f.submit "Generate custom PDF", :class => 'btn btn-inverse', :name => "pdf_button"  %>
+  </div>
+
+<% end %>

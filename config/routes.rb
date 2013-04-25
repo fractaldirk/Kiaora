@@ -10,6 +10,8 @@ Kiaora::Application.routes.draw do
       put 'updatesteal'
       get 'sign'
       get 'internal'
+      get 'editpdf'
+      get 'showpdf'
     end
   end
 

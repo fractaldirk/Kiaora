@@ -42,11 +42,26 @@ class PositionPdf < Prawn::Document
 
   def general_info
     text "Job title: #{@position.job_title}", size: 11
-    text "Valid from: #{@position.valid_from.strftime("%d %B %Y") unless @position.valid_from.nil?}", size: 11
-    text "Job grade: #{@position.job_grade}", size: 11
-    text "Reports to: #{@position.reports_to}", size: 11
-    if @position.line_manages.present?
+    if @position.valid_from_cb?
+      text "Valid from: #{@position.valid_from.strftime("%d %B %Y") unless @position.valid_from.nil?}", size: 11
+    end
+    if @position.job_grade_cb?
+      text "Job grade: #{@position.job_grade}", size: 11
+    end
+    if @position.salary_range_cb?
+      text "Salary range: #{@position.salary_range}", size: 11
+    end
+    if @position.reports_to_cb?
+      text "Reports to: #{@position.reports_to}", size: 11
+    end
+    if ((@position.line_manages_cb?) && (@position.line_manages.present?))
       text "Line manages: #{@position.line_manages}", size: 11
+    end
+    if @position.fte_cb?
+      text "FTE: #{@position.fte_outcome}", size: 11
+    end
+    if @position.permanent_cb?
+      text "Type: #{@position.permanent_outcome}", size: 11
     end
   end
 

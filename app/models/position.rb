@@ -13,7 +13,10 @@ class Position < ActiveRecord::Base
                   :functionals_attributes, :methodrelations_attributes, :leaderships_attributes,
                   :socials_attributes, :attitudes_attributes, :organisationals_attributes,
                   :office, :scope, :valid_from, :job_grade, :reports_to, :line_manages,
-                  :purpose, :draft, :user_name
+                  :purpose, :draft, :user_name, :salary_range, :permanent, :fte,
+                  #checkboxes
+                  :salary_range_cb, :job_grade_cb, :valid_from_cb, :reports_to_cb, :line_manages_cb, :fte_cb,
+                  :permanent_cb
   accepts_nested_attributes_for :responsibilities, allow_destroy: true
   accepts_nested_attributes_for :conditions, allow_destroy: true
   accepts_nested_attributes_for :attitudes, allow_destroy: true
@@ -35,6 +38,26 @@ class Position < ActiveRecord::Base
       "Sample JD"
     else
       "To be defined"
+    end
+  end
+
+  def fte_outcome
+    if fte == 1.0
+      "Full time"
+    elsif fte == 0.5
+      "Part time"
+    else
+      "Undefined"
+    end
+  end
+
+  def permanent_outcome
+    if permanent == 1
+      "Permanent position"
+    elsif permanent == 2
+      "Temporarily position"
+    else
+      "Undefined"
     end
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130421175258) do
+ActiveRecord::Schema.define(:version => 20130425112126) do
 
   create_table "activities", :force => true do |t|
     t.string   "user_name"
@@ -99,8 +99,8 @@ ActiveRecord::Schema.define(:version => 20130421175258) do
 
   create_table "positions", :force => true do |t|
     t.string   "job_title"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.integer  "office"
     t.text     "scope"
     t.date     "valid_from"
@@ -110,6 +110,16 @@ ActiveRecord::Schema.define(:version => 20130421175258) do
     t.text     "purpose"
     t.integer  "draft"
     t.string   "user_name"
+    t.string   "salary_range"
+    t.boolean  "salary_range_cb"
+    t.boolean  "job_grade_cb"
+    t.boolean  "valid_from_cb"
+    t.boolean  "reports_to_cb"
+    t.boolean  "line_manages_cb"
+    t.decimal  "fte"
+    t.boolean  "fte_cb"
+    t.integer  "permanent"
+    t.boolean  "permanent_cb"
   end
 
   create_table "responsibilities", :force => true do |t|

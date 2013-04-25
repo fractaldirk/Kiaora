@@ -92,6 +92,10 @@ class PositionsController < ApplicationController
         Activity.create(content: "#{@position.job_title}", action: "signed off", office: "#{@position.office}", user_name: "#{@position.user_name}", link: "#{@position.id}")
         format.html { redirect_to positions_path, notice: 'Position was successfully signed off and added to the database. Nice job!' }
         format.json { head :no_content }
+      elsif params[:pdf_button]
+        @position.update_attributes(params[:position])
+          format.html { redirect_to position_path(@position, format: "pdf") }
+          format.json { head :no_content }
       else
         if @position.update_attributes(params[:position])
           Activity.create(content: "#{@position.job_title}", action: "updated", office: "#{@position.office}", user_name: "#{@position.user_name}", link: "#{@position.id}")
@@ -158,5 +162,17 @@ class PositionsController < ApplicationController
       format.json { render json: @position }
       format.xlsx
     end
+  end
+
+  def editpdf
+    @position = Position.find(params[:id])
+    @conceptual = @position.responsibilities.find(:all, :conditions => { :indicator => 1})
+    @implementation = @position.responsibilities.find(:all, :conditions => { :indicator => 2})
+    @support = @position.responsibilities.find(:all, :conditions => { :indicator => 3})
+    @compliance = @position.responsibilities.find(:all, :conditions => { :indicator => 4})
+    @functional = Dictionary.find(:all, :conditions => { :indicator => 2 })
+    @method = Dictionary.find(:all, :conditions => { :indicator => 3 })
+    @leadership = Dictionary.find(:all, :conditions => { :indicator => 4 })
+    @social = Dictionary.find(:all, :conditions => { :indicator => 5 })
   end
 end
