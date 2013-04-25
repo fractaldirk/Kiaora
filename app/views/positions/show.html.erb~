@@ -10,7 +10,11 @@
 
   <%= link_to 'Back', positions_path, :class => 'btn btn-primary btn-small', :id => 'navigationleft' %>
 
-  <%= link_to "Public Job Description (PDF)", position_path(@position, format: "pdf"), :class => "btn btn-primary btn-small", :id => 'navigationright' %>
+<div id="navigationright">
+  <%= link_to "Generate PDF", position_path(@position, format: "pdf"), :class => "btn btn-primary btn-small" %>
+
+  <%= link_to 'Customize PDF', editpdf_position_path(@position), :class => "btn btn-inverse btn-small" %>
+</div>
 
 <%= render 'show_buttons' %>
 
