@@ -5,7 +5,7 @@
   <li><%= link_to 'Activity', home_activity_path %></li>
   <li><%= link_to 'Competency requests', home_requests_path %></li>
   <% unless current_user.office == 99 %>
-    <li><%= link_to 'Competency dictionairy', dictionaries_office_path %></li>
+    <li><%= link_to 'Competency dictionary', dictionaries_office_path %></li>
   <% end %>
 </ul>
 <hr />
@@ -18,6 +18,12 @@
     <% end %>
   </div>
   <div class="span4">
+
+    <ol class="yo">
+      <li></li>
+      <li></li>
+      <li></li>
+    </ol>
     <h4>Yeah, you've made it!</h4>
     <p>Welcome to one of the first versions of the Blue Robin software!</p>
     <p>In order to build the best software possible we need your help. Please try and test as many functions as possible. Whenever you have an idea or you are running into an error (unlikely :P), please "file a ticket". You can find that function in the navigation bar.</p>

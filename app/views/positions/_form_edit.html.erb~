@@ -62,7 +62,10 @@
   <h2>Responsibilities</h2>
   <h4>Conceptual tasks, Strategy Development and/or Project Development</h4>
   <% if @conceptual.present? %>
+    <% just_a_counter = 0 %>
     <%= f.fields_for :responsibilities, @conceptual do |builder| %>
+      <% just_a_counter += 1 %><%= just_a_counter %>
+        <%= f.text_field :content, :value => just_a_counter %>
       <%= render "responsibility_fields", f: builder %>
     <% end %>
   <% end %>
@@ -115,10 +118,10 @@
   <% end %>
 
   <h4>Technical competencies</h4>
-    <%= f.fields_for :functionals do |builder| %>
-      <%= render "functional_fields", f: builder %>
-    <% end %>
-    <%= link_to_add_fields "Add Competency", f, :functionals %>
+  <%= f.fields_for :functionals do |builder| %>
+    <%= render "functional_fields", f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Add Competency", f, :functionals %>
 
   <h4>Method related competencies</h4>
   <%= f.fields_for :methodrelations do |builder| %>

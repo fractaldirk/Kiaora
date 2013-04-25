@@ -1,15 +1,32 @@
 <fieldset>
   <% if current_user.language == 1 %>
       <%= o.competency_english %> <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %><br/>
-      <%= f.hidden_field :indicator, :value => o.id %> <%= f.text_field :english, :value => o.competency_english %><br/>
+      <%= f.text_field :id %>
+      <%= f.hidden_field :indicator, :value => o.id %>
+      <%= f.hidden_field :english, :value => o.competency_english %>
+      <%= f.hidden_field :spanish, :value => o.competency_spanish %>
+      <%= f.hidden_field :french, :value => o.competency_french %>
+      <br/>
   <% elsif current_user.language == 2 %>
       <%= o.competency_spanish %> <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %> <br/>
-      <%= f.hidden_field :indicator, :value => o.id %><br/>
+      <%= f.hidden_field :indicator, :value => o.id %>
+      <%= f.hidden_field :english, :value => o.competency_english %>
+      <%= f.hidden_field :spanish, :value => o.competency_spanish %>
+      <%= f.hidden_field :french, :value => o.competency_french %>
+      <br/>
   <% elsif current_user.language == 3 %>
       <%= o.competency_french %> <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %> <br/>
-      <%= f.hidden_field :indicator, :value => o.id %><br/>
+      <%= f.hidden_field :indicator, :value => o.id %>
+      <%= f.hidden_field :english, :value => o.competency_english %>
+      <%= f.hidden_field :spanish, :value => o.competency_spanish %>
+      <%= f.hidden_field :french, :value => o.competency_french %>
+      <br/>
   <% else %>
       <%= o.competency_english %> <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %> <br/>
-      <%= f.hidden_field :indicator, :value => o.id %><br/>
+      <%= f.hidden_field :indicator, :value => o.id %>
+      <%= f.hidden_field :english, :value => o.competency_english %>
+      <%= f.hidden_field :spanish, :value => o.competency_spanish %>
+      <%= f.hidden_field :french, :value => o.competency_french %>
+      <br/>
   <% end %>
 </fieldset>

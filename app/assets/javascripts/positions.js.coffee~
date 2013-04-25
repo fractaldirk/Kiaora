@@ -14,5 +14,5 @@ jQuery ->
     $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
 
-  $("#indicator").on 'click', (event) ->
-    $("#output").text("yooooo")
+  when $('#position_responsibilities_attributes_0_content')? ->
+    $('#fill').text("yoyo")

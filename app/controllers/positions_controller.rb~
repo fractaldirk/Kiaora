@@ -175,24 +175,4 @@ class PositionsController < ApplicationController
     @leadership = Dictionary.find(:all, :conditions => { :indicator => 4 })
     @social = Dictionary.find(:all, :conditions => { :indicator => 5 })
   end
-
-  def showpdf
-    @position = Position.find(params[:id])
-    @dictionary = Dictionary.find(:all)
-    @conceptual = @position.responsibilities.find(:all, :conditions => {:indicator => 1})
-    @implementation = @position.responsibilities.find(:all, :conditions => {:indicator => 2})
-    @support = @position.responsibilities.find(:all, :conditions => {:indicator => 3})
-    @compliance = @position.responsibilities.find(:all, :conditions => {:indicator => 4})
-
-    respond_to do |format|
-      format.html # showpdf.html.erb
-      format.json { render json: @position }
-      format.pdf do
-        pdf = PositionPdf.new(@position, @dictionary, @conceptual, @implementation, @support, @compliance)
-        send_data pdf.render, filename: "JD_#{@position.job_title}",
-                                      type: "application/pdf",
-                                      disposition: "inline"
-      end
-    end
-  end
 end

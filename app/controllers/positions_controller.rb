@@ -94,7 +94,7 @@ class PositionsController < ApplicationController
         format.json { head :no_content }
       elsif params[:pdf_button]
         @position.update_attributes(params[:position])
-          format.html { redirect_to position_path(@position, format: "pdf") }
+          format.html { redirect_to @position }
           format.json { head :no_content }
       else
         if @position.update_attributes(params[:position])
