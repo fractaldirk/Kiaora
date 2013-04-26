@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130425112126) do
+ActiveRecord::Schema.define(:version => 20130426010058) do
 
   create_table "activities", :force => true do |t|
     t.string   "user_name"
@@ -120,6 +120,15 @@ ActiveRecord::Schema.define(:version => 20130425112126) do
     t.boolean  "fte_cb"
     t.integer  "permanent"
     t.boolean  "permanent_cb"
+  end
+
+  create_table "requests", :force => true do |t|
+    t.string   "request"
+    t.string   "user"
+    t.integer  "office"
+    t.integer  "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "responsibilities", :force => true do |t|

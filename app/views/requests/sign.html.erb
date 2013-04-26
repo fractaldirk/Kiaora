@@ -1,0 +1,15 @@
+<%= form_for @request, :html => { :class => 'form-horizontal' } do |f| %>
+
+  <div class="field">
+    <%= f.label :status, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select(:status, [['Successful', 2], ['Rejected', 3]]) %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary', :name => "sign_button" %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                requests_path, :class => 'btn' %>
+  </div>
+<% end %>

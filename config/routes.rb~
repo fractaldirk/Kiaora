@@ -1,4 +1,8 @@
 Kiaora::Application.routes.draw do
+  resources :requests do
+    member get 'sign'
+  end
+
   devise_for :users
 
   get "dictionaries/office"
@@ -10,7 +14,8 @@ Kiaora::Application.routes.draw do
       put 'updatesteal'
       get 'sign'
       get 'internal'
-      get 'pdf'
+      get 'editpdf'
+      get 'showpdf'
     end
   end
 

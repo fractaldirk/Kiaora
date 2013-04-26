@@ -27,7 +27,8 @@ class HomeController < ApplicationController
   end
 
   def requests
-
+    @processed_requests = Request.find(:all, :conditions => ['status = 2 OR status = 3'])
+    @pending_requests = Request.find(:all, :conditions => {:status => 1})
   end
 
 private

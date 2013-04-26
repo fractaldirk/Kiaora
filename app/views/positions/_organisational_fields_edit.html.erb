@@ -1,15 +1,15 @@
 <fieldset>
   <% if current_user.language == 1 %>
-      <%= f.text_field :english %>
-      Importance: <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> Profiency: <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %><br/><hr />
+      <%= f.text_field :english, :class => "text_field_long" %>
+      Importance: <%= f.select(:importance, ['1', '2', '3', '4'], { :prompt => '0'}, :id => "select_field" ) %> Profiency: <%= f.select(:value, ['1', '2', '3', '4'], { :prompt => '0'}, :id => "select_field" ) %><br/><hr />
   <% elsif current_user.language == 2 %>
-      <%= f.text_field :spanish %>
-      Importance: <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> Profiency: <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %><br/><hr />
+      <%= f.text_field :spanish, :class => "text_field_long" %>
+      Importance: <%= f.select(:importance, ['1', '2', '3', '4'], { :prompt => '0'}, :id => "select_field" ) %> Profiency: <%= f.select(:value, ['1', '2', '3', '4'], { :prompt => '0'}, :id => "select_field" ) %><br/><hr />
   <% elsif current_user.language == 3 %>
-      <%= f.text_field :french %>
-      Importance: <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> Profiency: <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %><br/><hr />
+      <%= f.text_field :french, :class => "text_field_long" %>
+      Importance: <%= f.select(:importance, ['1', '2', '3', '4'], { :prompt => '0'}, :id => "select_field" ) %> Profiency: <%= f.select(:value, ['1', '2', '3', '4'], { :prompt => '0'}, :id => "select_field" ) %><br/><hr />
   <% else %>
-      <%= f.text_field :english %>
-      Importance: <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> Profiency: <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %><br/><hr />
+      <%= f.text_field :english, :class => "text_field_long" %>
+      Importance: <%= f.select(:importance, ['1', '2', '3', '4'], { :prompt => '0'}, :id => "select_field" ) %> Profiency: <%= f.select(:value, ['1', '2', '3', '4'], { :prompt => '0'}, :id => "select_field" ) %><br/><hr />
   <% end %>
 </fieldset>

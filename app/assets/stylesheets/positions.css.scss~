@@ -4,6 +4,12 @@
   left: 7px;
 }
 
+#navigationright {
+  position: fixed;
+  top: 50px;
+  right: 7px;
+}
+
 .text_field {
   width: 275px;
 }
@@ -19,4 +25,12 @@
 
 ul {
   list-style-type: square;
+}
+
+#select_field {
+  width: 40pt;
+}
+
+#competency_select_field {
+  width: 340pt;
 }

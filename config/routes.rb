@@ -1,4 +1,10 @@
 Kiaora::Application.routes.draw do
+  resources :requests do
+    member do
+      get 'sign'
+    end
+  end
+
   devise_for :users
 
   get "dictionaries/office"

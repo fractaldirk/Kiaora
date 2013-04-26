@@ -9,4 +9,89 @@
   <% end %>
 </ul>
 <hr />
-<p><strong><em>This page (and function) will be available soon..</em></strong></p>
+<%- model_class = Request -%>
+<div class="page-header">
+  <h2>Pending requests</h2>
+</div>
+  <% if @pending_requests.present? %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Competency request</th>
+          <th>Requester</th>
+          <th><%= model_class.human_attribute_name(:office) %></th>
+          <th><%= model_class.human_attribute_name(:created_at) %></th>
+          <th><%=t '.actions', :default => t("helpers.actions") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @pending_requests.each do |request| %>
+          <tr>
+            <td><%= link_to request.request, request_path(request) %></td>
+            <td><%= request.user %></td>
+            <td><%= request.office_name %></td>
+            <td><%= request.created_at.strftime("%d %B %Y") unless request.created_at.nil?  %></td>
+            <td>
+              <% unless current_user.office == 99 %>
+                <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                          edit_request_path(request), :class => 'btn btn-mini' %>
+              <% end %>
+              <% if current_user.office == 99 %>
+                <%= link_to 'Sign off', sign_request_path(request), :class => 'btn btn-mini btn-inverse' %>
+              <% end %>
+              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                          request_path(request),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-mini btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <% else %>
+      <p><strong>No pending requests at the moment..</strong></p>
+  <% end %>
+<br/>
+<hr />
+
+  <div class="page-header">
+    <h2>Processed requests</h2>
+  </div>
+
+  <% if @processed_requests.present? %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Competency request</th>
+          <th>Status</th>
+          <th>Requester</th>
+          <th><%= model_class.human_attribute_name(:office) %></th>
+          <th><%= model_class.human_attribute_name(:created_at) %></th>
+          <th><%=t '.actions', :default => t("helpers.actions") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @processed_requests.each do |request| %>
+          <tr>
+            <td><%= link_to request.request, request_path(request) %></td>
+            <td><%= request.status_outcome %></td>
+            <td><%= request.user %></td>
+            <td><%= request.office_name %></td>
+            <td><%= request.created_at.strftime("%d %B %Y") unless request.created_at.nil?  %></td>
+            <td>
+              <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                          edit_request_path(request), :class => 'btn btn-mini' %>
+              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                          request_path(request),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-mini btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <% else %>
+      <p><strong>No processed requests at the moment..</strong></p>
+  <% end %>
