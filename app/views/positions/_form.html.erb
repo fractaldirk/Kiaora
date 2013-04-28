@@ -26,6 +26,10 @@
   <div class="hidden">
     <strong>User name:</strong>
     <%= f.text_field :user_name, :value => current_user.user_name %>
+    <%= f.check_box :valid_from_cb, :checked => true %>
+    <%= f.check_box :reports_to_cb, :checked => true %>
+    <%= f.check_box :line_manages_cb, :checked => true %>
+    <%= f.check_box :job_grade_cb, :checked => true %>
   </div>
 
   <hr />

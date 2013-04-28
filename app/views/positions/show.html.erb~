@@ -12,8 +12,8 @@
 
 <div id="navigationright">
   <%= link_to "Generate PDF", position_path(@position, format: "pdf"), :class => "btn btn-primary btn-small" %>
-
-  <%= link_to 'Customize PDF', editpdf_position_path(@position), :class => "btn btn-inverse btn-small" %>
+  <br/>
+  <%= link_to 'Customize PDF', editpdf_position_path(@position), :class => "btn btn-inverse btn-small", "data-toggle" => "tooltip", "data-placement" => "left", "title" => "define PDF fields" %>
 </div>
 
 <%= render 'show_buttons' %>

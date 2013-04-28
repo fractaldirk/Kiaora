@@ -23,9 +23,13 @@
     </div>
   <% end %>
 
-  <div class="hidden">
+  <div class="field">
     <strong>User name:</strong>
     <%= f.text_field :user_name, :value => current_user.user_name %>
+    <%= f.check_box :valid_from_cb, :checked => true %>
+    <%= f.check_box :reports_to_cb, :checked => true %>
+    <%= f.check_box :line_manages_cb, :checked => true %>
+    <%= f.check_box :job_grade_cb, :checked => true %>
   </div>
 
   <hr />
@@ -33,7 +37,7 @@
   <h4>General details</h4>
   <div class="field">
     <strong><em>job title: </em></strong>
-    <%= f.text_field :job_title, :class => "text_field", :value => @position.id %><br/>
+    <%= f.text_field :job_title, :class => "text_field" %><br/>
     <strong><em>valid from: </em></strong>
     <%= f.date_select(:valid_from, :order => [:day, :month, :year]) %><br/>
     <strong><em>job grade: </em></strong>
