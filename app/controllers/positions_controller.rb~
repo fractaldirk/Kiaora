@@ -180,6 +180,7 @@ class PositionsController < ApplicationController
     params[:responsibility].each_with_index do |id, index|
       Responsibility.update_all({r_position: index+1}, {id: id})
     end
+    @position = Position.find(params[:id])
     respond_to do |format|
       format.html { redirect_to @position }
       format.json { head :no_content }

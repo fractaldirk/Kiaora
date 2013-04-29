@@ -54,7 +54,7 @@ class PositionsController < ApplicationController
   # GET /positions/1/edit
   def edit
     @position = Position.find(params[:id])
-    @conceptual = @position.responsibilities.find(:all, :conditions => { :indicator => 1})
+    @conceptual = @position.responsibilities.find(:all, :order => "r_position", :conditions => { :indicator => 1})
     @implementation = @position.responsibilities.find(:all, :conditions => { :indicator => 2})
     @support = @position.responsibilities.find(:all, :conditions => { :indicator => 3})
     @compliance = @position.responsibilities.find(:all, :conditions => { :indicator => 4})
