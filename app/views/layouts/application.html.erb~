@@ -4,6 +4,8 @@
   <title>Blue Robin 1.0.x</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -75,20 +77,6 @@
 </center>
 
 <%= yield %>
-
-<div class="navbar navbar-fixed-bottom">
-  <div class="navbar-inner">
-    <div class="container">
-     <a class="brand" href="#">Title</a>
-    <ul class="nav">
-    <li class="active"><a href="#">Home</a></li>
-    <li><a href="#">Link</a></li>
-    <li><a href="#">Link</a></li>
-    </ul>
-    </div>
-  </div>
-</div>
-
 
 </body>
 </html>

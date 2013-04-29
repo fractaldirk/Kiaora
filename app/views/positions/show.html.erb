@@ -43,7 +43,6 @@
   <%= simple_format @position.scope %>
 </p>
 
-
 <p>
   <h4>Key functions / responsibilities</h4>
 </p>
@@ -51,10 +50,12 @@
 <p>
   <u><strong>Conceptual tasks, Strategy Development and/or Project Development</strong></u>
 </p>
-<ul class="responsibilities">
+<ul class="responsibilities" id="responsibilities" data-update-url="<%= sort_positions_url %>">
 <% @conceptual.each do |r| %>
-  <li>
+  <%= content_tag_for :li, r do %>
+    <span class="handle">[drag]</span>
     <%= r.content %>
+  <% end %>
   </li>
 <% end %>
 </ul>
@@ -105,6 +106,7 @@
 <% end %>
 
 <hr />
+
 
   <h4>Attitude:</h4>
 <ul class="conditions">

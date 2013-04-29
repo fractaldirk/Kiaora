@@ -13,3 +13,10 @@ jQuery ->
     regexp = new RegExp($(this).data('id'), 'g')
     $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
+
+  $('#responsibilities').sortable(
+    axis: 'y'
+    handle: '.handle'
+    update: ->
+      $.post($(this).data('update-url'), $(this).sortable('serialize'))
+  );

@@ -1,3 +1,9 @@
+#faqs .handle {
+  font-size: 12px;
+  color: #777;
+  cursor: move;
+}
+
 #navigationleft {
   position: fixed;
   top: 50px;
@@ -32,5 +38,5 @@ ul {
 }
 
 #competency_select_field {
-  width: 340pt;
+  width: 440pt;
 }

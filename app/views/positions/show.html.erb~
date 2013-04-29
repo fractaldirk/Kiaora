@@ -13,7 +13,7 @@
 <div id="navigationright">
   <%= link_to "Generate PDF", position_path(@position, format: "pdf"), :class => "btn btn-primary btn-small" %>
   <br/>
-  <%= link_to 'Customize PDF', editpdf_position_path(@position), :class => "btn btn-inverse btn-small", "data-toggle" => "tooltip", "data-placement" => "left", "title" => "define PDF fields" %>
+  <%= link_to 'Customize PDF', editpdf_position_path(@position), :class => "btn btn-inverse btn-small", "data-toggle" => "tooltip", "data-placement" => "left", "title" => "define PDF output" %>
 </div>
 
 <%= render 'show_buttons' %>
@@ -43,7 +43,6 @@
   <%= simple_format @position.scope %>
 </p>
 
-
 <p>
   <h4>Key functions / responsibilities</h4>
 </p>
@@ -51,10 +50,12 @@
 <p>
   <u><strong>Conceptual tasks, Strategy Development and/or Project Development</strong></u>
 </p>
-<ul class="responsibilities">
+<ul class="responsibilities" id="responsibilities" data-update-url="<%= sort_positions_url %>">
 <% @conceptual.each do |r| %>
-  <li>
+  <span class="handle">[drag]</span>
+  <%= content_tag_for :li, r do %>
     <%= r.content %>
+  <% end %>
   </li>
 <% end %>
 </ul>
@@ -105,6 +106,7 @@
 <% end %>
 
 <hr />
+
 
   <h4>Attitude:</h4>
 <ul class="conditions">

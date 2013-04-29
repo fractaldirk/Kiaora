@@ -1,6 +1,8 @@
 Kiaora::Application.routes.draw do
   resources :requests do
-    member get 'sign'
+    member do
+      get 'sign'
+    end
   end
 
   devise_for :users
@@ -16,6 +18,10 @@ Kiaora::Application.routes.draw do
       get 'internal'
       get 'editpdf'
       get 'showpdf'
+    end
+
+    collection do
+      post 'sort'
     end
   end
 

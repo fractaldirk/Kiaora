@@ -13,17 +13,15 @@
 <div class="row">
   <div class="span8">
     <h4>Latest activity</h4>
-    <% @activities.each do |act| %>
-      <%= render "activity", :act => act %>
-    <% end %>
+    <ul id="activities">
+      <% @activities.each do |act| %>
+        <%= content_tag_for :li, act do %>
+          <%= render "activity", :act => act %>
+        <% end %>
+      <% end %>
+    </ul>
   </div>
   <div class="span4">
-
-    <ol class="yo">
-      <li></li>
-      <li></li>
-      <li></li>
-    </ol>
     <h4>Yeah, you've made it!</h4>
     <p>Welcome to one of the first versions of the Blue Robin software!</p>
     <p>In order to build the best software possible we need your help. Please try and test as many functions as possible. Whenever you have an idea or you are running into an error (unlikely :P), please "file a ticket". You can find that function in the navigation bar.</p>

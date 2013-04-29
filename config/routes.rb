@@ -19,6 +19,10 @@ Kiaora::Application.routes.draw do
       get 'editpdf'
       get 'showpdf'
     end
+
+    collection do
+      post 'sort'
+    end
   end
 
   get "home/index"

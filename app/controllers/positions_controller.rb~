@@ -1,5 +1,5 @@
 class PositionsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:sort]
   # GET /positions
   # GET /positions.json
   def index
@@ -16,7 +16,7 @@ class PositionsController < ApplicationController
   def show
     @position = Position.find(params[:id])
     @dictionary = Dictionary.find(:all)
-    @conceptual = @position.responsibilities.find(:all, :conditions => {:indicator => 1})
+    @conceptual = @position.responsibilities.find(:all, :order => "r_position", :conditions => {:indicator => 1})
     @implementation = @position.responsibilities.find(:all, :conditions => {:indicator => 2})
     @support = @position.responsibilities.find(:all, :conditions => {:indicator => 3})
     @compliance = @position.responsibilities.find(:all, :conditions => {:indicator => 4})
@@ -174,5 +174,15 @@ class PositionsController < ApplicationController
     @method = Dictionary.find(:all, :conditions => { :indicator => 3 })
     @leadership = Dictionary.find(:all, :conditions => { :indicator => 4 })
     @social = Dictionary.find(:all, :conditions => { :indicator => 5 })
+  end
+
+  def sort
+    params[:responsibility].each_with_index do |id, index|
+      Responsibility.update_all({r_position: index+1}, {id: id})
+    end
+    respond_to do |format|
+      format.html { redirect_to @position }
+      format.json { head :no_content }
+    end
   end
 end

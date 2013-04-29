@@ -62,12 +62,11 @@
   <h2>Responsibilities</h2>
   <h4>Conceptual tasks, Strategy Development and/or Project Development</h4>
   <% if @conceptual.present? %>
-    <% just_a_counter = 0 %>
+  <ul id="responsibilities">
     <%= f.fields_for :responsibilities, @conceptual do |builder| %>
-      <% just_a_counter += 1 %><%= just_a_counter %>
-        <%= f.text_field :content, :value => just_a_counter %>
       <%= render "responsibility_fields", f: builder %>
     <% end %>
+  </ul>
   <% end %>
   <%= link_to_add_conceptual_fields "Add Responsibility", f, :responsibilities %>
 

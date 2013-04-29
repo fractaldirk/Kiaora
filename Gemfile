@@ -45,6 +45,8 @@ end
 
 gem 'jquery-rails'
 
+gem 'jquery-ui-rails'
+
 gem 'amoeba'
 
 gem 'devise'
@@ -54,6 +56,8 @@ gem 'prawn'
 gem 'acts_as_xlsx'
 
 gem 'axlsx_rails'
+
+gem 'acts_as_list'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
