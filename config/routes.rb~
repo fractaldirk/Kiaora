@@ -31,7 +31,8 @@ Kiaora::Application.routes.draw do
   get "france" => 'home#france'
   get "med" => 'home#med'
   get "greece" => 'home#greece'
-  get "new-zealand" => 'home#new_zealand'
+  get "new_zealand" => 'home#new_zealand'
+  get "germany" => 'home#germany'
 
   #other
   get "home/index"
