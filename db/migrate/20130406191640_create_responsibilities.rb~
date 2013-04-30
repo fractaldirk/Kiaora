@@ -2,7 +2,7 @@ class CreateResponsibilities < ActiveRecord::Migration
   def change
     create_table :responsibilities do |t|
       t.integer :indicator
-      t.text :content
+      t.string :content
       t.references :position
 
       t.timestamps

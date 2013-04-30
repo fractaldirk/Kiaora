@@ -5,7 +5,7 @@ class Responsibility < ActiveRecord::Base
   validates_length_of :content_length, :maximum => 255
 
   def content_length
-    if  true
+    if false
       errors.add :content, "responsibility too long."
     end
   rescue ArgumentError
