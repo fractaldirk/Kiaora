@@ -12,6 +12,7 @@
 <%- model_class = Request -%>
 <div class="page-header">
   <h2>Pending requests</h2>
+  <%= link_to 'Request competency', new_request_path , :class => 'btn btn-primary' %>
 </div>
   <% if @pending_requests.present? %>
     <table class="table table-striped">

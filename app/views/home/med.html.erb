@@ -1,0 +1,23 @@
+<ul class="nav nav-pills">
+  <li class="active">
+    <%= link_to 'Home', '#' %>
+  </li>
+  <li><%= link_to 'Activity', home_activity_path %></li>
+  <li><%= link_to 'Competency requests', home_requests_path %></li>
+  <% unless current_user.office == 99 %>
+    <li><%= link_to 'Competency dictionary', dictionaries_office_path %></li>
+  <% end %>
+</ul>
+<hr />
+
+<div class="row">
+  <div class="span8">
+    <%= render "announcement" %>
+    <h4>Latest activity</h4>
+    <% @activities.each do |act| %>
+      <%= render "activity", :act => act %>
+    <% end %>
+  </div>
+  <div class="span4">
+    <%= render "about" %>
+  </div>

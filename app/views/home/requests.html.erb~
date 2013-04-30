@@ -32,8 +32,10 @@
             <td><%= request.office_name %></td>
             <td><%= request.created_at.strftime("%d %B %Y") unless request.created_at.nil?  %></td>
             <td>
-              <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              <% unless current_user.office == 99 %>
+                <%= link_to t('.edit', :default => t("helpers.links.edit")),
                           edit_request_path(request), :class => 'btn btn-mini' %>
+              <% end %>
               <% if current_user.office == 99 %>
                 <%= link_to 'Sign off', sign_request_path(request), :class => 'btn btn-mini btn-inverse' %>
               <% end %>

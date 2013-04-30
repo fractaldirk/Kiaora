@@ -10,7 +10,7 @@
   <%= f.text_field :user_name %></div>
 
   <div><%= f.label :office, "Define NRO" %><br />
-  <%= f.select(:office, [['Belgium', '1'], ['GPI', '99']]) %></div>
+  <%= f.select(:office, [['Belgium', '1'], ['GPI', '99'], ['France', '2'], ['Med', '3'], ['Greece', '4'], ['New Zealand', '5']]) %></div>
 
   <div><%= f.label :role, "User role" %><br />
   <%= f.select(:role, [['Super', '1'], ['Normal', '2']]) %></div>

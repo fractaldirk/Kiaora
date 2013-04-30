@@ -12,6 +12,8 @@ module ApplicationHelper
       "Greece"
     elsif current_user.office == 5
       "New Zealand"
+    elsif current_user.office == 6
+      "Germany"
     else
       "To be defined"
     end

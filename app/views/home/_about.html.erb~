@@ -1,0 +1,5 @@
+<h4>About</h4>
+<p>The Blue Robin project is an IceFlag initiated project tailored for Greenpeace. This project will focus on the aiding of the implementation of the first stage of the competency framework. A job description builder will be delivered which will be built by IceFlag.</p>
+<p>The software, Blue Robin, will aid in writing new job descriptions as well as translating existing job descriptions towards the new template.</p>
+<p>In order to provide a tool for the HR community several test runs will be organized to capture real life input in order to tailor the software.</p>
+<p>At the moment the tool consists of a limited amount of functions which will be expanded over time. At the moment version 1.0.9. is running which includes: job description builder, multi-language competency dictionary, competency requester and pdf template exporter.</p>

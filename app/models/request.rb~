@@ -6,6 +6,14 @@ class Request < ActiveRecord::Base
       "Belgium"
     elsif office == 99
       "Sample JD"
+    elsif office == 2
+      "France"
+    elsif office == 3
+      "Mediterranean"
+    elsif office == 4
+      "Greece"
+    elsif office == 5
+      "New Zealand"
     else
       "To be defined"
     end

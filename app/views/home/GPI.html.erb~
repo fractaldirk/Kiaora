@@ -12,14 +12,11 @@
 
 <div class="row">
   <div class="span8">
+    <%= render "announcement" %>
     <h4>Latest activity</h4>
-    <ul id="activities">
-      <% @activities.each do |act| %>
-        <%= content_tag_for :li, act do %>
-          <%= render "activity", :act => act %>
-        <% end %>
-      <% end %>
-    </ul>
+    <% @activities.each do |act| %>
+      <%= render "activity", :act => act %>
+    <% end %>
   </div>
   <div class="span4">
     <h4>Yeah, you've made it!</h4>

@@ -44,6 +44,8 @@ class Position < ActiveRecord::Base
       "Greece"
     elsif office == 5
       "New Zealand"
+    elsif office == 6
+      "Germany"
     else
       "To be defined"
     end

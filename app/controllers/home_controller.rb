@@ -9,32 +9,37 @@ class HomeController < ApplicationController
   end
   def GPI
     @positions = Position.find(:all, :conditions => {:office => 99})
-    @activities = Activity.find(:all, :conditions => {:office => 99}, :order => "created_at DESC", :limit => 10)
+    @activities = Activity.find(:all, :conditions => {:office => 99}, :order => "created_at DESC", :limit => 5)
   end
 
   def belgium
     @positions = Position.find(:all, :conditions => {:office => 1})
-    @activities = Activity.find(:all, :conditions => {:office => 1}, :order => "created_at DESC", :limit => 10)
+    @activities = Activity.find(:all, :conditions => {:office => 1}, :order => "created_at DESC", :limit => 5)
   end
 
   def france
     @positions = Position.find(:all, :conditions => {:office => 2})
-    @activities = Activity.find(:all, :conditions => {:office => 2}, :order => "created_at DESC", :limit => 10)
+    @activities = Activity.find(:all, :conditions => {:office => 2}, :order => "created_at DESC", :limit => 5)
   end
 
   def med
     @positions = Position.find(:all, :conditions => {:office => 3})
-    @activities = Activity.find(:all, :conditions => {:office => 3}, :order => "created_at DESC", :limit => 10)
+    @activities = Activity.find(:all, :conditions => {:office => 3}, :order => "created_at DESC", :limit => 5)
   end
 
   def greece
     @positions = Position.find(:all, :conditions => {:office => 4})
-    @activities = Activity.find(:all, :conditions => {:office => 4}, :order => "created_at DESC", :limit => 10)
+    @activities = Activity.find(:all, :conditions => {:office => 4}, :order => "created_at DESC", :limit => 5)
   end
 
   def new_zealand
     @positions = Position.find(:all, :conditions => {:office => 5})
-    @activities = Activity.find(:all, :conditions => {:office => 5}, :order => "created_at DESC", :limit => 10)
+    @activities = Activity.find(:all, :conditions => {:office => 5}, :order => "created_at DESC", :limit => 5)
+  end
+
+  def germany
+    @positions = Position.find(:all, :conditions => {:office => 6})
+    @activities = Activity.find(:all, :conditions => {:office => 6}, :order => "created_at DESC", :limit => 5)
   end
 
   def database
@@ -65,6 +70,8 @@ private
       greece_path
     elsif current_user.office == 5
       new_zealand_path
+    elsif current_user.office == 6
+      germany_path
     else
       home_index_path
     end
