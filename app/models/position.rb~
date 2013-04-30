@@ -54,7 +54,7 @@ class Position < ActiveRecord::Base
   def permanent_outcome
     if permanent == 1
       "Permanent position"
-    elsif fte == 2
+    elsif permanent == 2
       "Temporarily position"
     else
       "Undefined"

@@ -4,20 +4,36 @@ module ApplicationHelper
       "Greenpeace Belgium"
     elsif current_user.office == 99
       "Greenpeace International"
+    elsif current_user.office == 2
+      "France"
+    elsif current_user.office == 3
+      "Mediterranean"
+    elsif current_user.office == 4
+      "Greece"
+    elsif current_user.office == 5
+      "New Zealand"
     else
       "To be defined"
     end
   end
 
-  def home_page
-    if current_user.office == 1
-      belgium_path
-    elsif current_user.office == 99
-      home_GPI_path
-    else
-      home_index_path
-    end
+def home_page
+  if current_user.office == 1
+    belgium_path
+  elsif current_user.office == 99
+    home_GPI_path
+  elsif current_user.office == 2
+    france_path
+  elsif current_user.office == 3
+    med_path
+  elsif current_user.office == 4
+    greece_path
+  elsif current_user.office == 5
+    new_zealand_path
+  else
+    home_index_path
   end
+end
 
   def link_to_add_fields(name, f, association)
     new_object = f.object.send(association).klass.new

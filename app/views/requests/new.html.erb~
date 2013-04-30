@@ -1,6 +1,7 @@
 <%- model_class = Request -%>
 <h1>New request</h1>
 <hr />
+<br/>
 <h4>How to express a competency?</h4>
 <p>In order to maintain the style and uniformity of the dictionary, it is recommended, if possible and relevant, to express competencies beginning with one of the following expressions:
 <ul class="list">

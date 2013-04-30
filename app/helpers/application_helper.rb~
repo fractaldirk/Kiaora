@@ -4,6 +4,14 @@ module ApplicationHelper
       "Greenpeace Belgium"
     elsif current_user.office == 99
       "Greenpeace International"
+    elsif current_user.office == 2
+      "France"
+    elsif current_user.office == 3
+      "Mediterranean"
+    elsif current_user.office == 4
+      "Greece"
+    elsif current_user.office == 5
+      "New Zealand"
     else
       "To be defined"
     end

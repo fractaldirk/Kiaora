@@ -25,11 +25,18 @@ Kiaora::Application.routes.draw do
     end
   end
 
+  #offices
+  get "home/GPI" => 'home#GPI'
+  get "belgium" => 'home#belgium'
+  get "france" => 'home#france'
+  get "med" => 'home#med'
+  get "greece" => 'home#greece'
+  get "new-zealand" => 'home#new_zealand'
+
+  #other
   get "home/index"
   get "home/activity" => 'home#activity'
   get "home/requests" => 'home#requests'
-  get "home/GPI" => 'home#GPI'
-  get "belgium" => 'home#belgium'
   get "database" => 'home#database'
 
   # The priority is based upon order of creation:

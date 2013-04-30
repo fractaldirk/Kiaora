@@ -20,5 +20,6 @@ class Request < ActiveRecord::Base
       "Rejected"
     else
       "Extinct"
+    end
   end
 end
