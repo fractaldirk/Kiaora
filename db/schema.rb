@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130428220105) do
+ActiveRecord::Schema.define(:version => 20130603183030) do
 
   create_table "activities", :force => true do |t|
     t.string   "user_name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20130428220105) do
     t.integer  "position_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "a_position"
   end
 
   add_index "attitudes", ["position_id"], :name => "index_attitudes_on_position_id"
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20130428220105) do
     t.integer  "position_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "c_position"
   end
 
   add_index "conditions", ["position_id"], :name => "index_conditions_on_position_id"
@@ -57,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20130428220105) do
     t.datetime "updated_at",  :null => false
     t.integer  "value"
     t.integer  "importance"
+    t.integer  "f_position"
   end
 
   add_index "functionals", ["position_id"], :name => "index_functionals_on_position_id"
@@ -68,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20130428220105) do
     t.datetime "updated_at",  :null => false
     t.integer  "value"
     t.integer  "importance"
+    t.integer  "l_position"
   end
 
   add_index "leaderships", ["position_id"], :name => "index_leaderships_on_position_id"
@@ -79,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20130428220105) do
     t.datetime "updated_at",  :null => false
     t.integer  "value"
     t.integer  "importance"
+    t.integer  "m_position"
   end
 
   add_index "methodrelations", ["position_id"], :name => "index_methodrelations_on_position_id"
@@ -138,6 +143,9 @@ ActiveRecord::Schema.define(:version => 20130428220105) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "r_position"
+    t.integer  "i_position"
+    t.integer  "s_position"
+    t.integer  "c_position"
   end
 
   add_index "responsibilities", ["position_id"], :name => "index_responsibilities_on_position_id"
@@ -149,6 +157,7 @@ ActiveRecord::Schema.define(:version => 20130428220105) do
     t.datetime "updated_at",  :null => false
     t.integer  "value"
     t.integer  "importance"
+    t.integer  "s_position"
   end
 
   add_index "socials", ["position_id"], :name => "index_socials_on_position_id"

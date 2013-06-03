@@ -1,12 +1,12 @@
 <fieldset>
   <% if current_user.language == 1 %>
-    <%= f.collection_select(:indicator, @functional, :id, :competency_english, {:prompt => "Choose competency"}, :id => "competency_select_field") %> <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %><br/>
+    <%= f.collection_select(:indicator, @functional, :id, :competency_english, {:prompt => "Choose competency"}, :id => "competency_select_field") %> <%= f.select(:importance, ['1', '2', '3', '4'], { :prompt => '0'}, :id => "select_field" ) %> <%= f.select(:value, ['1', '2', '3', '4'], { :prompt => '0'}, :id => "select_field" ) %>
   <% elsif current_user.language == 2 %>
-    <%= f.collection_select(:indicator, @functional, :id, :competency_spanish, {:prompt => "Definir las competencias"}, :id => "competency_select_field") %> <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %><br/>
+    <%= f.collection_select(:indicator, @functional, :id, :competency_spanish, {:prompt => "Definir las competencias"}, :id => "competency_select_field") %> <%= f.select(:importance, ['1', '2', '3', '4'], { :prompt => '0'}, :id => "select_field" ) %> <%= f.select(:value, ['1', '2', '3', '4'], { :prompt => '0'}, :id => "select_field" ) %><br/>
   <% elsif current_user.language == 3 %>
-    <%= f.collection_select(:indicator, @functional, :id, :competency_french, {:prompt => "Définir les compétences"}, :id => "competency_select_field") %> <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %><br/>
+    <%= f.collection_select(:indicator, @functional, :id, :competency_french, {:prompt => "Définir les compétences"}, :id => "competency_select_field") %> <%= f.select(:importance, ['1', '2', '3', '4'], { :prompt => '0'}, :id => "select_field" ) %> <%= f.select(:value, ['1', '2', '3', '4'], { :prompt => '0'}, :id => "select_field" ) %><br/>
   <% else %>
-    <%= f.collection_select(:indicator, @functional, :id, :competency_english, {:prompt => "Choose competency"}, :id => "competency_select_field") %> <%= f.select(:importance, ['1', '2', '3', '4'], :include_blank => true ) %> <%= f.select(:value, ['1', '2', '3', '4'], :include_blank => true ) %><br/>
+    <%= f.collection_select(:indicator, @functional, :id, :competency_english, {:prompt => "Choose competency"}, :id => "competency_select_field") %> <%= f.select(:importance, ['1', '2', '3', '4'], { :prompt => '0'}, :id => "select_field" ) %> <%= f.select(:value, ['1', '2', '3', '4'], { :prompt => '0'}, :id => "select_field" ) %><br/>
   <% end %>
   <%= f.hidden_field :_destroy %>
   <%= link_to "remove", '#', class: "remove_fields" %>

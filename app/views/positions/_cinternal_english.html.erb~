@@ -30,7 +30,7 @@
     <th></th>
     <th></th>
   </tr>
-<% @position.functionals.each do |f| %>
+<% @position.functionals.order("f_position").each do |f| %>
   <tr>
     <% @dictionary.each do |d| %>
       <% if d.id == f.indicator %>
@@ -46,7 +46,7 @@
     <th></th>
     <th></th>
   </tr>
-<% @position.methodrelations.each do |m| %>
+<% @position.methodrelations.order("m_position").each do |m| %>
   <tr>
     <% @dictionary.each do |d| %>
       <% if d.id == m.indicator %>
@@ -63,7 +63,7 @@
     <th></th>
     <th></th>
   </tr>
-  <% @position.leaderships.each do |l| %>
+  <% @position.leaderships.order("l_position").each do |l| %>
     <tr>
       <% @dictionary.each do |d| %>
         <% if d.id == l.indicator %>
@@ -75,36 +75,22 @@
     </tr>
   <% end %>
 <% end %>
+<% if @position.socials.present? %>
+  <tr>
+    <th><em>Social/self</em></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @position.socials.order("s_position").each do |s| %>
+    <tr>
+      <% @dictionary.each do |d| %>
+        <% if d.id == s.indicator %>
+          <td><%= d.competency_english %></td>
+          <td><%= s.importance %></td>
+          <td><%= s.value %></td>
+        <% end %>
+      <% end %>
+    </tr>
+  <% end %>
+<% end %>
 </table>
-
-
-
-<p>
-  <strong>Leadership competencies:</strong>
-</p>
-<ul class="competencies">
-<% @position.leaderships.each do |l| %>
-  <li>
-    <% @dictionary.each do |d| %>
-      <% if d.id == l.indicator %>
-        <%= d.competency_english %> (Im: <%= l.importance %> Val: <%= l.value %>)
-      <% end %>
-    <% end %>
-  </li>
-<% end %>
-</ul>
-
-<p>
-  <strong>Social competencies:</strong>
-</p>
-<ul class="competencies">
-<% @position.socials.each do |s| %>
-  <li>
-    <% @dictionary.each do |d| %>
-      <% if d.id == s.indicator %>
-        <%= d.competency_english %> (Im: <%= s.importance %> Val: <%= s.value %>)
-      <% end %>
-    <% end %>
-  </li>
-<% end %>
-</ul>

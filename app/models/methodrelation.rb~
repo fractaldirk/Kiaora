@@ -1,4 +1,4 @@
 class Methodrelation < ActiveRecord::Base
   belongs_to :position
-  attr_accessible :indicator
+  attr_accessible :indicator, :importance, :value
 end

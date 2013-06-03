@@ -17,9 +17,9 @@ class PositionsController < ApplicationController
     @position = Position.find(params[:id])
     @dictionary = Dictionary.find(:all)
     @conceptual = @position.responsibilities.find(:all, :order => "r_position", :conditions => {:indicator => 1})
-    @implementation = @position.responsibilities.find(:all, :conditions => {:indicator => 2})
-    @support = @position.responsibilities.find(:all, :conditions => {:indicator => 3})
-    @compliance = @position.responsibilities.find(:all, :conditions => {:indicator => 4})
+    @implementation = @position.responsibilities.find(:all, :order => "i_position", :conditions => {:indicator => 2})
+    @support = @position.responsibilities.find(:all, :order => "s_position", :conditions => {:indicator => 3})
+    @compliance = @position.responsibilities.find(:all, :order => "c_position", :conditions => {:indicator => 4})
 
     respond_to do |format|
       format.html # show.html.erb
@@ -176,9 +176,108 @@ class PositionsController < ApplicationController
     @social = Dictionary.find(:all, :conditions => { :indicator => 5 })
   end
 
-  def sort
+  def csort
     params[:responsibility].each_with_index do |id, index|
       Responsibility.update_all({r_position: index+1}, {id: id})
+    end
+    @position = Position.find(params[:id])
+    respond_to do |format|
+      format.html { redirect_to @position }
+      format.json { head :no_content }
+    end
+  end
+
+  def isort
+    params[:responsibility].each_with_index do |id, index|
+      Responsibility.update_all({i_position: index+1}, {id: id})
+    end
+    @position = Position.find(params[:id])
+    respond_to do |format|
+      format.html { redirect_to @position }
+      format.json { head :no_content }
+    end
+  end
+
+  def ssort
+    params[:responsibility].each_with_index do |id, index|
+      Responsibility.update_all({s_position: index+1}, {id: id})
+    end
+    @position = Position.find(params[:id])
+    respond_to do |format|
+      format.html { redirect_to @position }
+      format.json { head :no_content }
+    end
+  end
+
+  def comsort
+    params[:responsibility].each_with_index do |id, index|
+      Responsibility.update_all({c_position: index+1}, {id: id})
+    end
+    @position = Position.find(params[:id])
+    respond_to do |format|
+      format.html { redirect_to @position }
+      format.json { head :no_content }
+    end
+  end
+
+  def fsort
+    params[:functional].each_with_index do |id, index|
+      Functional.update_all({f_position: index+1}, {id: id})
+    end
+    @position = Position.find(params[:id])
+    respond_to do |format|
+      format.html { redirect_to @position }
+      format.json { head :no_content }
+    end
+  end
+
+  def msort
+    params[:methodrelation].each_with_index do |id, index|
+      Methodrelation.update_all({m_position: index+1}, {id: id})
+    end
+    @position = Position.find(params[:id])
+    respond_to do |format|
+      format.html { redirect_to @position }
+      format.json { head :no_content }
+    end
+  end
+
+  def socsort
+    params[:social].each_with_index do |id, index|
+      Social.update_all({s_position: index+1}, {id: id})
+    end
+    @position = Position.find(params[:id])
+    respond_to do |format|
+      format.html { redirect_to @position }
+      format.json { head :no_content }
+    end
+  end
+
+  def lsort
+    params[:leadership].each_with_index do |id, index|
+      Leadership.update_all({l_position: index+1}, {id: id})
+    end
+    @position = Position.find(params[:id])
+    respond_to do |format|
+      format.html { redirect_to @position }
+      format.json { head :no_content }
+    end
+  end
+
+  def asort
+    params[:attitude].each_with_index do |id, index|
+      Attitude.update_all({a_position: index+1}, {id: id})
+    end
+    @position = Position.find(params[:id])
+    respond_to do |format|
+      format.html { redirect_to @position }
+      format.json { head :no_content }
+    end
+  end
+
+  def consort
+    params[:condition].each_with_index do |id, index|
+      Condition.update_all({c_position: index+1}, {id: id})
     end
     @position = Position.find(params[:id])
     respond_to do |format|

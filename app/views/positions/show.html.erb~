@@ -50,10 +50,10 @@
 <p>
   <u><strong>Conceptual tasks, Strategy Development and/or Project Development</strong></u>
 </p>
-<ul class="responsibilities" id="responsibilities" data-update-url="<%= sort_positions_url %>">
+<ul class="conceptuals" id="conceptuals" data-update-url="<%= csort_positions_url %>">
 <% @conceptual.each do |r| %>
-  <span class="handle">[drag]</span>
   <%= content_tag_for :li, r do %>
+    <span class="chandle">[drag]</span>
     <%= r.content %>
   <% end %>
   </li>
@@ -63,33 +63,36 @@
 <p>
   <u><strong>Implementation</strong></u>
 </p>
-<ul class="responsibilities">
+<ul class="implementations" id="implementations" data-update-url="<%= isort_positions_url %>">
 <% @implementation.each do |r| %>
-  <li>
+  <%= content_tag_for :li, r do %>
+    <span class="ihandle">[drag]</span>
     <%= r.content %>
-  </li>
+  <% end %>
 <% end %>
 </ul>
 
 <p>
   <u><strong>Support / Coaching / Leadership</strong></u>
 </p>
-<ul class="responsibilities">
+<ul class="supports" id="supports" data-update-url="<%= ssort_positions_url %>">
 <% @support.each do |r| %>
-  <li>
+  <%= content_tag_for :li, r do %>
+    <span class="shandle">[drag]</span>
     <%= r.content %>
-  </li>
+  <% end %>
 <% end %>
 </ul>
 
 <p>
   <u><strong>Compliance / Keeping Framework Conditions</strong></u>
 </p>
-<ul class="responsibilities">
+<ul class="compliances" id="compliances" data-update-url="<%= comsort_positions_url %>">
 <% @compliance.each do |r| %>
-  <li>
+  <%= content_tag_for :li, r do %>
+    <span class="comhandle">[drag]</span>
     <%= r.content %>
-  </li>
+  <% end %>
 <% end %>
 </ul>
 
@@ -109,21 +112,23 @@
 
 
   <h4>Attitude:</h4>
-<ul class="conditions">
+<ul class="attitudes" id="attitudes" data-update-url="<%= asort_positions_url %>">
   <% @position.attitudes.each do |a| %>
-    <li>
+    <%= content_tag_for :li, a do %>
+    <span class="ahandle">[drag]</span>
       <%= a.description %>
-    </li>
+    <% end %>
   <% end %>
 </ul>
 
 <hr />
 
   <h4>Specific Work Environment</h4>
-<ul class="conditions">
+<ul class="conditions" id="conditions" data-update-url="<%= consort_positions_url %>">
   <% @position.conditions.each do |con| %>
-    <li>
+    <%= content_tag_for :li, con do %>
+    <span class="conhandle">[drag]</span>
       <%= con.environment %>
-    </li>
+    <% end %>
   <% end %>
 </ul>

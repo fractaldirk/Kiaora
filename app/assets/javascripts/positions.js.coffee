@@ -14,9 +14,72 @@ jQuery ->
     $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
 
-  $('#responsibilities').sortable(
+  $('#conceptuals').sortable(
     axis: 'y'
-    handle: '.handle'
+    handle: '.chandle'
+    update: ->
+      $.post($(this).data('update-url'), $(this).sortable('serialize'))
+  );
+
+  $('#implementations').sortable(
+    axis: 'y'
+    handle: '.ihandle'
+    update: ->
+      $.post($(this).data('update-url'), $(this).sortable('serialize'))
+  );
+
+  $('#supports').sortable(
+    axis: 'y'
+    handle: '.shandle'
+    update: ->
+      $.post($(this).data('update-url'), $(this).sortable('serialize'))
+  );
+
+  $('#compliances').sortable(
+    axis: 'y'
+    handle: '.comhandle'
+    update: ->
+      $.post($(this).data('update-url'), $(this).sortable('serialize'))
+  );
+
+  $('#functionals').sortable(
+    axis: 'y'
+    handle: '.cphandle'
+    update: ->
+      $.post($(this).data('update-url'), $(this).sortable('serialize'))
+  );
+
+  $('#methods').sortable(
+    axis: 'y'
+    handle: '.cphandle'
+    update: ->
+      $.post($(this).data('update-url'), $(this).sortable('serialize'))
+  );
+
+  $('#leaderships').sortable(
+    axis: 'y'
+    handle: '.cphandle'
+    update: ->
+      $.post($(this).data('update-url'), $(this).sortable('serialize'))
+  );
+
+  $('#socials').sortable(
+    axis: 'y'
+    handle: '.cphandle'
+    update: ->
+      $.post($(this).data('update-url'), $(this).sortable('serialize'))
+  );
+
+  $('#attitudes').sortable(
+    axis: 'y'
+    handle: '.ahandle'
+    update: ->
+      $.post($(this).data('update-url'), $(this).sortable('serialize'))
+  );
+
+  $('#conditions').sortable(
+    axis: 'y'
+    handle: '.conhandle'
     update: ->
       $.post($(this).data('update-url'), $(this).sortable('serialize'))
   );

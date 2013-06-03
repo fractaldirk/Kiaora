@@ -24,59 +24,63 @@
 <p>
   <strong>Technical competencies:</strong>
 </p>
-<ul class="competencies">
-<% @position.functionals.each do |f| %>
-  <li>
+<ul class="functionals" id="functionals" data-update-url="<%= fsort_positions_url %>">
+<% @position.functionals.order("f_position").each do |f| %>
+  <%= content_tag_for :li, f do %>
+    <span class="cphandle">[drag]</span>
     <% @dictionary.each do |d| %>
       <% if d.id == f.indicator %>
         <%= d.competency_english %>
       <% end %>
     <% end %>
-  </li>
+  <% end %>
 <% end %>
 </ul>
 
 <p>
   <strong>Method related competencies:</strong>
 </p>
-<ul class="competencies">
-<% @position.methodrelations.each do |m| %>
-  <li>
+<ul class="methods" id="methods" data-update-url="<%= msort_positions_url %>">
+<% @position.methodrelations.order("m_position").each do |m| %>
+  <%= content_tag_for :li, m do %>
+    <span class="cphandle">[drag]</span>
     <% @dictionary.each do |d| %>
       <% if d.id == m.indicator %>
         <%= d.competency_english %>
       <% end %>
     <% end %>
-  </li>
+  <% end %>
 <% end %>
 </ul>
 
 <p>
   <strong>Social competencies:</strong>
 </p>
-<ul class="competencies">
-<% @position.socials.each do |s| %>
-  <li>
+<ul class="socials" id="socials" data-update-url="<%= socsort_positions_url %>">
+<% @position.socials.order("s_position").each do |s| %>
+  <%= content_tag_for :li, s do %>
+    <span class="cphandle">[drag]</span>
     <% @dictionary.each do |d| %>
       <% if d.id == s.indicator %>
         <%= d.competency_english %>
       <% end %>
     <% end %>
-  </li>
+  <% end %>
 <% end %>
 </ul>
 
 <p>
   <strong>Leadership competencies:</strong>
 </p>
-<ul class="competencies">
-<% @position.leaderships.each do |l| %>
-  <li>
+<ul class="leaderships" id="leaderships" data-update-url="<%= lsort_positions_url %>">
+<% @position.leaderships.order("l_position").each do |l| %>
+  <%= content_tag_for :li, l do %>
+    <span class="cphandle">[drag]</span>
     <% @dictionary.each do |d| %>
       <% if d.id == l.indicator %>
         <%= d.competency_english %>
       <% end %>
     <% end %>
-  </li>
+  <% end %>
 <% end %>
 </ul>

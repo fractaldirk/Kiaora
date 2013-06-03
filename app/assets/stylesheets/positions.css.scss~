@@ -1,4 +1,52 @@
-#responsibilities .handle {
+#conceptuals .chandle {
+  font-size: 12px;
+  color: #777;
+  cursor: move;
+}
+
+#implementations .ihandle {
+  font-size: 12px;
+  color: #777;
+  cursor: move;
+}
+
+#supports .shandle {
+  font-size: 12px;
+  color: #777;
+  cursor: move;
+}
+
+#compliances .comhandle {
+  font-size: 12px;
+  color: #777;
+  cursor: move;
+}
+
+#functionals .cphandle {
+  font-size: 12px;
+  color: #777;
+  cursor: move;
+}
+
+#methods .cphandle {
+  font-size: 12px;
+  color: #777;
+  cursor: move;
+}
+
+#socials .cphandle {
+  font-size: 12px;
+  color: #777;
+  cursor: move;
+}
+
+#leaderships .cphandle {
+  font-size: 12px;
+  color: #777;
+  cursor: move;
+}
+
+#attitudes .cphandle {
   font-size: 12px;
   color: #777;
   cursor: move;
@@ -25,7 +73,7 @@
 }
 
 .text_field_long2 {
-  width: 875px;
+  width: 975px;
 }
 
 .text_area {

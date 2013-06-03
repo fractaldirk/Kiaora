@@ -30,7 +30,7 @@
     <th></th>
     <th></th>
   </tr>
-<% @position.functionals.each do |f| %>
+<% @position.functionals.order("f_position").each do |f| %>
   <tr>
     <% @dictionary.each do |d| %>
       <% if d.id == f.indicator %>
@@ -46,7 +46,7 @@
     <th></th>
     <th></th>
   </tr>
-<% @position.methodrelations.each do |m| %>
+<% @position.methodrelations.order("m_position").each do |m| %>
   <tr>
     <% @dictionary.each do |d| %>
       <% if d.id == m.indicator %>
@@ -63,7 +63,7 @@
     <th></th>
     <th></th>
   </tr>
-  <% @position.leaderships.each do |l| %>
+  <% @position.leaderships.order("l_position").each do |l| %>
     <tr>
       <% @dictionary.each do |d| %>
         <% if d.id == l.indicator %>
@@ -81,7 +81,7 @@
     <th></th>
     <th></th>
   </tr>
-  <% @position.socials.each do |s| %>
+  <% @position.socials.order("s_position").each do |s| %>
     <tr>
       <% @dictionary.each do |d| %>
         <% if d.id == s.indicator %>

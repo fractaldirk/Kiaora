@@ -21,7 +21,16 @@ Kiaora::Application.routes.draw do
     end
 
     collection do
-      post 'sort'
+      post 'csort'
+      post 'isort'
+      post 'ssort'
+      post 'comsort'
+      post 'fsort'
+      post 'msort'
+      post 'socsort'
+      post 'lsort'
+      post 'asort'
+      post 'consort'
     end
   end
 
