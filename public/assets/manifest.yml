@@ -3,9 +3,10 @@ copy.png: copy-c1c2245b93a63c59a431425b8204a41b.png
 edit.png: edit-3fde708260a9a06fcd6d48f6be65af42.png
 rails.png: rails-be8732dac73d845ac5b142c8fb5f9fb0.png
 show_socialbg.png: show_socialbg-8894dbb3c01cea172f163edca959e89c.png
+show_socialbg2.png: show_socialbg2-c716a380c390e0f7c84f2e236587e44f.png
 socialbg.png: socialbg-80d09292d0fb09c6ae85138c5ac521c9.png
-application.js: application-584270c673100a1e0ed6f6963ec6c271.js
-application.css: application-88011f443718b2a9d1107569e74b4a2b.css
+application.js: application-dd472b3614d9de6681014ae05c1e9b85.js
+application.css: application-063ddd3146638cbc6aea70ded23f8ff5.css
 jquery-ui/animated-overlay.gif: jquery-ui/animated-overlay-691b2d4343303de8d214ad5395fd895d.gif
 jquery-ui/ui-bg_flat_0_aaaaaa_40x100.png: jquery-ui/ui-bg_flat_0_aaaaaa_40x100-a1eb3e0764573ed4b261ca742ed96ac3.png
 jquery-ui/ui-bg_flat_75_ffffff_40x100.png: jquery-ui/ui-bg_flat_75_ffffff_40x100-841636c8f8d33987bb8d2f31e8ef92ca.png
