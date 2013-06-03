@@ -8,7 +8,7 @@
   position: fixed;
   top: 0px;
   left:0px;
-  width: auto;
+  width: 100%;
 }
 
 h1 {
@@ -25,7 +25,7 @@ h1 {
 
 #showbuttonsfixed {
   position: fixed;
-  top: 185px;
+  top: 170px;
   right: 5px;
   width: 35px;
   z-index: 6;
@@ -34,6 +34,7 @@ h1 {
 .activities {
   border-style:solid;
   border-width:2px;
+  width: 100%;
   margin:10px;
   padding: 5px;
   text-decoration:overline;

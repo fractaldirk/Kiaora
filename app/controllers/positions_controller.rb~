@@ -265,7 +265,7 @@ class PositionsController < ApplicationController
   end
 
   def asort
-    params[:attitudes].each_with_index do |id, index|
+    params[:attitude].each_with_index do |id, index|
       Attitude.update_all({a_position: index+1}, {id: id})
     end
     @position = Position.find(params[:id])
@@ -276,7 +276,7 @@ class PositionsController < ApplicationController
   end
 
   def consort
-    params[:conditions].each_with_index do |id, index|
+    params[:condition].each_with_index do |id, index|
       Condition.update_all({c_position: index+1}, {id: id})
     end
     @position = Position.find(params[:id])

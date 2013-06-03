@@ -1,11 +1,15 @@
-<div id="showbuttonsfixedbg"><%= image_tag 'show_socialbg.png' %></div>
+<div id="showbuttonsfixedbg"><%= image_tag 'show_socialbg2.png' %></div>
 
 <div id="showbuttonsfixed">
 
-  <table><tbody><tr><td>
-  <%= link_to image_tag("edit.png"), edit_position_path(@position), "data-toggle" => "tooltip", "data-placement" => "left", "title" => "edit" %></a></td></tr><tr><td>
+  <table><tbody><tr><td style="color: white;">
+  <%= link_to image_tag("edit.png"), edit_position_path(@position), "data-toggle" => "tooltip", "data-placement" => "left", "title" => "edit" %>
+  edit</td></tr><tr>
+  <td style="color: white;">
 
-  <%= link_to image_tag("copy.png"), updatesteal_position_path, :method => 'put', "data-toggle" => "tooltip", "data-placement" => "left", "title" => "copy" %></a></td></tr><tr><td>
+  <%= link_to image_tag("copy.png"), updatesteal_position_path, :method => 'put', "data-toggle" => "tooltip", "data-placement" => "left", "title" => "copy" %>
+  copy
+  </td></tr><tr><td>
 
   </td></tr></tbody></table>
 

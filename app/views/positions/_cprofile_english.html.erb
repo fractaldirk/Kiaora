@@ -10,7 +10,11 @@
   <li>
     <% @dictionary.each do |d| %>
       <% if d.id == o.indicator %>
-        <%= d.competency_english %>
+        <% if o.extension.present? %>
+          <%= d.competency_english %>, in particular <%= o.extension %>
+        <% else %>
+          <%= d.competency_english %>
+        <% end %>
       <% end %>
     <% end %>
   </li>

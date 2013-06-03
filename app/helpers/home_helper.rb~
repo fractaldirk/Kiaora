@@ -1,0 +1,67 @@
+module HomeHelper
+  def user_office
+    current_user.office
+  end
+  def aweekago
+    a = Song.find(:all, :conditions => ["created_at > ? AND office = ?", 1.week.ago, user_office]).count.to_i
+    b = Song.find(:all, :conditions => ["created_at > ? AND office = ?", 6.days.ago, user_office]).count.to_i
+    abtotal = a - b
+    [abtotal]
+  end
+
+  def sixdaysago
+    a = Song.find(:all, :conditions => ["created_at > ?", 6.days.ago]).count.to_i
+    b = Song.find(:all, :conditions => ["created_at > ?", 5.days.ago]).count.to_i
+    c = Song.find(:all, :conditions => ["created_at > ? AND status = ?", 6.days.ago, 1]).count.to_i
+    d = Song.find(:all, :conditions => ["created_at > ? AND status = ?", 5.days.ago, 1]).count.to_i
+    abtotal = a - b
+    cdtotal = c - d
+    [abtotal, cdtotal]
+  end
+
+  def fivedaysago
+    a = Song.find(:all, :conditions => ["created_at > ?", 5.days.ago]).count.to_i
+    b = Song.find(:all, :conditions => ["created_at > ?", 4.days.ago]).count.to_i
+    c = Song.find(:all, :conditions => ["created_at > ? AND status = ?", 5.days.ago, 1]).count.to_i
+    d = Song.find(:all, :conditions => ["created_at > ? AND status = ?", 4.days.ago, 1]).count.to_i
+    abtotal = a - b
+    cdtotal = c - d
+    [abtotal, cdtotal]
+  end
+
+  def fourdaysago
+    a = Song.find(:all, :conditions => ["created_at > ?", 4.days.ago]).count.to_i
+    b = Song.find(:all, :conditions => ["created_at > ?", 3.days.ago]).count.to_i
+    c = Song.find(:all, :conditions => ["created_at > ? AND status = ?", 4.days.ago, 1]).count.to_i
+    d = Song.find(:all, :conditions => ["created_at > ? AND status = ?", 3.days.ago, 1]).count.to_i
+    abtotal = a - b
+    cdtotal = c - d
+    [abtotal, cdtotal]
+  end
+
+  def threedaysago
+    a = Song.find(:all, :conditions => ["created_at > ?", 3.days.ago]).count.to_i
+    b = Song.find(:all, :conditions => ["created_at > ?", 48.hours.ago]).count.to_i
+    c = Song.find(:all, :conditions => ["created_at > ? AND status = ?", 3.days.ago, 1]).count.to_i
+    d = Song.find(:all, :conditions => ["created_at > ? AND status = ?", 48.hours.ago, 1]).count.to_i
+    abtotal = a - b
+    cdtotal = c - d
+    [abtotal, cdtotal]
+  end
+
+  def twodaysago
+    a = Song.find(:all, :conditions => ["created_at > ?", 48.hours.ago]).count.to_i
+    b = Song.find(:all, :conditions => ["created_at > ?", 24.hours.ago]).count.to_i
+    c = Song.find(:all, :conditions => ["created_at > ? AND status = ?", 48.hours.ago, 1]).count.to_i
+    d = Song.find(:all, :conditions => ["created_at > ? AND status = ?", 24.hours.ago, 1]).count.to_i
+    abtotal = a - b
+    cdtotal = c - d
+    [abtotal, cdtotal]
+  end
+
+  def adayago
+    abtotal = Song.find(:all, :conditions => ["created_at > ?", 24.hours.ago]).count.to_i
+    cdtotal = Song.find(:all, :conditions => ["created_at > ? AND status = ?", 24.hours.ago, 1]).count.to_i
+    [abtotal, cdtotal]
+  end
+end

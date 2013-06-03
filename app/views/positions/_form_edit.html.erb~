@@ -62,11 +62,9 @@
   <h2>Responsibilities</h2>
   <h4>Conceptual tasks, Strategy Development and/or Project Development</h4>
   <% if @conceptual.present? %>
-  <ul id="responsibilities">
     <%= f.fields_for :responsibilities, @conceptual do |builder| %>
       <%= render "responsibility_fields", f: builder %>
     <% end %>
-  </ul>
   <% end %>
   <%= link_to_add_conceptual_fields "Add Responsibility", f, :responsibilities %>
 
@@ -112,9 +110,11 @@
 
   <h3>Competency profile</h3>
   <h4>Organisational competencies</h4>
-  <%= f.fields_for :organisationals do |builder| %>
-    <%= render "organisational_fields_edit", f: builder %>
-  <% end %>
+    <% @position.organisationals.each do |og| %>
+      <%= f.fields_for :organisationals do |builder| %>
+        <%= render "organisational_fields_edit", f: builder %>
+      <% end %>
+    <% end %>
 
   <h4>Technical competencies</h4>
   <%= f.fields_for :functionals do |builder| %>

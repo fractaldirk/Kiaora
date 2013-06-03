@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130603183030) do
+ActiveRecord::Schema.define(:version => 20130603195504) do
 
   create_table "activities", :force => true do |t|
     t.string   "user_name"
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(:version => 20130603183030) do
     t.string   "english"
     t.string   "french"
     t.string   "spanish"
+    t.string   "extension"
   end
 
   add_index "organisationals", ["position_id"], :name => "index_organisationals_on_position_id"

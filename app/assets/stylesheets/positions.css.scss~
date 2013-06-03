@@ -46,7 +46,13 @@
   cursor: move;
 }
 
-#attitudes .cphandle {
+#attitudes .ahandle {
+  font-size: 12px;
+  color: #777;
+  cursor: move;
+}
+
+#conditions .conhandle {
   font-size: 12px;
   color: #777;
   cursor: move;
@@ -79,6 +85,11 @@
 .text_area {
   width: 575px;
   height: 180px;
+}
+
+.text_area_custom {
+  width: 975px;
+  height: 50px;
 }
 
 ul {
