@@ -11,7 +11,7 @@
     <% @dictionary.each do |d| %>
       <% if d.id == o.indicator %>
         <% if o.extension.present? %>
-          <%= d.competency_english %>, <em>in particular <%= o.extension %></em>
+          <%= d.competency_english %>, in particular <%= o.extension %>
         <% else %>
           <%= d.competency_english %>
         <% end %>
