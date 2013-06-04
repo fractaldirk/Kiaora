@@ -110,11 +110,9 @@
 
   <h3>Competency profile</h3>
   <h4>Organisational competencies</h4>
-    <% @position.organisationals.each do |og| %>
-      <%= f.fields_for :organisationals do |builder| %>
-        <%= render "organisational_fields_edit", f: builder %>
-      <% end %>
-    <% end %>
+  <%= f.fields_for :organisationals do |builder| %>
+    <%= render "organisational_fields_edit", f: builder %>
+  <% end %>
 
   <h4>Technical competencies</h4>
   <%= f.fields_for :functionals do |builder| %>
@@ -145,7 +143,7 @@
 <hr />
 
   <div class="actions">
-    <%= f.submit :class => 'btn btn-success' %>
+    <%= f.submit "Save Position", :class => 'btn btn-success' %>
   </div>
 
 <% end %>

@@ -14,7 +14,7 @@
       <td><%= link_to p.job_title, p %></td>
       <td><%= p.updated_at.strftime("%H:%M on %d %B %Y") unless p.updated_at.nil? %></td>
       <td><%= p.user_name %></td>
-      <td><%= link_to 'Sign off', sign_position_path(p), :class => 'btn btn-inverse btn-mini' %> <%= link_to 'Delete', p, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger btn-mini' %></td>
+      <td><%= link_to 'Final', sign_position_path(p), :class => 'btn btn-inverse btn-mini' %> <%= link_to 'Delete', p, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger btn-mini' %></td>
     </tr>
   <% end %>
 <% end %>

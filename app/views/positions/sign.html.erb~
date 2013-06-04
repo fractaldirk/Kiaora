@@ -14,7 +14,7 @@
     <% end %>
       <div class="field">
         <strong>Status:</strong>
-        <%= f.select(:draft, [['Draft', '1'], ['Final', '2']]) %>
+        <%= f.select(:draft, [['Final', '2']]) %>
       </div>
       <div class="hidden">
         <strong>User name:</strong>

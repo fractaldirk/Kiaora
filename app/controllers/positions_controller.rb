@@ -97,6 +97,10 @@ class PositionsController < ApplicationController
         @position.update_attributes(params[:position])
           format.html { redirect_to @position }
           format.json { head :no_content }
+      elsif params[:session_button]
+        @position.update_attributes(params[:position])
+          format.html { redirect_to edit_position_path(@position) }
+          format.json { head :no_content }
       else
         if @position.update_attributes(params[:position])
           Activity.create(content: "#{@position.job_title}", action: "updated", office: "#{@position.office}", user_name: "#{@position.user_name}", link: "#{@position.id}")

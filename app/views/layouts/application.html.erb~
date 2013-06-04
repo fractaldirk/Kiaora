@@ -4,8 +4,6 @@
   <title>Blue Robin 1.0.x</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
-  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -19,7 +17,7 @@
         <span class="icon-bar"></span>
       </a>
       <% if user_signed_in? %>
-        <%= link_to office_name, home_page, :class => 'brand' %>
+        <%= link_to "Home", home_page, :class => 'brand' %>
       <% end %>
       <div class="nav-collapse">
         <ul class="nav">

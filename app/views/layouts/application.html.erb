@@ -17,7 +17,7 @@
         <span class="icon-bar"></span>
       </a>
       <% if user_signed_in? %>
-        <%= link_to office_name, home_page, :class => 'brand' %>
+        <%= link_to "Home", home_page, :class => 'brand' %>
       <% end %>
       <div class="nav-collapse">
         <ul class="nav">
@@ -26,7 +26,7 @@
           <% if ((user_signed_in?) && (current_user.office == 99)) %>
             <li class="divider-vertical"><%= link_to "Dictionary", dictionaries_path %></li>
           <% end %>
-          <li class="divider-vertical"><a href="#myModal" data-toggle="modal">File a ticket</a></li>
+          <li class="divider-vertical"><a href="#myModal" data-toggle="modal">Inquiry</a></li>
           <li class="dropdown">
             <% if user_signed_in? %>
               <a class="dropdown-toggle"

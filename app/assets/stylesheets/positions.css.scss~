@@ -83,7 +83,7 @@
 }
 
 .text_area {
-  width: 575px;
+  width: 775px;
   height: 180px;
 }
 

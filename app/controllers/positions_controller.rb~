@@ -58,6 +58,7 @@ class PositionsController < ApplicationController
     @implementation = @position.responsibilities.find(:all, :conditions => { :indicator => 2})
     @support = @position.responsibilities.find(:all, :conditions => { :indicator => 3})
     @compliance = @position.responsibilities.find(:all, :conditions => { :indicator => 4})
+    @organisational = Dictionary.find(:all, :conditions => {:indicator => 1})
     @functional = Dictionary.find(:all, :conditions => { :indicator => 2 })
     @method = Dictionary.find(:all, :conditions => { :indicator => 3 })
     @leadership = Dictionary.find(:all, :conditions => { :indicator => 4 })
