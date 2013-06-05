@@ -54,6 +54,7 @@
 
   <div class="field">
     <p><strong>Scope:</strong></p>
+    <em>(ex.: how many projects a year, how many database entries to be managed, how many invoices to record, how many coordination meetings, how many staff to manage, managed budget magnitude, which interactions with other departments ...)</em>
     <%= f.text_area :scope, :class => "text_area" %><br/>
   </div>
 
@@ -61,46 +62,55 @@
 
   <h2>Responsibilities</h2>
   <h4>Conceptual tasks, Strategy Development and/or Project Development</h4>
+  <em>(study, analyze, design, reseach, observe, discover, diagnose, anticipate, inventory, understand, learn, invent …)</em><br/><br/>
   <% if @conceptual.present? %>
     <%= f.fields_for :responsibilities, @conceptual do |builder| %>
       <%= render "responsibility_fields", f: builder %>
     <% end %>
   <% end %>
   <%= link_to_add_conceptual_fields "Add Responsibility", f, :responsibilities %>
+<hr />
 
   <h4>Implementation</h4>
+  <em>(implement, make, utilize, program, calculate, experiment, renew, determine, regulate, secure, solve, select, apply, change …)</em><br/><br/>
   <% if @implementation.present? %>
     <%= f.fields_for :responsibilities, @implementation do |builder| %>
     <%= render "responsibility_fields", f: builder %>
     <% end %>
   <% end %>
   <%= link_to_add_implementation_fields "Add Responsibility", f, :responsibilities %>
+<hr />
 
   <h4>Support / Coaching / Leadership</h4>
+  <em>(animate, lead, train, inform, coordinate, entrust, sell, consult, guide, manage, initiate, delegate, recommend, support …)</em><br/><br/>
   <% if @support.present? %>
     <%= f.fields_for :responsibilities, @support do |builder| %>
       <%= render "responsibility_fields", f: builder %>
     <% end %>
   <% end %>
   <%= link_to_add_support_fields "Add Responsibility", f, :responsibilities %>
+<hr />
 
   <h4>Compliance / Keeping Framework Conditions</h4>
+  <em>(measure, prove, supervise, test, control, assess, verify, budget, classify, count, clean up, follow, compare, evaluate, consolidate...)</em><br/><br/>
   <% if @compliance.present? %>
     <%= f.fields_for :responsibilities, @compliance do |builder| %>
       <%= render "responsibility_fields", f: builder %>
     <% end %>
   <% end %>
-  <%= link_to_add_compliance_fields "Add Responsibility", f, :responsibilities %>
+  <%= link_to_add_compliance_fields "Add Responsibility", f, :responsibilities %><br/>
 
 <hr />
   <h3>Attitude</h3>
+  <em>(Ex. identification with Greenpeace values, stress resistance, tenacity, flexibility, discrete …)</em><br/><br/>
   <%= f.fields_for :attitudes do |builder| %>
     <%= render "attitude_fields", f: builder %>
   <% end %>
   <%= link_to_add_fields "Add Attitude", f, :attitudes %>
-
 <hr />
+
   <h3>Specific Work Environment</h3>
+  <em>(ex.: office based in …, availability outside working hours, travels, outdoor working conditions …)</em>
   <%= f.fields_for :conditions do |builder| %>
     <%= render "condition_fields", f: builder %>
   <% end %>
@@ -115,28 +125,35 @@
   <% end %>
 
   <h4>Technical competencies</h4>
+  <em>(Ability and expertise to apply knowledge.  Ex.: languages, software tools, scientific knowledge, communication, marketing …)</em><br/><br/>
   <%= f.fields_for :functionals do |builder| %>
     <%= render "functional_fields", f: builder %>
   <% end %>
   <%= link_to_add_fields "Add Competency", f, :functionals %>
+<hr />
 
   <h4>Method related competencies</h4>
+  <em>(Ability to apply, reflect and continuously improve on methods learned.  Ex.: meeting facilitation, project management …)</em><br/><br/>
   <%= f.fields_for :methodrelations do |builder| %>
     <%= render "methodrelation_fields", f: builder %>
   <% end %>
   <%= link_to_add_fields "Add Competency", f, :methodrelations %>
+<hr />
 
   <h4>Leadership competencies</h4>
+  <em>(See competency manual)</em><br/><br/>
   <%= f.fields_for :leaderships do |builder| %>
     <%= render "leadership_fields", f: builder %>
   <% end %>
   <%= link_to_add_fields "Add Competency", f, :leaderships %>
+<hr />
 
   <h4>Social/self competencies</h4>
+  <em>(Social: ability to establish and develop sustainable relations.  Self: ability to direct oneself in an effective manner.  Ex. tact & diplomacy, problem solver, team player, managing confrontational situations …)</em><br/><br/>
   <%= f.fields_for :socials do |builder| %>
     <%= render "social_fields", f: builder %>
   <% end %>
-  <%= link_to_add_fields "Add Competency", f, :socials %>
+  <%= link_to_add_fields "Add Competency", f, :socials %><br/>
 
 <hr />
 
@@ -144,6 +161,10 @@
 
   <div class="actions">
     <%= f.submit "Save Position", :class => 'btn btn-success' %>
+  </div>
+
+  <div class="session_store">
+    <%= f.submit "Store session", :name => "session_button" ,:class => 'btn btn-success' %>
   </div>
 
 <% end %>
