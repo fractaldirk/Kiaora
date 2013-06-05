@@ -71,13 +71,20 @@ class PositionsController < ApplicationController
     @position = Position.new(params[:position])
 
     respond_to do |format|
-      if @position.save
-        Activity.create(content: "#{@position.job_title}", action: "created", office: "#{@position.office}", user_name: "#{@position.user_name}", link: "#{@position.id}")
-        format.html { redirect_to @position, notice: 'Position was successfully created.' }
-        format.json { render json: @position, status: :created, location: @position }
+      if params[:session_new_button]
+        @position.save
+          Activity.create(content: "#{@position.job_title}", action: "created", office: "#{@position.office}", user_name: "#{@position.user_name}", link: "#{@position.id}")
+          format.html { redirect_to edit_position_path(@position) }
+          format.json { head :no_content }
       else
-        format.html { render action: "new" }
-        format.json { render json: @position.errors, status: :unprocessable_entity }
+        if @position.save
+          Activity.create(content: "#{@position.job_title}", action: "created", office: "#{@position.office}", user_name: "#{@position.user_name}", link: "#{@position.id}")
+          format.html { redirect_to @position, notice: 'Position was successfully created.' }
+          format.json { render json: @position, status: :created, location: @position }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @position.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
