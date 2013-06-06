@@ -144,7 +144,7 @@ class PositionPdf < Prawn::Document
 
   def organisational
     move_down 5
-    @position.organisationals.order("created_at").each do |o|
+    @position.organisationals.order("place DESC").each do |o|
       @dictionary.each do |d|
         if d.id == o.indicator
           text "- #{d.competency_english}"
@@ -203,14 +203,14 @@ class PositionPdf < Prawn::Document
 
   def attitude
     text "ATTITUDE", size: 14, style: :bold
-    @position.attitudes.each do |a|
+    @position.attitudes.order("a_position").each do |a|
       text "- #{a.description}"
     end
   end
 
   def specific_work_environment
     text "SPECIFIC WORK ENVIRONMENT", size: 14, style: :bold
-    @position.conditions.each do |con|
+    @position.conditions.order("c_position").each do |con|
       text "- #{con.environment}"
     end
   end

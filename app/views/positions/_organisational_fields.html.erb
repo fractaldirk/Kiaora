@@ -2,6 +2,7 @@
   <% if current_user.language == 1 %>
       <strong><%= o.competency_english %></strong>, <em>in particular</em> <%= f.text_field :extension, :placeholder => "this field is optional, leave blank if not used.", :class => "text_field" %> (Importance: <%= f.select(:importance, ['1', '2', '3', '4'], { :prompt => '0'}, :id => "select_field" ) %> Profiency: <%= f.select(:value, ['1', '2', '3', '4'], { :prompt => '0'}, :id => "select_field" ) %>)<br/>
       <%= f.hidden_field :indicator, :value => o.id %>
+      <%= f.hidden_field :place, :value => o.place %>
       <%= f.hidden_field :english, :value => o.competency_english %>
       <%= f.hidden_field :spanish, :value => o.competency_spanish %>
       <%= f.hidden_field :french, :value => o.competency_french %>

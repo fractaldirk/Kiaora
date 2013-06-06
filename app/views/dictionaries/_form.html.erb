@@ -16,6 +16,11 @@
     <%= f.select(:indicator, [['Organisational', '1'], ['Technical', '2'], ['Method related', '3'], ['Leadership', '4'], ['Social/self', '5'], ['Attitude', '6'], ['Specific Work Environment', '7']], :prompt => "Please define") %>
   </div>
 
+  <% if @dictionary.indicator == 1 %>
+    <%= f.label :place, "Define place in the org. competencies list to ensure fixed order." %>
+    <%= f.select(:place, ['1','2','3','4','5','6','6','7','8','9']) %>
+  <% end %>
+
   <div class="field">
     <%= f.label :competency_english, "English" %><br />
     <%= f.text_field :competency_english %>

@@ -9,7 +9,7 @@
     <th></th>
     <th></th>
   </tr>
-<% @position.organisationals.each do |o| %>
+<% @position.organisationals.order("created_at").each do |o| %>
   <tr>
     <% @dictionary.each do |d| %>
       <% if d.id == o.indicator %>

@@ -144,7 +144,7 @@ class PositionPdf < Prawn::Document
 
   def organisational
     move_down 5
-    @position.organisationals.order("created_at").each do |o|
+    @position.organisationals.order("place ASC").each do |o|
       @dictionary.each do |d|
         if d.id == o.indicator
           text "- #{d.competency_english}"

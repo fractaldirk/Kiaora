@@ -1,6 +1,7 @@
 <fieldset>
   <% if current_user.language == 1 %>
-    <%= f.collection_select(:indicator, @leadership, :id, :competency_english, {:prompt => "Choose competency"}, :id => "competency_select_field") %> <%= f.select(:importance, ['1', '2', '3', '4'], { :prompt => '0'}, :id => "select_field" ) %> <%= f.select(:value, ['1', '2', '3', '4'], { :prompt => '0'}, :id => "select_field" ) %>
+    <%= f.collection_select(:indicator, @leadership, :id, :competency_english, {:prompt => "Choose competency"}, :id => "competency_select_field") %>
+    Importance: <%= f.select(:importance, ['1', '2', '3', '4'], { :prompt => '0'}, :id => "select_field" ) %> Profiency: <%= f.select(:value, ['1', '2', '3', '4'], { :prompt => '0'}, :id => "select_field" ) %>
   <% elsif current_user.language == 2 %>
     <%= f.collection_select(:indicator, @leadership, :id, :competency_spanish, {:prompt => "Definir las competencias"}, :id => "competency_select_field") %> <%= f.select(:importance, ['1', '2', '3', '4'], { :prompt => '0'}, :id => "select_field" ) %> <%= f.select(:value, ['1', '2', '3', '4'], { :prompt => '0'}, :id => "select_field" ) %>
   <% elsif current_user.language == 3 %>

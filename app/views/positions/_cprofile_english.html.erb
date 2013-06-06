@@ -6,7 +6,7 @@
   <strong><u>Organisational competencies:</u></strong>
 </p>
 <ul class="competencies">
-<% @position.organisationals.order("created_at").each do |o| %>
+<% @position.organisationals.order("place ASC").each do |o| %>
   <li>
     <% @dictionary.each do |d| %>
       <% if d.id == o.indicator %>
