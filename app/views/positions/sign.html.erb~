@@ -1,5 +1,5 @@
 <% if current_user.role == 1 %>
-  <h4>Sign off selected job description (<%= @position.job_title %>)</h4>
+  <h4>Sign off the selected job description (<%= @position.job_title %>)</h4>
   <%= form_for(@position) do |f| %>
     <% if @position.errors.any? %>
       <div id="error_explanation">

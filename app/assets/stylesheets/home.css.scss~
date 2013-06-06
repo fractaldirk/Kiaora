@@ -25,7 +25,15 @@ h1 {
 
 #showbuttonsfixed {
   position: fixed;
-  top: 170px;
+  top: 172px;
+  right: 5px;
+  width: 35px;
+  z-index: 6;
+}
+
+#showbuttonsfixed2 {
+  position: fixed;
+  top: 202px;
   right: 5px;
   width: 35px;
   z-index: 6;

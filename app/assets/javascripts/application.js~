@@ -11,9 +11,8 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery/jquery-1.9.1
-//= require jquery/jquery-ui-1.10.2.custom
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require jquery.ui.sortable
+//= require jquery.ui.autocomplete
 //= require_tree .

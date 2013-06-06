@@ -18,6 +18,7 @@ Kiaora::Application.routes.draw do
       get 'internal'
       get 'editpdf'
       get 'showpdf'
+      get 'edit_profile'
     end
 
     collection do

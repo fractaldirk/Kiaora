@@ -144,7 +144,7 @@ class PositionPdf < Prawn::Document
 
   def organisational
     move_down 5
-    @position.organisationals.each do |o|
+    @position.organisationals.order("created_at").each do |o|
       @dictionary.each do |d|
         if d.id == o.indicator
           text "- #{d.competency_english}"
@@ -155,7 +155,7 @@ class PositionPdf < Prawn::Document
 
   def technical
     move_down 5
-    @position.functionals.each do |f|
+    @position.functionals.order("f_position").each do |f|
       @dictionary.each do |d|
         if d.id == f.indicator
           text "- #{d.competency_english}"
@@ -166,7 +166,7 @@ class PositionPdf < Prawn::Document
 
   def method
     move_down 5
-    @position.methodrelations.each do |m|
+    @position.methodrelations.order("m_position").each do |m|
       @dictionary.each do |d|
         if d.id == m.indicator
           text "- #{d.competency_english}"
@@ -177,7 +177,7 @@ class PositionPdf < Prawn::Document
 
   def social
     move_down 5
-    @position.socials.each do |s|
+    @position.socials.order("s_position").each do |s|
       @dictionary.each do |d|
         if d.id == s.indicator
           text "- #{d.competency_english}"
@@ -191,7 +191,7 @@ class PositionPdf < Prawn::Document
       move_down 8
       text "<u><i><b>Leadership competencies</b></i></u>", size: 11, :inline_format => true
       move_down 5
-      @position.leaderships.each do |l|
+      @position.leaderships.order("l_position").each do |l|
         @dictionary.each do |d|
           if d.id == l.indicator
             text "- #{d.competency_english}"
@@ -203,14 +203,14 @@ class PositionPdf < Prawn::Document
 
   def attitude
     text "ATTITUDE", size: 14, style: :bold
-    @position.attitudes.each do |a|
+    @position.attitudes.order("a_position").each do |a|
       text "- #{a.description}"
     end
   end
 
   def specific_work_environment
     text "SPECIFIC WORK ENVIRONMENT", size: 14, style: :bold
-    @position.conditions.each do |con|
+    @position.conditions.order("c_position").each do |con|
       text "- #{con.environment}"
     end
   end

@@ -1,0 +1,83 @@
+<h3>Edit competency profile</h3>
+
+<ul id="myTab" class="nav nav-tabs">
+  <li class="active"><a href="#home" data-toggle="tab">Documentation</a></li>
+  <li><a href="#orga" data-toggle="tab">Organisation</a></li>
+  <li><a href="#tech" data-toggle="tab">Technical</a></li>
+  <li><a href="#meth" data-toggle="tab">Method Related</a></li>
+  <li><a href="#soci" data-toggle="tab">Social</a></li>
+  <li><a href="#lead" data-toggle="tab">Leadership</a></li>
+</ul>
+
+<%= form_for(@position) do |f| %>
+  <% if @position.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@position.errors.count, "error") %> prohibited this position from being saved:</h2>
+
+      <ul>
+      <% @position.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane fade in active" id="home">
+        <%= render "edit_documentation_tab" %>
+      </div>
+      <div class="tab-pane fade" id="orga">
+        <%= render "helper_text_organisational" %>
+        <%= f.fields_for :organisationals do |builder| %>
+          <%= render "organisational_fields_edit", f: builder %>
+        <% end %>
+        <hr />
+      </div>
+      <div class="tab-pane fade" id="tech">
+        <%= render "helper_text_functional" %>
+        <em id="helper_text">(Ability and expertise to apply knowledge.  Ex.: languages, software tools, scientific knowledge, communication, marketing …)</em><br/><br/>
+        <%= f.fields_for :functionals, @func_order do |builder| %>
+          <%= render "functional_fields", f: builder %>
+        <% end %>
+        <%= link_to_add_fields "Add Competency", f, :functionals %>
+        <hr />
+      </div>
+      <div class="tab-pane fade" id="meth">
+        <%= render "helper_text_functional" %>
+        <em id="helper_text">(Ability to apply, reflect and continuously improve on methods learned.  Ex.: meeting facilitation, project management …)</em><br/><br/>
+        <%= f.fields_for :methodrelations, @meths_order do |builder| %>
+          <%= render "methodrelation_fields", f: builder %>
+        <% end %>
+        <%= link_to_add_fields "Add Competency", f, :methodrelations %>
+      <hr />
+      </div>
+      <div class="tab-pane fade" id="soci">
+        <%= render "helper_text_functional" %>
+        <em id="helper_text">(Social: ability to establish and develop sustainable relations.  Self: ability to direct oneself in an effective manner.  Ex. tact & diplomacy, problem solver, team player, managing confrontational situations …)</em><br/><br/>
+        <%= f.fields_for :socials, @soc_order do |builder| %>
+          <%= render "social_fields", f: builder %>
+        <% end %>
+        <%= link_to_add_fields "Add Competency", f, :socials %>
+        <hr />
+      </div>
+      <div class="tab-pane fade" id="lead">
+        <%= render "helper_text_leadership" %>
+        <em id="helper_text">(See competency manual)</em><br/><br/>
+        <%= f.fields_for :leaderships, @leads_order do |builder| %>
+          <%= render "leadership_fields", f: builder %>
+        <% end %>
+        <%= link_to_add_fields "Add Competency", f, :leaderships %>
+        <hr />
+      </div>
+    </div>
+
+
+  <div class="session_save_profile">
+    <%= f.submit "Save profile", :name => "profile_button", :class => 'btn btn-success' %>
+  </div>
+
+  <div class="session_store_profile">
+    <%= f.submit "Store session", :name => "session_profile_button" ,:class => 'btn btn-success' %>
+  </div>
+
+<% end %>

@@ -4,6 +4,7 @@
   <title>Blue Robin 1.0.x</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "autocomplete-rails.js" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -26,7 +27,7 @@
           <% if ((user_signed_in?) && (current_user.office == 99)) %>
             <li class="divider-vertical"><%= link_to "Dictionary", dictionaries_path %></li>
           <% end %>
-          <li class="divider-vertical"><a href="#myModal" data-toggle="modal">File a ticket</a></li>
+          <li class="divider-vertical"><a href="#myModal" data-toggle="modal">Inquiry</a></li>
           <li class="dropdown">
             <% if user_signed_in? %>
               <a class="dropdown-toggle"

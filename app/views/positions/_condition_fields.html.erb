@@ -1,5 +1,5 @@
 <fieldset>
-  <%= f.text_field :environment, :placeholder => "Define Specific Work Environment", :class => "text_field_long" %>
+  <%= f.text_field :environment, :placeholder => "Define Specific Work Environment", :class => "text_field_long", "data-provide" => "typeahead", data: { source: Dictionary.find(:all, :conditions => { :indicator => 7}, :order => "competency_english").map(&:competency_english)} %>
   <%= f.hidden_field :_destroy %>
   <%= link_to "remove", '#', class: "remove_fields" %>
 </fieldset>

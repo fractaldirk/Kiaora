@@ -1,3 +1,7 @@
+#helper_text {
+  color: #006600;
+}
+
 #conceptuals .chandle {
   font-size: 12px;
   color: #777;
@@ -102,4 +106,22 @@ ul {
 
 #competency_select_field {
   width: 440pt;
+}
+
+.session_store {
+  position: fixed;
+  top: 145px;
+  right: 120px;
+}
+
+.session_store_profile {
+  position: fixed;
+  top: 125px;
+  right: 125px;
+}
+
+.session_save_profile {
+  position: fixed;
+  top: 125px;
+  right: 325px;
 }

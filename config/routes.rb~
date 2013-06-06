@@ -30,6 +30,7 @@ Kiaora::Application.routes.draw do
       post 'socsort'
       post 'lsort'
       post 'asort'
+      post 'consort'
     end
   end
 

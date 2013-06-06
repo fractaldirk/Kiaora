@@ -13,6 +13,8 @@ jQuery ->
     regexp = new RegExp($(this).data('id'), 'g')
     $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
+    $('.attitude_auto').typeahead
+      source: ['foo', 'food', 'foodsupply']
 
   $('#conceptuals').sortable(
     axis: 'y'

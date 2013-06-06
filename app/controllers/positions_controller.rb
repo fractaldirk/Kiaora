@@ -1,5 +1,6 @@
 class PositionsController < ApplicationController
   before_filter :authenticate_user!, :except => [:sort]
+
   # GET /positions
   # GET /positions.json
   def index
@@ -37,7 +38,7 @@ class PositionsController < ApplicationController
   # GET /positions/new.json
   def new
     @position = Position.new
-    @organisational = Dictionary.find(:all, :conditions => {:indicator => 1})
+    @organisational = Dictionary.find(:all, :order => "created_at", :conditions => {:indicator => 1})
     @functional = Dictionary.find(:all, :conditions => { :indicator => 2 })
     @method = Dictionary.find(:all, :conditions => { :indicator => 3 })
     @leadership = Dictionary.find(:all, :conditions => { :indicator => 4 })
@@ -55,9 +56,34 @@ class PositionsController < ApplicationController
   def edit
     @position = Position.find(params[:id])
     @conceptual = @position.responsibilities.find(:all, :order => "r_position", :conditions => { :indicator => 1})
-    @implementation = @position.responsibilities.find(:all, :conditions => { :indicator => 2})
-    @support = @position.responsibilities.find(:all, :conditions => { :indicator => 3})
-    @compliance = @position.responsibilities.find(:all, :conditions => { :indicator => 4})
+    @implementation = @position.responsibilities.find(:all, :order => "i_position", :conditions => { :indicator => 2})
+    @support = @position.responsibilities.find(:all, :order => "s_position", :conditions => { :indicator => 3})
+    @compliance = @position.responsibilities.find(:all, :order => "c_position", :conditions => { :indicator => 4})
+    @func_order = @position.functionals.find(:all, :order => "f_position")
+    @meths_order = @position.methodrelations.find(:all, :order => "m_position")
+    @leads_order = @position.leaderships.find(:all, :order => "l_position")
+    @soc_order = @position.socials.find(:all, :order => "s_position")
+    @att_order = @position.attitudes.find(:all, :order => "a_position")
+    @con_order = @position.conditions.find(:all, :order => "c_position")
+    @organisational = Dictionary.find(:all, :conditions => {:indicator => 1})
+    @functional = Dictionary.find(:all, :conditions => { :indicator => 2 })
+    @method = Dictionary.find(:all, :conditions => { :indicator => 3 })
+    @leadership = Dictionary.find(:all, :conditions => { :indicator => 4 })
+    @social = Dictionary.find(:all, :conditions => { :indicator => 5 })
+  end
+
+  def edit_profile
+    @position = Position.find(params[:id])
+    @conceptual = @position.responsibilities.find(:all, :order => "r_position", :conditions => { :indicator => 1})
+    @implementation = @position.responsibilities.find(:all, :order => "i_position", :conditions => { :indicator => 2})
+    @support = @position.responsibilities.find(:all, :order => "s_position", :conditions => { :indicator => 3})
+    @compliance = @position.responsibilities.find(:all, :order => "c_position", :conditions => { :indicator => 4})
+    @func_order = @position.functionals.find(:all, :order => "f_position")
+    @meths_order = @position.methodrelations.find(:all, :order => "m_position")
+    @leads_order = @position.leaderships.find(:all, :order => "l_position")
+    @soc_order = @position.socials.find(:all, :order => "s_position")
+    @att_order = @position.attitudes.find(:all, :order => "a_position")
+    @con_order = @position.conditions.find(:all, :order => "c_position")
     @organisational = Dictionary.find(:all, :conditions => {:indicator => 1})
     @functional = Dictionary.find(:all, :conditions => { :indicator => 2 })
     @method = Dictionary.find(:all, :conditions => { :indicator => 3 })
@@ -108,6 +134,15 @@ class PositionsController < ApplicationController
         @position.update_attributes(params[:position])
           format.html { redirect_to edit_position_path(@position) }
           format.json { head :no_content }
+      elsif params[:session_profile_button]
+        @position.update_attributes(params[:position])
+          format.html { redirect_to edit_profile_position_path(@position) }
+          format.json { head :no_content }
+      elsif params[:profile_button]
+        @position.update_attributes(params[:position])
+        Activity.create(content: "#{@position.job_title}", action: "updated competency profile of", office: "#{@position.office}", user_name: "#{@position.user_name}", link: "#{@position.id}")
+        format.html { redirect_to internal_position_path(@position), notice: 'Competency profile was successfully updated.' }
+        format.json { head :no_content }
       else
         if @position.update_attributes(params[:position])
           Activity.create(content: "#{@position.job_title}", action: "updated", office: "#{@position.office}", user_name: "#{@position.user_name}", link: "#{@position.id}")
@@ -136,10 +171,17 @@ class PositionsController < ApplicationController
 
   def steal
     @position = Position.find(params[:id])
-    @conceptual = @position.responsibilities.find(:all, :conditions => { :indicator => 1})
-    @implementation = @position.responsibilities.find(:all, :conditions => { :indicator => 2})
-    @support = @position.responsibilities.find(:all, :conditions => { :indicator => 3})
-    @compliance = @position.responsibilities.find(:all, :conditions => { :indicator => 4})
+    @conceptual = @position.responsibilities.find(:all, :order => "r_position", :conditions => { :indicator => 1})
+    @implementation = @position.responsibilities.find(:all, :order => "i_position", :conditions => { :indicator => 2})
+    @support = @position.responsibilities.find(:all, :order => "s_position", :conditions => { :indicator => 3})
+    @compliance = @position.responsibilities.find(:all, :order => "c_position", :conditions => { :indicator => 4})
+    @func_order = @position.functionals.find(:all, :order => "f_position")
+    @meths_order = @position.methodrelations.find(:all, :order => "m_position")
+    @leads_order = @position.leaderships.find(:all, :order => "l_position")
+    @soc_order = @position.socials.find(:all, :order => "s_position")
+    @att_order = @position.attitudes.find(:all, :order => "a_position")
+    @con_order = @position.conditions.find(:all, :order => "c_position")
+    @organisational = Dictionary.find(:all, :conditions => {:indicator => 1})
     @functional = Dictionary.find(:all, :conditions => { :indicator => 2 })
     @method = Dictionary.find(:all, :conditions => { :indicator => 3 })
     @leadership = Dictionary.find(:all, :conditions => { :indicator => 4 })
@@ -178,10 +220,10 @@ class PositionsController < ApplicationController
 
   def editpdf
     @position = Position.find(params[:id])
-    @conceptual = @position.responsibilities.find(:all, :conditions => { :indicator => 1})
-    @implementation = @position.responsibilities.find(:all, :conditions => { :indicator => 2})
-    @support = @position.responsibilities.find(:all, :conditions => { :indicator => 3})
-    @compliance = @position.responsibilities.find(:all, :conditions => { :indicator => 4})
+    @conceptual = @position.responsibilities.find(:all, :order => "r_position", :conditions => {:indicator => 1})
+    @implementation = @position.responsibilities.find(:all, :order => "i_position", :conditions => {:indicator => 2})
+    @support = @position.responsibilities.find(:all, :order => "s_position", :conditions => {:indicator => 3})
+    @compliance = @position.responsibilities.find(:all, :order => "c_position", :conditions => {:indicator => 4})
     @functional = Dictionary.find(:all, :conditions => { :indicator => 2 })
     @method = Dictionary.find(:all, :conditions => { :indicator => 3 })
     @leadership = Dictionary.find(:all, :conditions => { :indicator => 4 })

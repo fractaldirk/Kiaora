@@ -10,7 +10,9 @@
 
   <%= link_to 'Back', positions_path, :class => 'btn btn-primary btn-mini', :id => 'navigationleft' %>
 
-  <%= link_to "Competency Profile (xls)", internal_position_path(@position, format: "xlsx"), :class => "btn btn-primary btn-small", :id => 'navigationright' %>
+  <div class="hidden">
+    <%= link_to "Competency Profile (xls)", internal_position_path(@position, format: "xlsx"), :class => "btn btn-primary btn-small", :id => 'navigationright' %>
+  </div>
 
 <% if current_user.language == 1 %>
   <%= render "cinternal_english" %>
@@ -21,3 +23,17 @@
   <% else %>
     <%= render "cinternal_english" %>
 <% end %>
+
+<div id="showbuttonsfixedbg"><%= image_tag 'show_socialbg2.png' %></div>
+
+<div id="showbuttonsfixed2">
+
+  <table><tbody><tr><td style="color: white;">
+  <%= link_to image_tag("edit.png"), edit_position_path(@position), "data-toggle" => "tooltip", "data-placement" => "left", "title" => "edit" %>
+  edit</td></tr><tr>
+  <td style="color: white;">
+  </td></tr><tr><td>
+
+  </td></tr></tbody></table>
+
+</div>
