@@ -121,6 +121,15 @@
   <% end %>
   <%= link_to_add_fields "Add Criterea", f, :conditions %>
 
+  <div class="hidden">
+    <h4>Organisational competencies</h4>
+    <% @organisational.each do |o| %>
+      <%= f.fields_for :organisationals do |builder| %>
+        <%= render "organisational_fields", f: builder, :o => o %>
+      <% end %>
+    <% end %>
+  </div>
+
 <hr />
 
 <hr />
