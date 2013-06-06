@@ -177,7 +177,7 @@ class PositionsController < ApplicationController
     @implementation = @position.responsibilities.find(:all, :order => "i_position", :conditions => { :indicator => 2})
     @support = @position.responsibilities.find(:all, :order => "s_position", :conditions => { :indicator => 3})
     @compliance = @position.responsibilities.find(:all, :order => "c_position", :conditions => { :indicator => 4})
-    @org_order = @position.organisationals.find(:all, :order => "created_at DESC")
+    @org_order = @position.organisationals.find(:all, :order => "created_at ASC")
     @func_order = @position.functionals.find(:all, :order => "f_position")
     @meths_order = @position.methodrelations.find(:all, :order => "m_position")
     @leads_order = @position.leaderships.find(:all, :order => "l_position")
