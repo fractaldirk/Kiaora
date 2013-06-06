@@ -4,7 +4,7 @@ class DictionariesController < ApplicationController
   # GET /dictionaries
   # GET /dictionaries.json
   def index
-    @organisational = Dictionary.find(:all, :conditions => {:indicator => 1})
+    @organisational = Dictionary.find(:all, :order => "place ASC", :conditions => {:indicator => 1})
     @functional = Dictionary.find(:all, :conditions => { :indicator => 2 })
     @method = Dictionary.find(:all, :conditions => { :indicator => 3 })
     @leadership = Dictionary.find(:all, :conditions => { :indicator => 4 })

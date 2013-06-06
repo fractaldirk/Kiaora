@@ -93,7 +93,6 @@ class DictionariesController < ApplicationController
     @method = Dictionary.find(:all, :conditions => { :indicator => 3 })
     @leadership = Dictionary.find(:all, :conditions => { :indicator => 4 })
     @social = Dictionary.find(:all, :conditions => { :indicator => 5 })
-    @requests = Request.find(:all)
   end
 
 private
