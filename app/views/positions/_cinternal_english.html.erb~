@@ -30,7 +30,7 @@
     <th></th>
     <th></th>
   </tr>
-<% @position.functionals.order("f_position ASC").each do |f| %>
+<% @position.functionals.order("f_position").each do |f| %>
   <tr>
     <% @dictionary.each do |d| %>
       <% if d.id == f.indicator %>

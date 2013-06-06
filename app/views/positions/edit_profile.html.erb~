@@ -31,7 +31,6 @@
         <%= f.fields_for :organisationals do |builder| %>
           <%= render "organisational_fields_edit", f: builder %>
         <% end %>
-        <hr />
       </div>
       <div class="tab-pane fade" id="tech">
         <%= render "helper_text_functional" %>

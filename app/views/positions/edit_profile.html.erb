@@ -28,7 +28,7 @@
       </div>
       <div class="tab-pane fade" id="orga">
         <%= render "helper_text_organisational" %>
-        <%= f.fields_for :organisationals do |builder| %>
+        <%= f.fields_for :organisationals, @org_order do |builder| %>
           <%= render "organisational_fields_edit", f: builder %>
         <% end %>
       </div>
