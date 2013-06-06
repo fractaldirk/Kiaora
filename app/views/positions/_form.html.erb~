@@ -97,7 +97,7 @@
 <hr />
 
   <h4>Compliance / Keeping Framework Conditions</h4>
-  <em id="helper_text">(measure, prove, supervise, test, control, assess, verify, budget, classify, count, clean up, follow, compare, evaluate, consolidate...)</em>
+  <em id="helper_text">(measure, prove, supervise, test, control, assess, verify, budget, classify, count, clean up, follow, compare, evaluate, consolidate...)</em><br/><br/>
   <% if @compliance.present? %>
     <%= f.fields_for :responsibilities, @compliance do |builder| %>
       <%= render "responsibility_fields", f: builder %>
