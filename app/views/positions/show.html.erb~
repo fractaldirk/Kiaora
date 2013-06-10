@@ -113,7 +113,7 @@
 
   <h4>Attitude:</h4>
 <ul class="attitudes" id="attitudes" data-update-url="<%= asort_positions_url %>">
-  <% @position.attitudes.each do |a| %>
+  <% @position.attitudes.order("a_position").each do |a| %>
     <%= content_tag_for :li, a do %>
     <span class="ahandle">[drag]</span>
       <%= a.description %>
@@ -125,7 +125,7 @@
 
   <h4>Specific Work Environment</h4>
 <ul class="conditions" id="conditions" data-update-url="<%= consort_positions_url %>">
-  <% @position.conditions.each do |con| %>
+  <% @position.conditions.order("c_position").each do |con| %>
     <%= content_tag_for :li, con do %>
     <span class="conhandle">[drag]</span>
       <%= con.environment %>

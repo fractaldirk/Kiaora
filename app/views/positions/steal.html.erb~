@@ -113,7 +113,7 @@
 
   <h3>Competency profile</h3>
   <h4>Organisational competencies</h4>
-  <%= f.fields_for :organisationals do |builder| %>
+  <%= f.fields_for :organisationals, @org_order do |builder| %>
     <%= render "organisational_fields_edit", f: builder %>
   <% end %>
 

@@ -1,0 +1,8 @@
+<ul class="list">
+  <li>(1) Important</li>
+  <li>(2) Very important</li>
+  <li>(3) Extremely important</li>
+  <li>(4) Critical</li>
+</ul>
+
+(1=important, 2=very important, 3=extremely important, 4=critical).  I would add two learner sections: "importance" and "proficiency level" (to me, might be in smaller sized letters if we want to take much less space on the page)

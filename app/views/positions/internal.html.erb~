@@ -29,7 +29,7 @@
 <div id="showbuttonsfixed2">
 
   <table><tbody><tr><td style="color: white;">
-  <%= link_to image_tag("edit.png"), edit_position_path(@position), "data-toggle" => "tooltip", "data-placement" => "left", "title" => "edit" %>
+  <%= link_to image_tag("edit.png"), edit_profile_position_path(@position), "data-toggle" => "tooltip", "data-placement" => "left", "title" => "edit" %>
   edit</td></tr><tr>
   <td style="color: white;">
   </td></tr><tr><td>

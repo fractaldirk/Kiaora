@@ -57,24 +57,6 @@
     <% end %>
   </tr>
 <% end %>
-<% if @position.leaderships.present? %>
-  <tr>
-    <th><em>Leadership</em></th>
-    <th></th>
-    <th></th>
-  </tr>
-  <% @position.leaderships.order("l_position").each do |l| %>
-    <tr>
-      <% @dictionary.each do |d| %>
-        <% if d.id == l.indicator %>
-          <td><%= d.competency_english %></td>
-          <td><%= l.importance %></td>
-          <td><%= l.value %></td>
-        <% end %>
-      <% end %>
-    </tr>
-  <% end %>
-<% end %>
 <% if @position.socials.present? %>
   <tr>
     <th><em>Social/self</em></th>
@@ -88,6 +70,24 @@
           <td><%= d.competency_english %></td>
           <td><%= s.importance %></td>
           <td><%= s.value %></td>
+        <% end %>
+      <% end %>
+    </tr>
+  <% end %>
+<% end %>
+<% if @position.leaderships.present? %>
+  <tr>
+    <th><em>Leadership</em></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @position.leaderships.order("l_position").each do |l| %>
+    <tr>
+      <% @dictionary.each do |d| %>
+        <% if d.id == l.indicator %>
+          <td><%= d.competency_english %></td>
+          <td><%= l.importance %></td>
+          <td><%= l.value %></td>
         <% end %>
       <% end %>
     </tr>

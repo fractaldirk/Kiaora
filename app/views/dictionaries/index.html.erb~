@@ -11,7 +11,7 @@
     <th>Delete</th>
   </tr>
 
-<% @organisational.order.each do |dictionary| %>
+<% @organisational.each do |dictionary| %>
   <tr>
     <td><%= link_to dictionary.competency_english, dictionary %></td>
     <td><%= link_to 'Edit', edit_dictionary_path(dictionary), :class => 'btn btn-inverse btn-mini' %></td>

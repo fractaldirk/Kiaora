@@ -133,21 +133,20 @@
   <%= link_to_add_fields "Add Competency", f, :methodrelations %>
 <hr />
 
-  <h4>Leadership competencies</h4>
-  <em id="helper_text">(See competency manual)</em><br/><br/>
-  <%= f.fields_for :leaderships, @leads_order do |builder| %>
-    <%= render "leadership_fields", f: builder %>
-  <% end %>
-  <%= link_to_add_fields "Add Competency", f, :leaderships %>
-<hr />
-
   <h4>Social/self competencies</h4>
   <em id="helper_text">(Social: ability to establish and develop sustainable relations.  Self: ability to direct oneself in an effective manner.  Ex. tact & diplomacy, problem solver, team player, managing confrontational situations …)</em><br/><br/>
   <%= f.fields_for :socials, @soc_order do |builder| %>
     <%= render "social_fields", f: builder %>
   <% end %>
   <%= link_to_add_fields "Add Competency", f, :socials %><br/>
+<hr />
 
+  <h4>Leadership competencies</h4>
+  <em id="helper_text">(See competency manual)</em><br/><br/>
+  <%= f.fields_for :leaderships, @leads_order do |builder| %>
+    <%= render "leadership_fields", f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Add Competency", f, :leaderships %>
 <hr />
 
 <hr />
