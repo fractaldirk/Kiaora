@@ -117,11 +117,17 @@ ul {
 .session_store_profile {
   position: fixed;
   top: 125px;
-  right: 125px;
+  right: 225px;
 }
 
 .session_save_profile {
   position: fixed;
   top: 125px;
-  right: 325px;
+  right: 90px;
+}
+
+.session_request_competency {
+  position: fixed;
+  top: 125px;
+  right: 370px;
 }

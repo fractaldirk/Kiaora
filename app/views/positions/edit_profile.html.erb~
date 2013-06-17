@@ -106,6 +106,7 @@
             <%= render "helper_text_importance" %>
           </div>
         </div>
+        <hr />
         <em id="helper_text">(See competency manual)</em><br/><br/>
         <%= f.fields_for :leaderships, @leads_order do |builder| %>
           <%= render "leadership_fields", f: builder %>
@@ -115,6 +116,9 @@
       </div>
     </div>
 
+  <div class="session_request_competency">
+    <%= link_to 'Request competency', new_request_path , :class => 'btn btn-primary', :target => "blank" %>
+  </div>
 
   <div class="session_save_profile">
     <%= f.submit "Save profile", :name => "profile_button", :class => 'btn btn-success' %>

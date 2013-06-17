@@ -117,46 +117,10 @@
   <%= link_to_add_fields "Add Criterea", f, :conditions %>
 
 <hr />
-
-  <h3>Competency profile</h3>
-  <h4>Organisational competencies</h4>
-  <%= f.fields_for :organisationals do |builder| %>
-    <%= render "organisational_fields_edit", f: builder %>
-  <% end %>
-
-  <h4>Technical competencies</h4>
-  <em id="helper_text">(Ability and expertise to apply knowledge.  Ex.: languages, software tools, scientific knowledge, communication, marketing …)</em><br/><br/>
-  <%= f.fields_for :functionals, @func_order do |builder| %>
-    <%= render "functional_fields", f: builder %>
-  <% end %>
-  <%= link_to_add_fields "Add Competency", f, :functionals %>
-<hr />
-
-  <h4>Method related competencies</h4>
-  <em id="helper_text">(Ability to apply, reflect and continuously improve on methods learned.  Ex.: meeting facilitation, project management …)</em><br/><br/>
-  <%= f.fields_for :methodrelations, @meths_order do |builder| %>
-    <%= render "methodrelation_fields", f: builder %>
-  <% end %>
-  <%= link_to_add_fields "Add Competency", f, :methodrelations %>
-<hr />
-
-  <h4>Leadership competencies</h4>
-  <em id="helper_text">(See competency manual)</em><br/><br/>
-  <%= f.fields_for :leaderships, @leads_order do |builder| %>
-    <%= render "leadership_fields", f: builder %>
-  <% end %>
-  <%= link_to_add_fields "Add Competency", f, :leaderships %>
-<hr />
-
-  <h4>Social/self competencies</h4>
-  <em id="helper_text">(Social: ability to establish and develop sustainable relations.  Self: ability to direct oneself in an effective manner.  Ex. tact & diplomacy, problem solver, team player, managing confrontational situations …)</em><br/><br/>
-  <%= f.fields_for :socials, @soc_order do |builder| %>
-    <%= render "social_fields", f: builder %>
-  <% end %>
-  <%= link_to_add_fields "Add Competency", f, :socials %><br/>
-
-<hr />
-
+  <div class="alert alert-info">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <p><strong>Heads up!</strong> The competency profile can be found under "Competency Profile" after creating the position. The form has been split into two parts (General and Competency Profile).</p>
+  </div>
 <hr />
 
   <div class="actions">

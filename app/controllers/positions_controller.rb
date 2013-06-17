@@ -142,7 +142,7 @@ class PositionsController < ApplicationController
           format.json { head :no_content }
       elsif params[:profile_button]
         @position.update_attributes(params[:position])
-        Activity.create(content: "#{@position.job_title}", action: "updated competency profile of", office: "#{@position.office}", user_name: "#{@position.user_name}", link: "#{@position.id}")
+        Activity.create(content: "#{@position.job_title}", action: "updated (competency profile)", office: "#{@position.office}", user_name: "#{@position.user_name}", link: "#{@position.id}")
         format.html { redirect_to internal_position_path(@position), notice: 'Competency profile was successfully updated.' }
         format.json { head :no_content }
       else

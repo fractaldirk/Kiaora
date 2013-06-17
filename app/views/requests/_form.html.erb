@@ -2,7 +2,7 @@
   <div class="control-group">
     <%= f.label :request, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :request, :class => 'text_field_long' %>
+      <%= f.text_field :request, :class => 'text_field_long', "data-provide" => "typeahead", data: { source: ["Knowledge and/or experience in", "Awareness and knowledge of", "Ability to", "Intellectual ability to understand"]} %>
     </div>
   </div>
   <div class="hidden">
