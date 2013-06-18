@@ -15,5 +15,6 @@ private
     # works if department is a select box and id field (collection_select) + define model (just like define model for office)
     positions = Position.where("updated_at >= ?", min_update) if min_update.present?
     positions = Position.where("updated_at <= ?", max_update) if max_update.present?
+    positions
   end
 end
