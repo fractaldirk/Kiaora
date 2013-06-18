@@ -1,6 +1,6 @@
 <!-- for the search results -->
 <div class="well well-small well-custom">
-  <h2><%= link_to position.job_title, position %></h2>
+  <h3><%= link_to position.job_title, position %></h3>
   <div class="well well-small">
     <p>Office: <%= position.office_name %><br/>
        Last updated at: <%= position.updated_at.strftime("%d %B %Y") unless position.updated_at.nil? %>

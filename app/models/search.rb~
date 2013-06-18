@@ -1,5 +1,5 @@
 class Search < ActiveRecord::Base
-  attr_accessible :department, :keywords, :max_update, :min_update, :office_id
+  attr_accessible :department, :keywords, :max_update, :min_update, :office_id, :draft
 
   def positions
     @positions ||= find_positions
@@ -9,6 +9,7 @@ private
 
   def find_positions
     positions = Position.order(:job_title)
+    positions = Position.where("draft >= ?", draft)
     positions = Position.where("job_title like ?", "%#{keywords}%") if keywords.present?
     positions = Position.where(office: office_id) if office_id.present?
     # department code goes here, example: positions = Position.where(department: department) if department.present?

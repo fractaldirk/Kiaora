@@ -14,9 +14,13 @@
     <%= f.text_field :department, :readonly => true %>
   </div>
   <div class="field">
+    <%= f.label :draft %><br />
+    <%= f.text_field :draft, :value => 2 %>
+  </div>
+  <div class="field">
     <%= f.label :min_update, "Date range" %><br />
-    <%= f.date_select :min_update %> - <br/>
-    <%= f.date_select :max_update %>
+    <%= f.date_select :min_update, include_blank: true %> - <br/>
+    <%= f.date_select :max_update, include_blank: true %>
   </div>
   <div class="actions"><%= f.submit "Search" %></div>
 <% end %>
