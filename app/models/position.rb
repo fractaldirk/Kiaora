@@ -29,6 +29,7 @@ class Position < ActiveRecord::Base
 
   amoeba do
     enable
+    prepend :job_title => "Copy of "
   end
 
   def office_name

@@ -27,10 +27,9 @@ class Position < ActiveRecord::Base
   accepts_nested_attributes_for :leaderships, allow_destroy: true
   accepts_nested_attributes_for :socials, allow_destroy: true
 
-  validates_length_of :responsibilities, :maximum => 255
-
   amoeba do
     enable
+    prepend :title => "Copy of "
   end
 
   def office_name

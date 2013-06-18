@@ -25,7 +25,18 @@
       <div class="nav-collapse">
         <ul class="nav">
           <li class="divider-vertical"><%= link_to "Positions", positions_path %></li>
-          <li class="divider-vertical"><%= link_to "Database", database_path %></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle"
+               data-toggle="dropdown"
+               href="#">
+                <strong>Database</strong>
+                <b class="caret"></b>
+              </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Search", new_search_path %></li>
+              <li><%= link_to "Database", database_path %></li>
+            </ul>
+          </li>
           <% if ((user_signed_in?) && (current_user.office == 99)) %>
             <li class="divider-vertical"><%= link_to "Dictionary", dictionaries_path %></li>
           <% end %>

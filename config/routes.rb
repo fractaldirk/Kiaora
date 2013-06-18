@@ -1,4 +1,6 @@
 Kiaora::Application.routes.draw do
+  resources :searches
+
   resources :requests do
     member do
       get 'sign'

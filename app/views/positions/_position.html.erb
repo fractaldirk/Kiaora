@@ -1,0 +1,16 @@
+<!-- for the search results -->
+<div class="well well-small well-custom">
+  <h3><%= link_to position.job_title, position %></h3>
+  <div class="well well-small">
+    <p>Office: <%= position.office_name %><br/>
+       Last updated at: <%= position.updated_at.strftime("%d %B %Y") unless position.updated_at.nil? %>
+    </p>
+    <div class="well well-small">
+      Job title: <%= position.job_title %><br/>
+      Valid from: <%= position.valid_from.strftime("%d %B %Y") unless position.valid_from.nil? %><br/>
+      Job grade: <%= position.job_grade %><br/>
+      Reports to: <%= position.reports_to %><br/>
+      Line-manages: <%= position.line_manages %><br/>
+    </div>
+  </div>
+</div>

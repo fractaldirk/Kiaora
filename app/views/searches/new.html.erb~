@@ -1,0 +1,22 @@
+<h1>Advanced Search</h1>
+
+<%= form_for @search do |f| %>
+  <div class="field">
+    <%= f.label :keywords %><br />
+    <%= f.text_field :keywords %>
+  </div>
+  <div class="field">
+    <%= f.label :office_id, "Office" %><br />
+    <%= f.select(:office_id, [['Belgium', '1'], ['GPI', '99'], ['France', '2'], ['Med', '3'], ['Greece', '4'], ['New Zealand', '5'], ['Germany', '6']], include_blank: true) %>
+  </div>
+  <div class="field">
+    <%= f.label :department %><br />
+    <%= f.text_field :department, :readonly => true %>
+  </div>
+  <div class="field">
+    <%= f.label :min_update, "Date range" %><br />
+    <%= f.date_select :min_update %> - <br/>
+    <%= f.date_select :max_update %>
+  </div>
+  <div class="actions"><%= f.submit "Search" %></div>
+<% end %>

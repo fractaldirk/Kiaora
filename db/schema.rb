@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130606223455) do
+ActiveRecord::Schema.define(:version => 20130618103731) do
 
   create_table "activities", :force => true do |t|
     t.string   "user_name"
@@ -152,6 +152,16 @@ ActiveRecord::Schema.define(:version => 20130606223455) do
   end
 
   add_index "responsibilities", ["position_id"], :name => "index_responsibilities_on_position_id"
+
+  create_table "searches", :force => true do |t|
+    t.string   "keywords"
+    t.integer  "office_id"
+    t.integer  "department"
+    t.date     "min_update"
+    t.date     "max_update"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "socials", :force => true do |t|
     t.integer  "indicator"

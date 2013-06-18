@@ -1,4 +1,6 @@
 Kiaora::Application.routes.draw do
+  resources :searches
+
   resources :requests do
     member do
       get 'sign'
@@ -10,6 +12,8 @@ Kiaora::Application.routes.draw do
   get "dictionaries/office"
   resources :dictionaries
 
+  get "positions/search"
+
   resources :positions do
     member do
       get 'steal'
@@ -18,6 +22,7 @@ Kiaora::Application.routes.draw do
       get 'internal'
       get 'editpdf'
       get 'showpdf'
+      get 'edit_profile'
     end
 
     collection do
