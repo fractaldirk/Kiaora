@@ -1,3 +1,2 @@
-<h4>Welcome <%= current_user.user_name %></h4>
-<h4>New testing round</h4>
+<h2>Welcome to Blue Robin :)</h2>
 <p>We have taking your feedback into account, please have a go and let us know what you think. :)</p>

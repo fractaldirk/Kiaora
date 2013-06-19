@@ -47,6 +47,11 @@ class Position < ActiveRecord::Base
       "New Zealand"
     elsif office == 6
       "Germany"
+    #Example offices for skillshare June
+    elsif office == 7
+      "Office A"
+    elsif office == 8
+      "Office B"
     else
       "To be defined"
     end

@@ -13,11 +13,9 @@
 <div class="row">
   <div class="span8">
     <%= render "announcement" %>
-    <% if @activities.present? %>
-      <h4>Latest activity</h4>
-      <% @activities.each do |act| %>
-        <%= render "activity", :act => act %>
-      <% end %>
+    <h4>Latest activity</h4>
+    <% @activities.each do |act| %>
+      <%= render "activity", :act => act %>
     <% end %>
   </div>
   <div class="span4">

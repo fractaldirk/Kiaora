@@ -16,6 +16,11 @@ class Request < ActiveRecord::Base
       "New Zealand"
     elsif office == 6
       "Germany"
+    # example offices for test round (skillshare) June
+    elsif office == 7
+      "Office A"
+    elsif office == 8
+      "Office B"
     else
       "To be defined"
     end

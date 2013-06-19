@@ -42,6 +42,17 @@ class HomeController < ApplicationController
     @activities = Activity.find(:all, :conditions => {:office => 6}, :order => "created_at DESC", :limit => 5)
   end
 
+  #example offices for skillshare June
+  def office_a
+    @positions = Position.find(:all, :conditions => {:office => 7})
+    @activities = Activity.find(:all, :conditions => {:office => 7}, :order => "created_at DESC", :limit => 5)
+  end
+
+  def office_b
+    @positions = Position.find(:all, :conditions => {:office => 8})
+    @activities = Activity.find(:all, :conditions => {:office => 8}, :order => "created_at DESC", :limit => 5)
+  end
+
   def database
     @positions = Position.find(:all, :conditions => {:draft => 2})
     @samples = Position.find(:all, :conditions => {:office => 99, :draft => 2})
@@ -72,6 +83,11 @@ private
       new_zealand_path
     elsif current_user.office == 6
       germany_path
+    #example offices for skillshare June
+    elsif current_user.office == 7
+      office_a_path
+    elsif current_user.office == 8
+      office_b_path
     else
       home_index_path
     end

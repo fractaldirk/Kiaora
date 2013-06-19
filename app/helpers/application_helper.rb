@@ -14,6 +14,11 @@ module ApplicationHelper
       "New Zealand"
     elsif current_user.office == 6
       "Germany"
+    #for testing round skillshare June
+    elsif current_user.office == 7
+      "Office A"
+    elsif current_user.office == 8
+      "Office B"
     else
       "To be defined"
     end
@@ -32,6 +37,13 @@ def home_page
     greece_path
   elsif current_user.office == 5
     new_zealand_path
+  elsif current_user.office == 6
+    germany_path
+  #for testing round skillshare June
+  elsif current_user.office == 7
+    office_a_path
+  elsif current_user.office == 8
+    office_b_path
   else
     home_index_path
   end

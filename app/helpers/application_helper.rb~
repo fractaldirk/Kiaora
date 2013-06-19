@@ -12,6 +12,13 @@ module ApplicationHelper
       "Greece"
     elsif current_user.office == 5
       "New Zealand"
+    elsif current_user.office == 6
+      "Germany"
+    #for testing round skillshare
+    elsif current_user.office == 7
+      "Office A"
+    elsif current_user.office == 8
+      "Office B"
     else
       "To be defined"
     end

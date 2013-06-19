@@ -12,8 +12,6 @@ Kiaora::Application.routes.draw do
   get "dictionaries/office"
   resources :dictionaries
 
-  get "positions/search"
-
   resources :positions do
     member do
       get 'steal'

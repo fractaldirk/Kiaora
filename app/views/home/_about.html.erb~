@@ -1,7 +1,6 @@
 <h4>Result feedback round 1</h4>
 <p>Thanks to your feedback the following functions are in development:
   <ul class="list">
-    <li>Provide text field to select competenices with auto association (instead of select dropdown). Status: Done</li>
     <li>Inhouse inquiry system, in the future you will be able to see all tickets(feedback) and the status.</li>
     <li>Provide addional field by generic competencies. Like with the organisation competencies.</li>
     <li>More advanced competency request system with more fields and dictionary guidance.</li>
