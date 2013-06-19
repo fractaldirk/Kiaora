@@ -59,8 +59,6 @@ gem 'axlsx_rails'
 
 gem 'acts_as_list'
 
-gem 'whenever', :require => false
-
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
