@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130618103731) do
+ActiveRecord::Schema.define(:version => 20130619154503) do
 
   create_table "activities", :force => true do |t|
     t.string   "user_name"
@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(:version => 20130618103731) do
     t.boolean  "fte_cb"
     t.integer  "permanent"
     t.boolean  "permanent_cb"
+    t.integer  "signature_cb"
   end
 
   create_table "requests", :force => true do |t|

@@ -24,6 +24,7 @@
     <%= f.check_box :salary_range_cb %> Salary range: <%= f.text_field :salary_range, :placeholder => "Define salary range (optional)" %> <br/>
     <%= f.check_box :fte_cb %> Number of FTE: <%= f.select(:fte, [['Full time', 1.0], ['Part time', 0.5]]) %> <br/>
     <%= f.check_box :permanent_cb %> Permanent or temporarily position? <%= f.select(:permanent, [['Permanent', 1], ['Temporarily', 2]]) %> <br/>
+    <%= f.check_box :signature_cb %> Signature line (for contract purposes) <br/>
   </div>
 
 <hr />

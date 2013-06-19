@@ -16,7 +16,7 @@ class Position < ActiveRecord::Base
                   :purpose, :draft, :user_name, :salary_range, :permanent, :fte,
                   #checkboxes
                   :salary_range_cb, :job_grade_cb, :valid_from_cb, :reports_to_cb, :line_manages_cb, :fte_cb,
-                  :permanent_cb
+                  :permanent_cb, :signature_cb
   accepts_nested_attributes_for :responsibilities, allow_destroy: true
   accepts_nested_attributes_for :conditions, allow_destroy: true
   accepts_nested_attributes_for :attitudes, allow_destroy: true
@@ -29,7 +29,7 @@ class Position < ActiveRecord::Base
 
   amoeba do
     enable
-    prepend :title => "Copy of "
+    prepend :job_title => "Copy of "
   end
 
   def office_name

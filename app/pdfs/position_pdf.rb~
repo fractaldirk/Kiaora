@@ -25,6 +25,7 @@ class PositionPdf < Prawn::Document
     line_space
     specific_work_environment
     line_space
+    signature_box
   end
 
   def title
@@ -144,10 +145,14 @@ class PositionPdf < Prawn::Document
 
   def organisational
     move_down 5
-    @position.organisationals.order("place DESC").each do |o|
+    @position.organisationals.order("place ASC").each do |o|
       @dictionary.each do |d|
         if d.id == o.indicator
-          text "- #{d.competency_english}"
+          if o.extension.present?
+            text "- #{d.competency_english}, in particular #{o.extension}"
+          else
+            text "- #{d.competency_english}"
+          end
         end
       end
     end
@@ -214,4 +219,16 @@ class PositionPdf < Prawn::Document
       text "- #{con.environment}"
     end
   end
+
+  def signature_box
+    if @position.signature_box?
+      cell_1 = make_cell(:content => "Place, Date")
+      cell_2 = make_cell(:content => "Signature Jobholder")
+      cell_3 = make_cell(:content => "Signature Supervisor")
+
+      table([[cell_1,cell_2,cell_3]], :column_widths => [140, 200, 200], :cell_style => {:height => 100, :font_style => :italic, :align => :center, :valign => :bottom})
+      move_down 20
+    end
+  end
+
 end

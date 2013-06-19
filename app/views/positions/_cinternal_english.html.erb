@@ -13,7 +13,11 @@
   <tr>
     <% @dictionary.each do |d| %>
       <% if d.id == o.indicator %>
-        <td><%= d.competency_english %></td>
+        <% if o.extension.present? %>
+          <td><%= d.competency_english %>, in particular <%= o.extension %></td>
+        <% else %>
+          <td><%= d.competency_english %></td>
+        <% end %>
         <td><%= o.importance %></td>
         <td><%= o.value %></td>
       <% end %>
